@@ -11,10 +11,9 @@
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="./stylesheets/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="./css/app.css">
-	<link rel="stylesheet" href="./stylesheets/style.css">
+	<link rel="stylesheet" href="./stylesheets/app.css">
 </head>
 
 <body>
@@ -71,7 +70,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+						<a href="Login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
 					</li>
 				</ul>
 			</nav>
@@ -87,28 +86,20 @@
 			</div>
 		</div>
 	</div>		<!-- Show the "ultimos" products -->
-	<form action="action_page.php" method="post">
-		<div class="imgcontainer">
-			<img src="./images/users/default-image.png" alt="Avatar" class="avatar">
-		</div>
-		
+	<form method="post">
 		<div class="container">
-			<label for="uname"><b>Username</b></label>
-			<input type="text" placeholder="Enter Username" name="uname" required>
+			<label class="textForm" for="uname"><b>Nombre</b></label>
+			<input class="inpForm" type="text" placeholder="Enter Username" name="uname" required>
 		
-			<label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="psw" required>
+			<label class="textForm" for="psw"><b>Contraseña</b></label>
+			<input class="inpForm" type="password" placeholder="Introduce una Contraseña" name="psw" required>
 		
 			<button type="submit">Login</button>
 			<label>
-			<input type="checkbox" checked="checked" name="remember"> Remember me
+			<input type="checkbox" checked="checked" name="remember"> Recuerdame
 			</label>
 		</div>
-		
-		<div class="container" style="background-color:#f1f1f1">
-			<button type="button" class="cancelbtn">Cancel</button>
-			<span class="psw">Forgot <a href="#">password?</a></span>
-		</div>
+	
 	</form>
 
 

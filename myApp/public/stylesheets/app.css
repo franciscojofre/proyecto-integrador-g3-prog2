@@ -424,7 +424,7 @@ hr {
 }
 
 /*====== Formularios ======*/
-.form-label {
+.textForm {
   display: inline-block;
   font-size: 1.6em;
   margin: 10px 0;
@@ -447,11 +447,37 @@ hr {
   font-size: 1.4em;
 }
 
-textarea.form-input {
+/* textarea.form-input {
   min-height: 140px;
   resize: vertical;
   padding: 15px;
 }
+ Full-width inputs */
+.inpForm {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons 
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons 
+button:hover {
+  opacity: 0.8;
+}
+
 
 /*====== Profile ======*/
 .info-usuario{
