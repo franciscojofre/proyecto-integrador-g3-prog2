@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const keyboardController = require('../controllers/productController');
+const productController = require('../controllers/productController');
 
-
-router.get('/', keyboardController.index);
-
+router.get('/id/:id', productController.detalleProducto)
 
 module.exports = router;

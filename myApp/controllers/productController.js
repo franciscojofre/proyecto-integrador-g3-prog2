@@ -1,14 +1,14 @@
-const keyboards = require('../db/dataProducts');
+const products = require('../db/dataProducts');
+const listado = products.lista;
 
-let hola = keyboards
-
-const keyboardController = {
-    index: function (req, res) {
-        return res.render('indexPrueba', {
-            welcome: hola
+const controlador = {
+    detalleProducto: function (req, res) {
+        let idSolicitado = req.params.id;
+        return res.render('product', {
+            listaProductos: listado,
+            idProducto: idSolicitado,
         })
     }
 }
 
-
-module.exports = keyboardController;
+module.exports = controlador;

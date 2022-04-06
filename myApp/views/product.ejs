@@ -4,25 +4,27 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
+	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
 
 	<title> Mercado Liebre Argentina</title>
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./stylesheets/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="./stylesheets/app.css">
-	<link rel="stylesheet" href="./stylesheets/style.css">
+	<link rel="stylesheet" href="/stylesheets/app.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
 	<!-- Header -->
 	<%- include('./partials/headerDesLogueado') %>
 	<!-- /Header -->
 	<!-- product detail -->
-	<div class="container products-wrapper">
+	<% for( let i = 0; i < listaProductos.length; i++ ) { %>
+		<% if (idProducto == listaProductos[i].id) { %>
+		 <div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%- listaProductos[i].titulo %> </h2> 
 			<p class="product-detail-description">
 				<a href="product-add.html">Editar</a>
 			</p>
@@ -30,11 +32,8 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
+					<img src="<%- listaProductos[i].img %> " alt="" class="product-detail-img">
+					<p class="product-detail-description"><%- listaProductos[i].descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -46,6 +45,9 @@
 								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
 							</div>
 						</article>
+		<% } %>
+	<% } %>
+	
 						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
@@ -94,7 +96,7 @@
 	<!-- /product detail -->
 
 	<!-- footer -->
-	<%- include('./partials7footer') %>
+	<%- include('./partials/footer') %>
 	<!-- /footer -->
 
 </body>	
