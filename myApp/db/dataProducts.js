@@ -74,5 +74,5 @@
     ]
 }
 
-
+//Cambiarle el nombre al archivo ya que debemos agregar dentro de la lista una propiedad de usuarios y comentarios
 module.exports = periferics;
