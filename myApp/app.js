@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-const productsRouters = require('./routes/products');     //Nueva ruta
+const productRouters = require('./routes/products');     //Nueva ruta
 //const loginRouter = require('./routes/users');     //Nueva ruta
 //const profileRouter = require('./routes/users');     Nueva ruta
 
@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Listeners
 app.use('/', indexRouter);
-app.use('/products', productsRouters);     //Ruta nueva
+app.use('/product', productRouters);     //Ruta nueva
 //app.use('/login', loginRouter);     //Ruta nueva
 //app.use('/profile', profileRouter);     //Ruta nueva
 

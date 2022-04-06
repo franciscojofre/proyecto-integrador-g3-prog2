@@ -19,13 +19,11 @@
 	<!-- Header -->
 	<%- include('./partials/headerDesLogueado') %>
 	<!-- /Header -->
-	
 	<!-- Banner -->
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
 	</div>
 	<!-- /Banner -->
-
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -36,9 +34,8 @@
 			<% for(let i = 0; i < listaProductos.length; i++ ) { %>
 					<% if (listaProductos[i].novedad == true) { %>		
 			<div class="col-12 col-sm-6 col-lg-3">
-
 				<section class="product-box">
-					<a href="product.html">
+					<a href="/product/id/<%- listaProductos[i].id %> ">
 						<figure class="product-box_image">
 							<img src="<%- listaProductos[i].img %>" alt="">
 						</figure>
@@ -55,7 +52,6 @@
 	</div>
 	<!-- /Novedades -->
 	<!-- Más comentados -->
-	
 		 <div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
@@ -81,8 +77,6 @@
 		<% } %>
 	<% } %> 
 	<!-- /Más comentados -->
-
-
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
