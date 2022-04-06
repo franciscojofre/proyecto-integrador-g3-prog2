@@ -1,3 +1,5 @@
+let listaPeriferics = require('../db/dataProducts')
+
 
 const userController = {
     index: function(req, res) {
@@ -10,7 +12,9 @@ const userController = {
         res.render('profile')
     },
     profileEdit: function (req, res) {
-        res.render('profile-edit')
+        res.render('profile-edit', {
+            lista : listaPeriferics
+        })
     },
 
 }
