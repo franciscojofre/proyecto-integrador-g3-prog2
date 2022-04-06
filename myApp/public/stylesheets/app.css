@@ -456,6 +456,30 @@ hr {
   box-sizing: border-box;
 }
 
+.btnForm {
+  background-color: #EAC926;
+  color: Black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btnForm:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 50%;
+}
+
 
 
 /*====== Profile ======*/
