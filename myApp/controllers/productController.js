@@ -20,6 +20,9 @@ const productController = {
             listadoProducts: listadoPeriferics,
             //busquedaUsuario: aBuscar
         })
+    },
+    aniadirProducto: function (req, res) {
+        res.render('product-add')
     }
 }
 
