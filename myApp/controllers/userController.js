@@ -1,14 +1,13 @@
-let periferics = require('../db/dataProducts')
+const data = require('../db/dataProducts');
 
-let listadoPeriferics = periferics.lista;
-
+let dataUser = data.user;
 
 const userController = {
-    index: function(req, res) {
-        res.render('index', { title: 'Express' });
-    },
     login: function(req, res) {
-       return res.render('login');
+       return res.render('login')
+    },
+    register: function (req, res) {
+        return res.render('register')
     },
     profile: function (req, res) {
         res.render('profile', {
