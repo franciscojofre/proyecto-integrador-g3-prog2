@@ -71,6 +71,16 @@
             comentarios: 18,
             novedad: false
         }
+    ],
+    user: [
+        {
+            name: 'Firulais Alvarez',
+            age: 19,
+            email: 'falvarezarrobagmail.com',
+            pass: '',
+            DNI : null,
+            img: null
+        }
     ]
 }
 

@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/stylesheets/app.css">
-	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
@@ -28,13 +27,33 @@
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+			
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<form method="post">
+				<div class="container">
+					<label class="textForm" for="uname"><b>Email</b></label>
+					<input class="inpForm" type="text" placeholder="Email" name="uname" required>
+					
+					<label class="textForm" for="uname"><b>Nombre</b></label>
+					<input class="inpForm" type="text" placeholder="Nombre" name="uname" required>
+				
+					<label class="textForm" for="psw"><b>Contraseña</b></label>
+					<input class="inpForm" type="password" placeholder="Contraseña" name="psw" required>
+					
+					<label class="textForm" for="psw"><b>Fecha de Nacimiento</b></label>
+					<input class="inpForm" type="password" placeholder="Fecha de Nacimiento" name="psw" required>
+					
+					<label class="textForm" for="psw"><b>DNI</b></label>
+					<input class="inpForm" type="password" placeholder="DNI" name="psw" required>
+					
+					<div class="imgcontainer">
+						<p>Agregar Foto</p>
+						<img src="/images/users/default-image.png" alt="Avatar" class="avatar">
+					</div>
+
+					<button class="btnForm" type="submit">Registrarse</button>
+				</div>
+			</form>
 
 
 	<!-- footer -->
