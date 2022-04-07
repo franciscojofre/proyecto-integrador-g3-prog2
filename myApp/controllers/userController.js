@@ -1,6 +1,6 @@
-const data = require('../db/dataProducts');
+const periferics = require('../db/dataProducts');
+let listadoPeriferics = periferics.lista;
 
-let dataUser = data.user;
 
 const userController = {
     login: function(req, res) {
