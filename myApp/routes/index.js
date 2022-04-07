@@ -9,11 +9,13 @@ const indexController = require('../controllers/indexController');
 
 router.get('/login', userController.login);
 
+router.get('/login/profile', userController.profile);
+
 router.get('/profile', userController.profile);
 
-router.get('/profile/edit', userController.profileEdit)
+router.get('/profile/edit', userController.profileEdit);
 
-router.get('/', indexController.products)
+router.get('/', indexController.products);
 
 
 module.exports = router;

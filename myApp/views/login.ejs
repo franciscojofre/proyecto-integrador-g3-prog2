@@ -32,21 +32,16 @@
 	
 	<!-- Show the "ultimos" products -->
 	<form method="post">
-		<div class="imgcontainer">
-			<img src="/images/users/default-image.png" alt="Avatar" class="avatar">
-		</div>
+		
 
 		<div class="container">
 			<label class="textForm" for="uname"><b>Email</b></label>
 			<input class="inpForm" type="text" placeholder="Introduce un Email" name="uname" required>
-			
-			<label class="textForm" for="uname"><b>Nombre</b></label>
-			<input class="inpForm" type="text" placeholder="Introduce un Nombre" name="uname" required>
 		
 			<label class="textForm" for="psw"><b>Contraseña</b></label>
 			<input class="inpForm" type="password" placeholder="Introduce una Contraseña" name="psw" required>
 		
-			<button class="btnForm" type="submit">Login</button>
+			<a href="/profile" ><button class="btnForm" type="button" onClick="alert('Bienvenido, <%- listaComentarios[2].userName %>!')" >Login</button></a>
 			<label class="textForm">
 			<input type="checkbox" checked="checked" name="remember"> Recuerdame
 			</label>
