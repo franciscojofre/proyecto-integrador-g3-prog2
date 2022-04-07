@@ -21,20 +21,34 @@
 	<!-- Header -->
 	<%- include('./partials/headerLogueado') %>
 	<!-- /Header -->
-
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Cargar nuevo producto</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<form method="post">
+						<div class="container">
+							<label class="textForm" for="img"><b>Imagen del producto</b></label>
+							<input class="inpForm" type="file" name="img" required>
+							
+							<label class="textForm" for="name"><b>Nombre del producto</b></label>
+							<input class="inpForm" type="text" placeholder="Ingrese aqui el nombre" name="title" required>
+						
+							<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
+							<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
+
+							<label class="textForm" for="date"><b>Fecha de carga</b></label>
+							<input class="inpForm" type="date" placeholder="¿Que dia estas cargando este producto?" name="date" required>
+						
+							<button class="btnForm" type="submit"> Confirmar carga de producto </button>
+						</div>
+					
+					</form>
+					
+				</div>	
+			</div>
 
 
 	<!-- footer -->
