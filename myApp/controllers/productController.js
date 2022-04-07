@@ -1,6 +1,7 @@
 const periferics = require('../db/dataProducts');
 
 let listadoPeriferics = periferics.lista;
+let listadoComments = periferics.comments;
 
 const productController = {
     detalleProducto: function (req, res) {
@@ -8,6 +9,7 @@ const productController = {
         return res.render('product', {
             listaProductos: listadoPeriferics,
             idProducto: idSolicitado,
+            listaComentarios: listadoComments,
         })
     },
     create: function (req, res) {  

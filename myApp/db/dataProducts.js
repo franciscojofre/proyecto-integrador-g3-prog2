@@ -81,6 +81,29 @@
             DNI : null,
             img: null
         }
+    ],
+    comments: [
+        {
+            userName: 'Fulano Mengano',
+            comment: 'Buenisimos perifericos, los mejores del condado',
+            img: '/images/products/persona1.jpg',
+        },{
+            userName: 'Sopenco Eres',
+            comment: 'Nunca habia sentido tal experiencia de calidad con perifericos, lo mejor que me paso en la vida',
+            img: '/images/products/persona2.jpg',
+        },{
+            userName: 'Susana Horia',
+            comment: 'El mejor regalo para mi nieto de Groenlandia',
+            img: '/images/products/persona3.jpg',
+        },{
+            userName: 'Penelope jeje',
+            comment: 'Mi sobrino juega al Fortnite y rompe todos los perifericos, sus precios me permiten comprarle siempre ashee',
+            img: '/images/products/persona4.jpg',
+        },{
+            userName: 'Araujito01Gamer',
+            comment: 'La peor experiencia de compra en anios',
+            img: '/images/products/persona5.jpg',
+        }
     ]
 }
 
