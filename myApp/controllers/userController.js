@@ -1,4 +1,6 @@
-let listaPeriferics = require('../db/dataProducts')
+let periferics = require('../db/dataProducts')
+
+let listadoPeriferics = periferics.lista;
 
 
 const userController = {
@@ -9,12 +11,12 @@ const userController = {
        return res.render('login');
     },
     profile: function (req, res) {
-        res.render('profile')
+        res.render('profile', {
+            listadoProducts: listadoPeriferics,
+        })
     },
     profileEdit: function (req, res) {
-        res.render('profile-edit', {
-            lista : listaPeriferics
-        })
+        res.render('profile-edit')
     },
 
 }

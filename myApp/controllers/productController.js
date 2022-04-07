@@ -1,14 +1,25 @@
-const keyboards = require('../db/dataProducts');
+const periferics = require('../db/dataProducts');
 
-let hola = keyboards
+let listadoPeriferics = periferics.lista;
 
-const keyboardController = {
-    index: function (req, res) {
-        return res.render('indexPrueba', {
-            welcome: hola
+const productController = {
+    detalleProducto: function (req, res) {
+        let idSolicitado = req.params.id;
+        return res.render('product', {
+            listaProductos: listadoPeriferics,
+            idProducto: idSolicitado,
+        })
+    },
+    create: function (req, res) {  
+        // let queryString = req.search //Caputramso qs
+        // let queryStringToObject = new URLSearchParams(queryString); //OL
+        // let aBuscar = queryStringToObject.get('search'); //Acá va el name del campo input del formulario.   
+        return res.render('search-results', {
+                listadoProducts: listadoPeriferics,
+                //busquedaUsuario: aBuscar
         })
     }
 }
 
 
-module.exports = keyboardController;
+module.exports = productController;
