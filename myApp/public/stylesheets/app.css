@@ -83,6 +83,12 @@ hr {
   text-align: center;
 }
 
+
+.row{
+  justify-content: space-around;
+}
+
+
 .search-form {
   position: relative;
   display: flex;
@@ -189,6 +195,7 @@ hr {
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+  padding: 30px;
 }
 
 .product-box_data {
@@ -200,7 +207,7 @@ hr {
 }
 
 .product-box_data h2 {
-  font-size: 2.4em;
+  font-size: 2.0em;
   font-weight: 300;
   margin: 0;
   
