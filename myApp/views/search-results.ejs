@@ -29,20 +29,22 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<% for( let i = 0; i < listadoProducts.length; i++ ) { %>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/product/id/<%= listadoProducts[i].id %> ">
-							<figure class="product-box_image">
-								<img src="<%= listadoProducts[i].img %> " alt="cafetera moulinex">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= listadoProducts[i].titulo %> </h2>
-								<p><%= listadoProducts[i].descripcion %> </p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
-					</section>
-				</div>
+				<% if (listadoProducts[i].type == dataQuery) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/product/id/<%= listadoProducts[i].id %> ">
+								<figure class="product-box_image">
+									<img src="<%= listadoProducts[i].img %> " alt="cafetera moulinex">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= listadoProducts[i].titulo %> </h2>
+									<p><%= listadoProducts[i].descripcion %> </p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %>
 			<% } %>
 
 			<!-- Show mis productos -->

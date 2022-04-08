@@ -1,69 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+  <!-- Include Head -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
 
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-</head>
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerDesLogueado') %>
-	<!-- /Header -->
-	<!-- product detail -->
-	<% for( let i = 0; i < listaProductos.length; i++ ) { %>
-		<% if (idProducto == listaProductos[i].id) { %>
-		 <div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%- listaProductos[i].titulo %> </h2> 
-			<p class="product-detail-description">
-				<a href="product-add.html">Editar</a>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%- listaProductos[i].img %> " alt="" class="product-detail-img">
-					<p class="product-detail-description"><%- listaProductos[i].descripcion %> </p>
-				</article>
-				<div class="col-12 col-lg-4">
-		<% } %>
-	<% } %>
-	<section class="comments">
-	<% for( let i = 0; i < listaComentarios.length; i++ ) { %>
-		<article>
-							<img src="<%- listaComentarios[i].img %> " alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile"><%- listaComentarios[i].userName %>  </a> </strong>
-									<%- listaComentarios[i].comment %> </p>
-							</div>
-						</article>
-	<% } %>
-						
-					</section>
-					<form class="form" action="" method="GET">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /product detail -->
+    <title>Mercado Liebre Argentina</title>
+    <!-- Font Awesome Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- Bootstrap Grid Stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
+    <!-- Own Stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include('./partials/headerDesLogueado') %>
+    <!-- /Header -->
+	
+    <!-- product detail -->
+    <% for( let i = 0; i < listaProductos.length; i++ ) { %> <% if (idProducto == listaProductos[i].id) { %>
+    <div class="container products-wrapper">
+      <div class="d-flex align-items-center">
+        <h2 class="products-title"><%- listaProductos[i].titulo %></h2>
+        <p class="product-detail-description">
+          <a href="product-add.html">Editar</a>
+        </p>
+      </div>
+      <div class="product-detail">
+        <div class="row">
+          <article class="col-12 col-lg-8 product-detail-info">
+            <img
+              src="<%- listaProductos[i].img %> "
+              alt=""
+              class="product-detail-img"
+            />
+            <p class="product-detail-description">
+              <%- listaProductos[i].descripcion %>
+            </p>
+          </article>
+          <div class="col-12 col-lg-4">
+            <% } %> <% } %>
+            <section class="comments">
+              <% for( let i = 0; i < listaComentarios.length; i++ ) { %>
+              <article>
+                <img src="<%- listaComentarios[i].img %> " alt="" />
+                <div class="data">
+                  <p class="user">
+                    <strong>
+                      <a href="/profile">
+                        <%- listaComentarios[i].userName %>
+                      </a>
+                    </strong>
+                    <%- listaComentarios[i].comment %>
+                  </p>
+                </div>
+              </article>
+              <% } %>
+            </section>
+            <form class="form" action="" method="GET">
+              <input
+                class="form-input"
+                type="text"
+                value=""
+                placeholder="Agregar comentario"
+              />
+              <button type="submit" class="buy-now-button">
+                AGREGAR COMENTARIO
+              </button>
+            </form>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /product detail -->
 
-	<!-- footer -->
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-
-</body>	
+    <!-- footer -->
+    <%- include('./partials/footer') %>
+    <!-- /footer -->
+  </body>
 </html>
