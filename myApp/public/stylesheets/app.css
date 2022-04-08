@@ -29,7 +29,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-image: url('/images/background.jpg');
 }
 
 ul,
@@ -68,7 +68,8 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: Black;
+  color: white;
 }
 
 .main-header_home-link,
@@ -154,7 +155,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -171,7 +172,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: white;
 }
 
 .product-box {
@@ -202,6 +203,7 @@ hr {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  
 }
 
 .product-box_data span {
@@ -259,7 +261,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: black;
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -269,18 +271,18 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: rgb(146, 13, 146);
   font-size: 3.5em;
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: white;
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: white;
   font-size: 1.5em;
   font-weight: 300;
 }
@@ -428,6 +430,7 @@ hr {
   display: inline-block;
   font-size: 1.6em;
   margin: 10px 0;
+  color: white;
 }
 
 .form-input {
@@ -457,7 +460,7 @@ hr {
 }
 
 .btnForm {
-  background-color: #EAC926;
+  background-color: rgb(145, 6, 145);
   color: Black;
   padding: 14px 20px;
   margin: 8px 0;

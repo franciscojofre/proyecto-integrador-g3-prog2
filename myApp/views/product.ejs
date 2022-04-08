@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
 
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-</head>
+<!-- Include Head -->
+<%- include('./partials/head') %>
+
 <body>
 	<!-- Header -->
 	<%- include('./partials/headerDesLogueado') %>
@@ -40,13 +30,14 @@
 	<section class="comments">
 	<% for( let i = 0; i < listaComentarios.length; i++ ) { %>
 		<article>
-							<img src="<%- listaComentarios[i].img %> " alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile"><%- listaComentarios[i].userName %>  </a> </strong>
-									<%- listaComentarios[i].comment %> </p>
-							</div>
-						</article>
+			<img src="<%- listaComentarios[i].img %> " alt="">
+			<div class="data">
+				<p class="user">
+					<strong> <a href="/profile"><%- listaComentarios[i].userName %>  </a> </strong>
+					<%- listaComentarios[i].comment %> 
+				</p>
+			</div>
+		</article>
 	<% } %>
 						
 					</section>
