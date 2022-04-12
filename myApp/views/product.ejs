@@ -1,58 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<<<<<<< HEAD
-
-<!-- Include Head -->
-<%- include('./partials/head') %>
-
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerDesLogueado') %>
-	<!-- /Header -->
-	<!-- product detail -->
-	<% for( let i = 0; i < listaProductos.length; i++ ) { %>
-		<% if (idProducto == listaProductos[i].id) { %>
-		 <div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%- listaProductos[i].titulo %> </h2> 
-			<p class="product-detail-description">
-				<a href="product-add.html">Editar</a>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%- listaProductos[i].img %> " alt="" class="product-detail-img">
-					<p class="product-detail-description"><%- listaProductos[i].descripcion %> </p>
-				</article>
-				<div class="col-12 col-lg-4">
-		<% } %>
-	<% } %>
-	<section class="comments">
-	<% for( let i = 0; i < listaComentarios.length; i++ ) { %>
-		<article>
-			<img src="<%- listaComentarios[i].img %> " alt="">
-			<div class="data">
-				<p class="user">
-					<strong> <a href="/profile"><%- listaComentarios[i].userName %>  </a> </strong>
-					<%- listaComentarios[i].comment %> 
-				</p>
-			</div>
-		</article>
-	<% } %>
-						
-					</section>
-					<form class="form" action="" method="GET">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /product detail -->
-=======
   <!-- Include Head -->
   <head>
     <meta charset="UTF-8" />
@@ -132,7 +79,6 @@
       </div>
     </div>
     <!-- /product detail -->
->>>>>>> afdf833940045b91a730cfd4f5ec0dec9d90ae1a
 
     <!-- footer -->
     <%- include('./partials/footer') %>
