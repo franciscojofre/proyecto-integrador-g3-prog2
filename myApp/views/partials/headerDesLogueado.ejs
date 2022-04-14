@@ -7,7 +7,7 @@
 						<img src="/images/logoprofit.png">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
@@ -16,10 +16,17 @@
 				</div>
 	
 				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
+					<ul class="main-header_credit-link">	
+						<li>
+							<a href="/user/register"> Creá tu cuenta </a>
+						</li>
+						<li>
+							<a> / </a>
+						</li>
+						<li>
+							<a href="/user/login"> Iniciá Sesión </a>
+						</li> 
+					</ul>
 				</div>
 			</div>
 	
@@ -29,19 +36,17 @@
 	
 			<nav class="main-navbar">
 				<ul class="left-navbar">
-					<li><a href="/">Todos los productos</a></li>
-					<li><a href="/product/product-add">Cargar productos</a></li>
-				</ul>
-	
-				<ul class="right-navbar">	
 					<li>
-						<a href="/user/register">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
+						<a href="/">Todos los productos</a>
 					</li>
 					<li>
-						<a href="/user/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li> 
+						<a href="/product/product-add">Cargar productos</a>
+					</li>
 				</ul>
+
+				<a class="right-navbar">
+					Todas las opiniones en un solo lugar
+				</a>
 			</nav>
 		</div>
 	</header>
