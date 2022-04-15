@@ -1,5 +1,5 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
 
 /*====== Variables ======*/
@@ -26,7 +26,7 @@ html, body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  /*font-family: var(--base-font-family);*/
   font-weight: 300;
   background-color: #edf7f6;
 }
@@ -40,8 +40,17 @@ ol {
 
 a {
   display: inline-block;
-  text-decoration: none;
-  color: inherit;
+  text-decoration: solid;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+.products-title{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.product-detail-description, .comment, .footer-data h2, .footer-data p, .search-form_input, .buy-now-button, .form-input, .right-navbar, .textForm, .inpForm, .main-title, .info-gen li, .btnForm {
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .main-header a{
@@ -349,7 +358,7 @@ input:focus{
 }
 
 .footer-data i {
-  color: #FB5062;
+  color: #7922f2;
   font-size: 3.5em;
 }
 
