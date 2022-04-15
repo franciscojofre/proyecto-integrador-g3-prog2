@@ -1,5 +1,5 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
 
 /*====== Variables ======*/
@@ -26,7 +26,7 @@ html, body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  /*font-family: var(--base-font-family);*/
   font-weight: 300;
   background-color: #edf7f6;
 }
@@ -40,8 +40,17 @@ ol {
 
 a {
   display: inline-block;
-  text-decoration: none;
-  color: inherit;
+  text-decoration: solid;
+  color:#03264C;
+  font-family: 'Poppins', sans-serif;
+}
+
+.products-title{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.product-detail-description, .comment, .footer-data h2, .footer-data p, .search-form_input, .buy-now-button, .form-input, .right-navbar, .textForm, .inpForm, .main-title, .info-gen li, .btnForm, .credits {
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .main-header a{
@@ -73,7 +82,6 @@ hr {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding-bottom: 20px;
 }
 
 .main-header .container{
@@ -248,7 +256,6 @@ input:focus{
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: rgb(0, 0, 0);
   margin: 0px;
 }
 
@@ -339,9 +346,15 @@ input:focus{
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #EEEDE9;
-  padding: 20px 0;
+  background-color: white;
   margin-top: 80px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-footer .container{
+  padding: 40px 0px;
 }
 
 .footer-data {
@@ -349,7 +362,7 @@ input:focus{
 }
 
 .footer-data i {
-  color: #FB5062;
+  color:#032059;
   font-size: 3.5em;
 }
 
@@ -374,6 +387,23 @@ input:focus{
   margin: 0;
   color: var(--gray);
   padding: 15px 0;
+}
+
+.credits{
+  display: flex;
+  background-color: #032059;
+  color: #edf7f6;
+  font-size: 1.2em;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+}
+
+.credits ul{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 40px;
 }
 
 
@@ -621,6 +651,11 @@ img.avatar {
 }
 
 
+/*====== Media-Queries ======*/
+.notResult{
+  width: 100%;
+  text-align: center;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
@@ -661,7 +696,7 @@ img.avatar {
   }
 
   .main-footer {
-    padding: 40px 0;
+    padding-top: 40px;
   }
 
   .footer-data {

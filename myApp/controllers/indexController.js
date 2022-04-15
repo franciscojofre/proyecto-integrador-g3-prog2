@@ -1,5 +1,5 @@
-const productsIndex = require('../db/dataProducts')
-const listado = productsIndex.lista;
+const productsIndex = require('../db/data')
+const listado = productsIndex.periferics;
 
 const controlador = {
     products: function (req, res) {
