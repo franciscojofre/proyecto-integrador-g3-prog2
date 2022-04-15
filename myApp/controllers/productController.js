@@ -1,7 +1,7 @@
-const periferics = require('../db/dataProducts');
+const data = require('../db/data');
 
-let listadoPeriferics = periferics.lista;
-let listadoComments = periferics.comments;
+let listadoPeriferics = data.periferics;
+let listadoComments = data.comments;
 
 const productController = {
     detalleProducto: function (req, res) {

@@ -41,7 +41,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: solid;
-  color: black;
+  color:#03264C;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -49,7 +49,7 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
-.product-detail-description, .comment, .footer-data h2, .footer-data p, .search-form_input, .buy-now-button, .form-input, .right-navbar, .textForm, .inpForm, .main-title, .info-gen li, .btnForm {
+.product-detail-description, .comment, .footer-data h2, .footer-data p, .search-form_input, .buy-now-button, .form-input, .right-navbar, .textForm, .inpForm, .main-title, .info-gen li, .btnForm, .credits {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -256,7 +256,6 @@ input:focus{
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: rgb(0, 0, 0);
   margin: 0px;
 }
 
@@ -363,7 +362,7 @@ input:focus{
 }
 
 .footer-data i {
-  color: #7922f2;
+  color:#032059;
   font-size: 3.5em;
 }
 
