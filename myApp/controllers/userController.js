@@ -2,8 +2,6 @@ const data = require('../db/data');
 let listadoPeriferics = data.periferics;
 let listadoComments = data.comments;
 
-
-
 const userController = {
     login: function(req, res) {
        return res.render('login', {
@@ -24,6 +22,5 @@ const userController = {
     },
 
 }
-
 
 module.exports = userController;
