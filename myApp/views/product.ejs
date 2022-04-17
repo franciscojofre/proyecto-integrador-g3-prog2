@@ -12,7 +12,7 @@
     <% for( let i = 0; i < listaProductos.length; i++ ) { %> <% if (idProducto == listaProductos[i].id) { %>
     <div class="container products-wrapper">
       <div class="d-flex align-items-center">
-        <h2 class="products-title"><%- listaProductos[i].titulo %></h2>
+        <h2 class="products-title"><%= listaProductos[i].titulo %></h2>
         <p class="product-detail-description">
         </p>
       </div>
@@ -20,12 +20,12 @@
         <div class="row">
           <article class="col-12 col-lg-8 product-detail-info">
             <img
-              src="<%- listaProductos[i].img %> "
+              src="<%= listaProductos[i].img %> "
               alt=""
               class="product-detail-img"
             />
             <p class="product-detail-description">
-              <%- listaProductos[i].descripcion %>
+              <%= listaProductos[i].descripcion %>
             </p>
           </article>
           <div class="col-12 col-lg-4">
@@ -33,15 +33,15 @@
             <section class="comments">
               <% for( let i = 0; i < listaComentarios.length; i++ ) { %>
               <article>
-                <img src="<%- listaComentarios[i].img %> " alt="" />
+                <img src="<%= listaComentarios[i].img %> " alt="" />
                 <div class="data">
                   <p class="user">
                     <strong>
                       <a href="/user/profile">
-                        <%- listaComentarios[i].userName %>
+                        <%= listaComentarios[i].userName %>
                       </a>
                     </strong>
-                    <a href="" class="comment"><%- listaComentarios[i].comment %></a>
+                    <a href="" class="comment"><%= listaComentarios[i].comment %></a>
                   </p>
                 </div>
               </article>
