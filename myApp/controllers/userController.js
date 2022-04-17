@@ -1,6 +1,6 @@
 const data = require('../db/data');
 let listadoPeriferics = data.periferics;
-let listadoComments = data.comments;
+let listadoComments = data.user;
 
 const userController = {
     login: function(req, res) {
