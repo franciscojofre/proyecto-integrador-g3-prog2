@@ -16,35 +16,43 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			
-			<!-- Show the "ultimos" products -->
-			<form method="GET">
-				<div class="container">
-					<label class="textForm" for="uname"><b>Email</b></label>
-					<input class="inpForm" type="text" placeholder="Email" name="uname" required>
-					
-					<label class="textForm" for="uname"><b>Nombre</b></label>
-					<input class="inpForm" type="text" placeholder="Nombre" name="uname" required>
-				
-					<label class="textForm" for="psw"><b>Contraseña</b></label>
-					<input class="inpForm" type="password" placeholder="Contraseña" name="psw" required>
-					
-					<label class="textForm" for="date"><b>Fecha de nacimiento</b></label>
-					<input class="inpForm" type="date" placeholder="Nacimiento" name="date" required>
-					
-					<label class="textForm" for="psw"><b>DNI</b></label>
-					<input class="inpForm" type="password" placeholder="DNI" name="psw" required>
-					
-					<label class="textForm" for="img"><b>Foto de perfil</b></label>
-					<div class="imgcontainer">
-							<img src="/images/users/default-image.png" alt="Avatar" class="avatar">
-							<input type="file" name="img" required>
-					</div>
-
-					<button class="btnForm" type="submit">Registrarse</button>
-				</div>
-			</form>
-
-
+			
+			
+		</div>
+	</div>
+	
+	<!-- Show the "ultimos" products -->
+	<form method="GET">
+		<div class="container">
+			<label class="textForm" for="img"><b>Foto de perfil</b></label>
+			<div class="imgcontainer">
+					<img src="/images/users/default-image.png" alt="Avatar" class="avatar">
+					<input type="file" name="img" required>
+			</div>
+			
+			<label class="textForm" for="uname"><b>Email</b></label>
+			<input class="inpForm" type="text" placeholder="Email" name="uname" required>
+			
+			<label class="textForm" for="uname"><b>Nombre</b></label>
+			<input class="inpForm" type="text" placeholder="Nombre" name="uname" required>
+		
+			<label class="textForm" for="psw"><b>Contraseña</b></label>
+			<input class="inpForm" type="password" placeholder="Contraseña" name="psw" required>
+			
+			<label class="textForm" for="date"><b>Fecha de nacimiento</b></label>
+			<input class="inpForm" type="date" placeholder="Nacimiento" name="date" required>
+			
+			<label class="textForm" for="psw"><b>DNI</b></label>
+			<input class="inpForm" type="password" placeholder="DNI" name="psw" required>
+			
+			
+			
+			<div class="divButton">
+				<button class="btnForm" type="submit">REGISTRARSE</button>
+			</div>
+		</div>
+	</form>
+	
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->

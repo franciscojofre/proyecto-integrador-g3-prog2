@@ -1,8 +1,6 @@
-const periferics = require('../db/dataProducts');
-let listadoPeriferics = periferics.lista;
-let listadoComments = periferics.comments;
-
-
+const data = require('../db/data');
+let listadoPeriferics = data.periferics;
+let listadoComments = data.comments;
 
 const userController = {
     login: function(req, res) {
@@ -24,6 +22,5 @@ const userController = {
     },
 
 }
-
 
 module.exports = userController;

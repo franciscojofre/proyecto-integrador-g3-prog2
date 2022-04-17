@@ -13,7 +13,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+				<h2 class="products-title" id="titleLogin">Ingresar</h2>
 			</div>
 		</div>
 	</div>		
@@ -29,10 +29,11 @@
 			<label class="textForm" for="psw"><b>Contraseña</b></label>
 			<input class="inpForm" type="password" placeholder="Introduce una Contraseña" name="psw" required>
 		
-			<a href="/user/profile" ><button class="btnForm" type="button" onClick="alert('Bienvenido, <%- listaComentarios[2].userName %>!')" ><b>Login</b></button></a>
+			<a href="/user/profile"><button class="bttnLogin" type="button" onClick="alert('Bienvenido, <%- listaComentarios[2].userName %>!')"><b>LOGIN</b></button></a>
 			<label class="textForm">
-			<input type="checkbox" checked="checked" name="remember"> Recuerdame
+				<input type="checkbox" checked="checked" name="remember"> Recuerdame
 			</label>
+			
 		</div>
 	
 	</form>

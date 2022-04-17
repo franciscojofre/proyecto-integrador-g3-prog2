@@ -3,11 +3,11 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-5 col-md-2">
-					<a href="/" class="main-header_home-link">
-						<img src="/images/logoudetech.png">
+					<a href="/" id="boxLogo" class="main-header_home-link">
+						<img src="/images/UdeTech_blanco.png">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
@@ -16,10 +16,18 @@
 				</div>
 	
 				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
+					<ul class="main-header_credit-link" id="routesLogued">
+						<li>
+							<a href="/user/profile"> Perfil <i class="fas fa-user"> </i> </a>
+						</li>
+						<li>
+							<form action="/" method="GET">
+								<button class="logout" type="submit">
+									Cerrar Sesión <i class="fas fa-sign-in-alt"></i>
+								</button>
+							</form>
+						</li>
+					</ul>
 				</div>
 			</div>
 	
@@ -32,20 +40,10 @@
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
-	
-				<ul class="right-navbar">
-					<li><a href="/user/profile">
-							Nombre del usuario <i class="fas fa-user"></i>
-						</a>
-					</li>
-					<li>
-						<form action="/" method="GET">
-							<button class="logout" type="submit">
-								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-							</button>
-						</form>
-					</li>
-				</ul>
+
+				<a class="right-navbar">
+					Todas las opiniones en un solo lugar
+				</a>
 			</nav>
 		</div>
 	</header>

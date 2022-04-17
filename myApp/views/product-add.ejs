@@ -15,7 +15,7 @@
 						<h2 class="products-title">Cargar nuevo producto</h2>
 					</div>
 					<!-- Show the "ultimos" products -->
-					<form method="GET">
+					<form method="GET" action="/user/profile">
 						<div class="container">
 							<label class="textForm" for="img"><b>Imagen del producto</b></label>
 							<input class="inpForm" type="file" name="img" required>
@@ -28,8 +28,10 @@
 
 							<label class="textForm" for="date"><b>Fecha de carga</b></label>
 							<input class="inpForm" type="date" placeholder="¿Que dia estas cargando este producto?" name="date" required>
-						
-							<button class="btnForm" type="submit"> Confirmar carga de producto </button>
+							
+							<div class="divButton">
+								<button class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>
+							</div>
 						</div>
 					
 					</form>
