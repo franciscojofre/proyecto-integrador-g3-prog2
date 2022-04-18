@@ -165,7 +165,7 @@
     user: {
             name: 'Julián Álvarez',
             age: 19,
-            email: 'falvarezarrobagmail.com',
+            email: 'juli.alvarezarrobagmail.com',
             pass: '',
             DNI : null,
             img: null

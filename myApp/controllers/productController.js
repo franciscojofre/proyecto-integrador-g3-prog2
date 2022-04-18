@@ -17,7 +17,9 @@ const productController = {
         })
     },
     aniadirProducto: function (req, res) {
-        return res.render('product-add')
+        return res.render('product-add', {
+            userName: data.user.name
+        })
     }
 }
 

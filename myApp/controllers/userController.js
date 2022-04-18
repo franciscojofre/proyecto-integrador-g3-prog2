@@ -12,17 +12,15 @@ const userController = {
     profile: function (req, res) {
         res.render('profile', {
             listadoProducts: data.products,
-            userInfo: data.user
+            userInfo: data.user,
+            userName: data.user.name
         })
     },
     profileEdit: function (req, res) {
-        res.render('profile-edit')
-    },
-    headerLogueadoName: function (req, res) {
-        res.render('headerLogueado', {
+        res.render('profile-edit', {
             userName: data.user.name
         })
-    }
+    },
 }
 
 module.exports = userController;

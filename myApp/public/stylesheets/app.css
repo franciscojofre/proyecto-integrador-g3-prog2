@@ -44,7 +44,7 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
-.product-detail-description, .comment, .footer-data h2, .footer-data p, .search-form_input, .buy-now-button, .form-input, .right-navbar, .textForm, .inpForm, .main-title, .info-gen li, .btnForm, .credits {
+.product-detail-description, .comment, .footer-data h2, .footer-data p, .search-form_input, .buy-now-button, .form-input, .right-navbar, .textForm, .inpForm, .main-title, .emailProfile, .info-gen li, .btnForm, .credits {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -646,6 +646,11 @@ img.avatar {
 }
 
 /*====== Profile ======*/
+.img-container{
+  display: flex;
+  align-items: flex-end;
+}
+
 .info-usuario{
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
@@ -659,6 +664,10 @@ img.avatar {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+}
+
+.emailProfile{
+  margin-top: 0px;
 }
 
 .bttnLogin{
