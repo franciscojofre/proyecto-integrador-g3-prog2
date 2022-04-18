@@ -97,9 +97,9 @@
             novedad: true,
             type: 'mouse'
         },{
-            titulo: "Mouse HyperX Pulsefire",
-            descripcion: "HyperX diseña productos y experiencias que ocupan un lugar cotidiano en la vida de las personas, poniendo foco en la innovación y la calidad. Su objetivo es crear momentos verdaderamente únicos y significativos para sus usuarios. Los mouses Logitech se adaptan a la forma de tu mano para proporcionarte horas de comodidad. Sin necesidad de mover el brazo para deslizar el cursor, tu mano se fatigará menos. Son ideales para cualquier espacio de trabajo y quienes tienen la mesa llena de diversos objetos.",
-            img: "/images/products/pulsefire.jpg",
+            titulo: "Mouse Razer Basilisk V2",
+            descripcion: "Olvídate de lo que digan los demás: defiende tu propio estilo de juego con el Razer Basilisk V2. Ajusta, cambia y afina tu ejecución con este ratón de juego extremadamente personalizable para crear tu propia marca de supremacía que dejará huella en el campo de batalla.",
+            img: "/images/products/mouseRazer.jpg",
             id: 12,
             comentarios: 8,
             novedad: true,
