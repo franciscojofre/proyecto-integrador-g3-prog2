@@ -283,6 +283,8 @@ input:focus{
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
   padding: 30px;
+  width: 250px;
+  height: 250px;
 }
 
 .product-box_data {
