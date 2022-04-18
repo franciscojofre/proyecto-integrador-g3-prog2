@@ -10,18 +10,12 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title" id="titleLogin">Ingresar</h2>
-			</div>
-		</div>
+	<div class="titles">
+		<h2 class="products-title" id="titleLogin">Ingresar</h2>
 	</div>		
 	
 	<!-- Show the "ultimos" products -->
 	<form method="GET">
-		
-
 		<div class="container">
 			<label class="textForm" for="uname"><b>Email</b></label>
 			<input class="inpForm" type="text" placeholder="Introduce un Email" name="uname" required>
@@ -29,15 +23,13 @@
 			<label class="textForm" for="psw"><b>Contraseña</b></label>
 			<input class="inpForm" type="password" placeholder="Introduce una Contraseña" name="psw" required>
 		
-			<a href="/user/profile"><button class="bttnLogin" type="button" onClick="alert('Bienvenido, <%- listaComentarios[0].name %>!')"><b>LOGIN</b></button></a>
+			<a href="/user/profile"><button class="bttnLogin" type="button" onClick="alert('Bienvenido, <%- listaComentarios[0].name %>!')">LOGIN</button></a>
 			<label class="textForm">
 				<input type="checkbox" checked="checked" name="remember"> Recuerdame
 			</label>
-			
 		</div>
-	
 	</form>
-
+	<!-- Show the "ultimos" products -->
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>

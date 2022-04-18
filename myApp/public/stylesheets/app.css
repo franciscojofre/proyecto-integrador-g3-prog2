@@ -26,7 +26,6 @@ html, body {
 }
 
 body {
-  /*font-family: var(--base-font-family);*/
   font-weight: 300;
   background-color: #edf7f6;
 }
@@ -76,6 +75,9 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+.titles {
+  margin: 50px 0px 30px 200px;
+}
 
 /*====== Main Header ======*/
 .main-header {
@@ -174,6 +176,7 @@ input:focus{
   border: 3px solid #032059;
 }
 
+
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
@@ -239,6 +242,7 @@ input:focus{
 .right-navbar{
   font-weight: normal;
 }
+
 
 /*====== Banner ======*/
 .banner {
@@ -428,7 +432,6 @@ input:focus{
 .product-detail-info {
   border-right: 1px solid var(--light-gray);
   padding: 15px;
-  /* height: 100%; */
 }
 
 .product-detail-title {
@@ -446,11 +449,13 @@ input:focus{
   font-size: 5.5em;
   margin: 10px 0;
 }
+
 .product-detail .form{
   padding: 0 15px;
   display: flex;
   flex-direction: column;
 }
+
 .small {
   font-size: 1.8em;
   color: var(--green);
@@ -512,12 +517,15 @@ input:focus{
 .action-button.edit {
   background-color: chocolate;
 }
+
 .action-button.delete {
   background-color: rgb(248, 69, 37);
 }
+
 .comments {
   padding: 30px 15px 15px 0;
 }
+
 .comments article{
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
@@ -525,19 +533,23 @@ input:focus{
   display: flex;
   justify-content: space-between;
 }
+
 .comments img{
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
+
 .comments .data{
   width: 85%;
   
 }
+
 .comments p{
   font-size: 1.5em;
   margin-top: 0;
 }
+
 .comments .user{
   font-size: 1.7em;
 }
@@ -589,7 +601,6 @@ form {
   cursor: pointer;
   width: 100%;
   border-radius: 2px;
-  width: 30%;
 }
 
 .btnForm:hover {
@@ -619,10 +630,15 @@ img.avatar {
   font-weight: 400;
   color: rgb(0, 0, 0);
 }
+
 .divButton{
   margin-top: 20px;
   width: 100%;
   text-align: center;
+}
+
+#btnFormPA{
+  width: 30%;
 }
 
 /*====== Profile ======*/
@@ -655,8 +671,7 @@ img.avatar {
   background-color: #032ca6d7;
 }
 
-
-/*====== Media-Queries ======*/
+/*====== Search-Results ======*/
 .notResult{
   width: 100%;
   text-align: center;
@@ -705,5 +720,70 @@ img.avatar {
   .footer-data {
     width: 95%;
     margin: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header .container .row .col-5, .main-header .container .row .col-12 {
+      max-width: none;
+      height: 60px;
+      text-align: center;
+  }
+  .main-header .container .row .col-md-6 {
+    max-width: none;
+  }
+  .main-header_credit-link{
+    justify-content: center;
+  }
+  .main-header a{
+      color: #032059;
+  }
+  .btn-toggle-navbar{
+    margin: 0px;
+  }
+  .search-form_button{
+    width: 10%;
+  }
+  .main-navbar{
+    width: 100vw;
+    padding: 0px;
+    justify-content: center;
+    background-color: white;
+  }
+  .left-navbar, .right-navbar{
+    padding: 0px;
+    width: auto;
+  }
+  .main-footer .container .row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+  .main-header_credit-link, .main-navbar{
+    margin: 40px 0px;
+  }
+  .footer-data {
+    width: 100vw;
+  }
+  #routesLogued {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding-left: 0px;
+    align-items: baseline;
+  } 
+  .logout{
+    color: #032059;
+  }
+  .titles{
+    margin: 0px 0px 0px 15px;
+  }
+
+  .offset-3 {
+    display: contents;
+  }
+
+  .foto-perfil {
+    width: 50%;
   }
 }

@@ -12,7 +12,7 @@ const productController = {
             listaComentarios: listadoComments,
         })
     },
-    create: function (req, res) { 
+    searchResults: function (req, res) { 
         let dataReq = req.query.search; 
         return res.render('search-results', {
             listadoProducts: listadoPeriferics,

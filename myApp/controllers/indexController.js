@@ -3,10 +3,8 @@ const listado = productsIndex.periferics;
 
 const controlador = {
     products: function (req, res) {
-        //let idProducto = req.params.id;
         return res.render('index', {
             listaProductos: listado,
-            //productId: idProducto,
         })
     }
 }
