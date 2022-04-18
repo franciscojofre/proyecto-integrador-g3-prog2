@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partials/head') %>
+<!-- Include Header -->
 
 <body>
 	<!-- Header -->
 	<%- include('./partials/headerLogueado') %>
-	<!-- /Header -->
-			<!-- Show the "ultimos" products -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Cargar nuevo producto</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<form method="GET">
-						<div class="container">
-							<label class="textForm" for="img"><b>Imagen del producto</b></label>
-							<input class="inpForm" type="file" name="img" required>
-							
-							<label class="textForm" for="name"><b>Nombre del producto</b></label>
-							<input class="inpForm" type="text" placeholder="Ingrese aqui el nombre" name="title" required>
-						
-							<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
-							<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
+	<!-- Header -->
 
-							<label class="textForm" for="date"><b>Fecha de carga</b></label>
-							<input class="inpForm" type="date" placeholder="¿Que dia estas cargando este producto?" name="date" required>
-							
-							<div class="divButton">
-								<button class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>
-							</div>
-						</div>
-					
-					</form>
-					
-				</div>	
+	<!-- ProductsAAniadir -->
+	<div class="titles">
+		<h2 class="products-title">Cargar nuevo producto</h2>
+	</div>
+	<form method="GET" action="/user/profile">
+		<div class="container">
+			<label class="textForm" for="img"><b>Imagen del producto</b></label>
+			<input class="inpForm" type="file" name="img" required>
+			
+			<label class="textForm" for="name"><b>Nombre del producto</b></label>
+			<input class="inpForm" type="text" placeholder="Ingrese aqui el nombre" name="title" required>
+		
+			<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
+			<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
+
+			<label class="textForm" for="date"><b>Fecha de carga</b></label>
+			<input class="inpForm" type="date" placeholder="¿Que dia estas cargando este producto?" name="date" required>
+			
+			<div class="divButton">
+				<button id="btnFormPA" class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>
 			</div>
-
+		</div>
+	</form>
+	<!-- ProductsAAniadir -->
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>

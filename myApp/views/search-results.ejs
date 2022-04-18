@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partials/head') %>
-
+<!-- Include Header -->
 
 <body>
 	<!-- Header -->
 	<%- include('./partials/headerDesLogueado') %>
-	<!-- /Header -->
+	<!-- Header -->
 
 	<!-- Novedades -->
+	<div class="titles">
+		<h2 class="products-title">Resultados de búsqueda</h2>
+	</div>
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
-			</div>
 			<% for( let i = 0; i < listadoProducts.length; i++ ) { %>
 				<% if (listadoProducts[i].type == dataQuery) { %>
 					<div class="col-12 col-sm-6 col-lg-3">
@@ -34,15 +33,15 @@
 					</div>
 				<% } %>
 			<% } %>
-			<% if (dataQuery == '' || dataQuery != '') { %>
+			<% if (dataQuery == '' || dataQuery != listadoProducts.type) { %>
 				<h2 class="notResult"> Lo sentimos, no encontramos un resultados para tu búsqueda :(</h2>
 			<% } %>
 		</div>
 	</div>
+	<!-- Novedades -->
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
 </body>
-
 </html>

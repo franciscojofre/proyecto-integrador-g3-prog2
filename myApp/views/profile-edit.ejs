@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partials/head') %>
+<!-- Include Header -->
 
 <body>
 	<!-- Header -->
 	<%- include('./partials/headerLogueado') %>
 	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<form method="GET">
-				<div class="container">
-					<label class="textForm" for="uname"><b>Email</b></label>
-					<input class="inpForm" type="text" placeholder="Email Establecido" name="uname" required>
-					
-					<label class="textForm" for="uname"><b>Nombre</b></label>
-					<input class="inpForm" type="text" placeholder="Nombre Establecido" name="uname" required>
-				
-					<label class="textForm" for="psw"><b>Contraseña</b></label>
-					<input class="inpForm" type="password" placeholder="Contraseña Establecida" name="psw" required>
-				
-					<button class="btnForm" type="submit"> Confirmar Edición </button>
-					
-				</div>
-			
-			</form>
-			
-		</div>	
+	<!-- profileEdit -->
+	<div class="titles">
+		<h2 class="products-title">Editar mi perfil</h2>
 	</div>
+	<form method="GET">
+		<div class="container">
+			<label class="textForm" for="uname"><b>Email</b></label>
+			<input class="inpForm" type="text" placeholder="Email Establecido" name="uname" required>
+			
+			<label class="textForm" for="uname"><b>Nombre</b></label>
+			<input class="inpForm" type="text" placeholder="Nombre Establecido" name="uname" required>
+		
+			<label class="textForm" for="psw"><b>Contraseña</b></label>
+			<input class="inpForm" type="password" placeholder="Contraseña Establecida" name="psw" required>
+		
+			<a href="/user/profile"></a><button class="bttnLogin" type="button"> Confirmar Edición </button></a>	
+		</div>
+	</form>
+	<!-- profileEdit -->
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
 </body>
-
 </html>

@@ -1,8 +1,6 @@
 const data = require('../db/data');
 let listadoPeriferics = data.products;
-let listadoComments = data.comments;
-
-
+let listadoComments = data.user;
 
 const userController = {
     login: function(req, res) {
@@ -24,6 +22,5 @@ const userController = {
     },
 
 }
-
 
 module.exports = userController;
