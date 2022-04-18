@@ -11,7 +11,7 @@
         },{
             titulo: "Teclado Redragon Dark",
             descripcion: "Disfrutá de tus partidas en otro nivel con Redragon, marca reconocida que se especializa en brindar la mejor experiencia de juego al público gamer desde hace más de 20 años. Sus teclados se adaptan a todo tipo de jugadores y esto los convierten en un fiel reflejo de la alta gama y calidad que la compañía ofrece.",
-            img: "/images/products/dark-avenger.jpg",
+            img: "/images/products/dark-avenger.png",
             id: 2,
             comentarios: 14,
             novedad: false,
@@ -73,7 +73,7 @@
             novedad: true,
             type: 'headphones'
         },{
-            titulo: "Auriculares Redragon Zeus X",
+            titulo: "Auriculares Redragon Zeus",
             descripcion: "Potentes, hermosos, totales. Con retroiluminación RGB, un micrófono excepcional, construcción cómoda y robusta, y -lo más importante- una calidad de sonido arrolladora, los aclamados Zeus vuelven con más: conoce su nueva versión X H510-RGB y experimenta la totalidad.",
             img: "/images/products/redragon-zeusx.jpg",
             id: 10,
