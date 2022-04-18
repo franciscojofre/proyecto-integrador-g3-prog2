@@ -1,5 +1,5 @@
  let data = {
-    periferics: [
+    products: [
         {
             titulo: "Teclado gamer Marvo KG901",
             descripcion: "Este teclado Marvo de alto rendimiento permite que puedas disfrutar de horas ilimitadas de juegos. Está diseñado especialmente para que puedas expresar tanto tus habilidades como tu estilo. Podrás mejorar tu experiencia de gaming, ya seas un aficionado o todo un experto y hacer que tus jugadas alcancen otro nivel.",
@@ -162,16 +162,14 @@
             type: 'headphones'
         }
     ],
-    user: [
-        {
+    user: {
             name: 'Firulais Alvarez',
             age: 19,
             email: 'falvarezarrobagmail.com',
             pass: '',
             DNI : null,
             img: null
-        }
-    ],
+        },
     comments: [
         {
             userName: 'Juan Gomez',
@@ -197,5 +195,4 @@
     ]
 }
 
-//Cambiarle el nombre al archivo ya que debemos agregar dentro de la lista una propiedad de usuarios y comentarios
 module.exports = data;

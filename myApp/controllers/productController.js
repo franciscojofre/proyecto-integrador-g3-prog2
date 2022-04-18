@@ -1,6 +1,6 @@
 const data = require('../db/data');
 
-let listadoPeriferics = data.periferics;
+let listadoPeriferics = data.products;
 let listadoComments = data.comments;
 
 const productController = {
