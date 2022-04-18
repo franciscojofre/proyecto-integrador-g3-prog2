@@ -20,7 +20,7 @@ const productController = {
         })
     },
     aniadirProducto: function (req, res) {
-        res.render('product-add')
+        return res.render('product-add')
     }
 }
 
