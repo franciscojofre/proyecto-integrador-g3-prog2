@@ -9,7 +9,7 @@
             novedad: false,
             type: 'keyboard'
         },{
-            titulo: "Teclado Redragon Dark Avenger K568",
+            titulo: "Teclado Redragon Dark",
             descripcion: "Disfrutá de tus partidas en otro nivel con Redragon, marca reconocida que se especializa en brindar la mejor experiencia de juego al público gamer desde hace más de 20 años. Sus teclados se adaptan a todo tipo de jugadores y esto los convierten en un fiel reflejo de la alta gama y calidad que la compañía ofrece.",
             img: "/images/products/dark-avenger.jpg",
             id: 2,
@@ -17,7 +17,7 @@
             novedad: false,
             type: 'keyboard'
         },{
-            titulo: "Teclado Redragon Kumara K552",
+            titulo: "Teclado Redragon Kumara",
             descripcion: "La gran calidad del Redragon Kumara K552, y su precio económico lo vuelven un atractivo ideal para que te diviertas frente a la pantalla. Su ergonomía, su base antidelizante y su rápido tiempo de respuesta permite que tus juegos favoritos se sientan más cerca que nunca, al alcance de tus manos.",
             img: "/images/products/kumara-k552.jpg",
             id: 3,
@@ -49,7 +49,7 @@
             novedad: false,
             type: 'headphones'
         },{
-            titulo: "Teclado HyperX Alloy Origins Core",
+            titulo: "Teclado HyperX Alloy Origins",
             descripcion: "Este teclado HyperX de alto rendimiento permite que puedas disfrutar de horas ilimitadas de juegos. Está diseñado especialmente para que puedas expresar tanto tus habilidades como tu estilo. Podrás mejorar tu experiencia de gaming, ya seas un aficionado o todo un experto y hacer que tus jugadas alcancen otro nivel.",
             img: "/images/products/hyperx-alloy.jpg",
             id: 7,
@@ -57,7 +57,7 @@
             novedad: false,
             type: 'keyboard'
         },{
-            titulo: "Teclado Redragon Draconic K530",
+            titulo: "Teclado Redragon Draconic",
             descripcion: "Disfrutá de tus partidas en otro nivel con Redragon, marca reconocida que se especializa en brindar la mejor experiencia de juego al público gamer desde hace más de 20 años. Sus teclados se adaptan a todo tipo de jugadores y esto los convierten en un fiel reflejo de la alta gama y calidad que la compañía ofrece.",
             img: "/images/products/k530.jpg",
             id: 8,
@@ -65,7 +65,7 @@
             novedad: false,
             type: 'keyboard'
         },{
-            titulo: "Auriculares HyperX Cloud Stinger S",
+            titulo: "Auriculares HyperX Cloud",
             descripcion: "¡Experimentá la adrenalina de sumergirte en la escena de otra manera! Tener auriculares específicos para jugar cambia completamente tu experiencia en cada partida. Con los HyperX Stinger S no te perdés ningún detalle y escuchás el audio tal y como fue diseñado por los creadores.",
             img: "/images/products/cloud-stinger.jpg",
             id: 9,
@@ -105,7 +105,7 @@
             novedad: true,
             type: 'mouse'
         },{
-            titulo: "Mouse HyperX Pulsefire CORE",
+            titulo: "Mouse HyperX Pulsefire",
             descripcion: "HyperX diseña productos y experiencias que ocupan un lugar cotidiano en la vida de las personas, poniendo foco en la innovación y la calidad. Su objetivo es crear momentos verdaderamente únicos y significativos para sus usuarios. Los mouses Logitech se adaptan a la forma de tu mano para proporcionarte horas de comodidad. Sin necesidad de mover el brazo para deslizar el cursor, tu mano se fatigará menos. Son ideales para cualquier espacio de trabajo y quienes tienen la mesa llena de diversos objetos.",
             img: "/images/products/hp.jpg",
             id: 13,
