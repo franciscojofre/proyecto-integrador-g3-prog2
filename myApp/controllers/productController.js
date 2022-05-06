@@ -1,26 +1,25 @@
 const data = require('../db/data');
 
-let listadoPeriferics = data.products;
-let listadoComments = data.comments;
-
 const productController = {
     detalleProducto: function (req, res) {
         let idSolicitado = req.params.id;
         return res.render('product', {
-            listaProductos: listadoPeriferics,
+            listaProductos: data.products,
             idProducto: idSolicitado,
-            listaComentarios: listadoComments,
+            listaComentarios: data.comments,
         })
     },
     searchResults: function (req, res) { 
         let dataReq = req.query.search; 
         return res.render('search-results', {
-            listadoProducts: listadoPeriferics,
+            listadoProducts: data.products,
             dataQuery: dataReq
         })
     },
     aniadirProducto: function (req, res) {
-        return res.render('product-add')
+        return res.render('product-add', {
+            userName: data.user.name
+        })
     }
 }
 

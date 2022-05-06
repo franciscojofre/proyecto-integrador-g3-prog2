@@ -18,13 +18,14 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%- listaComentarios[0].name %> 
+					<h1 class="main-title"><%- userInfo.name %> 
 						<a href="/user/profile/edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
+				<p class="emailProfile"> <%= userInfo.email %> </p>
 				<div>
 					<ul class="info-gen">
 						<li>8 productos</li>
