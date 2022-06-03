@@ -1,6 +1,6 @@
-CREATE SCHEMA dataBaseuth;
+CREATE SCHEMA dataBaseut;
 
-USE dataBaseuth;
+USE dataBaseut;
 
 CREATE TABLE usuario (
 /*			nombreColumna			tipoDato			restricciones							*/
@@ -40,13 +40,13 @@ FOREIGN KEY (user_id) REFERENCES usuario(id),
 FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-CREATE TABLE user_follow (
+CREATE TABLE followers (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            user1_id 				INT                 UNSIGNED,
-            user2_id				INT                 UNSIGNED,
+            user_id_seguidor 		INT                 UNSIGNED NOT NULL,
+            user_id_seguido			INT                 UNSIGNED NOT NULL,
 
             
-FOREIGN KEY (user1_id) REFERENCES usuario(id),
-FOREIGN KEY (user2_id) REFERENCES usuario(id)
+FOREIGN KEY (user_id_seguidor) REFERENCES usuario(id),
+FOREIGN KEY (user_id_seguido) REFERENCES usuario(id)
 );
