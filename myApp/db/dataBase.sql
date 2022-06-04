@@ -25,6 +25,7 @@ CREATE TABLE products (
             novedad					BOOLEAN				NOT NULL,
             image					VARCHAR(1000),
             user_id					INT 				UNSIGNED,
+            createAt                DATE                NOT NULL
 FOREIGN KEY (user_id) REFERENCES usuario(id)
 );
 
