@@ -26,20 +26,17 @@ module.exports = function (sequelize, dataTypes) {
         },
         user_id: {
             type: dataTypes.INTEGER
-        },
-        createAt: {
-            type: dataTypes.DATE
         }
     }
 
 
     let config = {
         tableName: 'products',
-        timestamps: true, //Si la tabla tiene los campos created_at y updated_at
+        timestamps: false, //Si la tabla tiene los campos created_at y updated_at
         underscore: true //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     }
 
-    const Product = sequelize.defune(alias, cols, config);
+    const Product = sequelize.define(alias, cols, config);
 
     return Product
 }
