@@ -9,7 +9,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         username: {
-            type: dataTypes.VARCHAR(50)
+            type: dataTypes.STRING
         },
         user_id: {
             type: dataTypes.INTEGER
@@ -18,7 +18,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         commentDescription: {
-            type: dataTypes.VARCHAR
+            type: dataTypes.STRING
         },
         image:{
             type : dataTypes.STRING

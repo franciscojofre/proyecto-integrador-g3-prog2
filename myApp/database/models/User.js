@@ -17,14 +17,20 @@ module.exports = function (sequelize, dataTypes){
         email: {
             type: dataTypes.STRING
         },
-        username: {
-            type: dataTypes.STRING
-        },
         contrasenia:{
             type : dataTypes.STRING
         },
-        fechaNacimiento : {
+        created_at : {
             type: dataTypes.DATE,
+            allowNull:true,
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+            allowNull: true,
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+            allowNull: true,
         },
         numeroDocumento: {
             type: dataTypes.INTEGER,
@@ -37,7 +43,7 @@ module.exports = function (sequelize, dataTypes){
 
     let config = {
         tableName : "users",
-        timestamps:true, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
+        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
         underscored: false, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 
