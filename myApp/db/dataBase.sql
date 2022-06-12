@@ -2,7 +2,7 @@ CREATE SCHEMA dataBaseut;
 
 USE dataBaseut;
 
-CREATE TABLE usuario (
+CREATE TABLE users (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             nombre					VARCHAR(50)			NOT NULL,
