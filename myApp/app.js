@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 const productRouters = require('./routes/products');     //Nueva ruta
 const userRouter = require('./routes/user');     //Nueva ruta
 //const profileRouter = require('./routes/users');     Nueva ruta
+const session = require('express-session');
+
+const db = require("./database/models");
 
 
 var app = express();
@@ -27,6 +30,42 @@ app.use('/', indexRouter);
 app.use('/product', productRouters);     //Ruta nueva
 app.use('/user', userRouter);     //Ruta nueva
 //app.use('/profile', profileRouter);     //Ruta nueva
+app.use(session({
+  secret : 'myApp',
+  resave : false,
+  saveUninitialized : true
+}));
+
+/* Middleware de session */
+app.use(function(req, res, next) {
+  if ( req.session.user != undefined) {
+    res.locals.user = req.session.user;
+    return next()
+  }
+  return next();
+});
+
+/* creando el middleware de cookies .*/
+app.use(function(req, res, next) {
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+      let idUsuario = req.cookies.userId;
+
+      db.User.findByPk(idUsuario)
+      .then((user) => {
+        req.session.user = user.dataValues;
+        res.locals.user = user.dataValues;
+        return next();
+      }).catch((err) => {
+        console.log(err);
+      });
+
+
+
+  } else {
+    return next();
+  }
+  
+});
 
 
 // catch 404 and forward to error handler

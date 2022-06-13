@@ -6,6 +6,8 @@ router.get('/register', userController.register);
 
 router.get('/login', userController.login);
 
+router.post('/login', userController.procesarLogin); 
+
 router.get('/login/profile', userController.profile);
 
 router.get('/profile', userController.profile);

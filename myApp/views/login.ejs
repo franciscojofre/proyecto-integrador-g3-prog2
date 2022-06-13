@@ -5,9 +5,11 @@
 <!-- Include Header -->
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/headerDesLogueado') %>
-	<!-- /Header -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado.ejs')  %> 
+	<% }else {%>
+		<%- include('./partials/headerDesLogueado.ejs')  %> 
+	<% } %> 
 
 	<!-- Novedades -->
 	<div class="titles">
@@ -15,18 +17,21 @@
 	</div>		
 	
 	<!-- Show the "ultimos" products -->
-	<form method="GET">
+	<form method="POST" action="/login">
 		<div class="container">
 			<label class="textForm" for="uname"><b>Email</b></label>
-			<input class="inpForm" type="text" placeholder="Introduce un Email" name="uname" required>
+			<input class="inpForm" id="email" type="email" placeholder="Introduce un Email" name="email" required>
 		
 			<label class="textForm" for="psw"><b>Contraseña</b></label>
-			<input class="inpForm" type="password" placeholder="Introduce una Contraseña" name="psw" required>
-		
-			<a href="/user/profile"><button class="bttnLogin" type="button" onClick="alert('Bienvenido, <%- userName %>!')">LOGIN</button></a>
-			<label class="textForm">
-				<input type="checkbox" checked="checked" name="remember"> Recuerdame
-			</label>
+			<input class="inpForm" id="password" type="password" placeholder="Introduce una Contraseña" name="password" required>
+			
+			<div class="input-container ic1 checkbox">
+				<label for="remember">Recordarme</label>
+				<input id="remember" class="input" type="checkbox" name="remember" /> 
+			</div>
+			
+			<button class="bttnLogin" type="button">LOGIN</button>
+			
 		</div>
 	</form>
 	<!-- Show the "ultimos" products -->
