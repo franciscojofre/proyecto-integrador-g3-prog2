@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 
 router.get('/register', userController.register); //ruta por GET que envía el formulario de creación
 
-router.post('/register', userController.procesarRegister) //ruta por POST que procesa la información del formulario
+router.post('/register', userController.processRegister) //ruta por POST que procesa la información del formulario
 
 router.get('/login', userController.login);
 

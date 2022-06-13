@@ -1,5 +1,5 @@
 const db = require("../database/models");
-const products = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
+const productModel = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
 const op = db.Sequelize.Op;
 
 const data = require('../db/data');
@@ -23,7 +23,7 @@ const productController = {
              ]
            }
            }
-        products.findAll(filtro)
+        productModel.findAll(filtro)
         .then((result) => {
                 res.render('search-results', { listadoProducts : result } )
         }).catch((err) => {

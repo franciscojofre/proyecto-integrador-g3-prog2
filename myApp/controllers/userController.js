@@ -1,5 +1,5 @@
 const db = require("../database/models");
-const user = db.User;
+const userModel = db.User;
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
@@ -25,7 +25,7 @@ const userController = {
             return res.render('login'); 
         } else {
              /* debe ir en el else */
-        user.findOne(filtro)
+        userModel.findOne(filtro)
         .then((result) => {
             
             if (result != null) {
@@ -52,25 +52,10 @@ const userController = {
                 res.locals.errors = errors;
                 return res.render('login');
             }
-
-
-
-
         }).catch((err) => {
-            
+            console.log(err)
         });
         }
-
-
-
-       
-
-
-
-
-    },
-    register: function (req, res) {
-        return res.render('register')
     },
     profile: function (req, res) {
         res.render('profile', {
@@ -84,7 +69,10 @@ const userController = {
             userName: data.user.name
         })
     },
-    procesarRegister: (req, res) => {
+    register: function (req, res) {
+        return res.render('register')
+    },
+    processRegister: (req, res) => {
         let info = req.body;
         let dataUser = {
             nombre: info.nombre,
@@ -95,7 +83,7 @@ const userController = {
             numeroDocumento: info.numeroDocumento
         }
         console.log(info)
-        Model.create(dataUser)
+        userModel.create(dataUser)
         .then((result) => {
             return res.redirect('/user/login')    
         }).catch((err) => {
