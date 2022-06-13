@@ -17,14 +17,20 @@ module.exports = function (sequelize, dataTypes){
         email: {
             type: dataTypes.STRING
         },
-        username: {
-            type: dataTypes.STRING
-        },
         contrasenia:{
             type : dataTypes.STRING
         },
-        fechaNacimiento : {
+        created_at : {
             type: dataTypes.DATE,
+            allowNull:true,
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+            allowNull: true,
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+            allowNull: true,
         },
         numeroDocumento: {
             type: dataTypes.INTEGER,

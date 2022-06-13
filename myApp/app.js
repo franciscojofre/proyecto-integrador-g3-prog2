@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Requerir Database
+const db = require('./database/models');
+
 var indexRouter = require('./routes/index');
 const productRouters = require('./routes/products');     //Nueva ruta
 const userRouter = require('./routes/user');     //Nueva ruta
@@ -11,7 +14,6 @@ const userRouter = require('./routes/user');     //Nueva ruta
 const session = require('express-session');
 
 const db = require("./database/models");
-
 
 var app = express();
 
@@ -24,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 //Listeners
 app.use('/', indexRouter);

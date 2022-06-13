@@ -1,8 +1,9 @@
 const db = require("../database/models");
-const user = db.user;
+const user = db.User;
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
+
 
 const userController = {
     login : (req, res) => {
@@ -83,6 +84,24 @@ const userController = {
             userName: data.user.name
         })
     },
+    procesarRegister: (req, res) => {
+        let info = req.body;
+        let dataUser = {
+            nombre: info.nombre,
+            apellido: info.apellido,
+            email: info.email,
+            contrasenia: info.contrasenia, //poner hashing
+            created_at: info.fechaNacimiento,
+            numeroDocumento: info.numeroDocumento
+        }
+        console.log(info)
+        Model.create(dataUser)
+        .then((result) => {
+            return res.redirect('/user/login')    
+        }).catch((err) => {
+            return res.send('El error es: ' + err)
+        });
+    }
 }
 
 module.exports = userController;

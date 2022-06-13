@@ -2,15 +2,15 @@ CREATE SCHEMA dataBaseut;
 
 USE dataBaseut;
 
-CREATE TABLE usuario (
+CREATE TABLE users (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             nombre					VARCHAR(50)			NOT NULL,
             apellido				VARCHAR(50)			NOT NULL,
             email					VARCHAR(150)		NOT NULL,
-            username				VARCHAR(50)			NOT NULL,
             contrasenia				VARCHAR(50)			NOT NULL,
-            fechaNacimiento			DATE 				NOT NULL,
+            created_at			    DATE 				NOT NULL,
+            updated_at              DATE,
             numeroDocumento			INT					NOT NULL,
             fotoPerfil				VARCHAR(1000)
             
