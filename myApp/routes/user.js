@@ -2,9 +2,29 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
+//Importaciones
+let multer = require('multer');
+let path = require('path')//Modulo para manipular rutas y directorios
+
+//configuración multer
+let storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        if (path.extname(file.originalname) == 'jgp') {            
+            cb(null, path.join(__dirname, '../public/images/users'));  //dirname me trae la ruta de user
+        }
+    },
+    filename: function(req, file, cb) {
+                // fotoperfil-234242323432.extensionFile
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    },
+})
+
+let upload = multer({storage: storage});
+
+
 router.get('/register', userController.register); //ruta por GET que envía el formulario de creación
 
-router.post('/register', userController.procesarRegister) //ruta por POST que procesa la información del formulario
+router.post('/register', upload.single('fotoPerfil'), userController.processRegister) //ruta por POST que procesa la información del formulario
 
 router.get('/login', userController.login);
 

@@ -22,27 +22,6 @@ const controlador = {
         //     listaProductos: productsIndex.products,
         // })
     }
-    // Findproduct : (req, res) => {
-    //     let id = req.params.id;
-    //     products.findByPk(id).then((result) =>{
-    
-    //       let date = result.createAt;
-    //       let fechaFormateada = new Date(date).toISOString().slice(0,10);
-    
-    //       let products = {
-    //         title : result.title,
-    //         descrip : result.descrip,
-    //         comments : resul.comments,
-    //         novedad : result.novedad,
-    //         Image : result.image,
-    //         user_id : result.user_id,
-    //         createAt : result.createAt
-    //       }
-    //       return res.render("moviesDetails", {
-    //           product : product
-    //       })
-    //     })
-    // }
 }
 
 module.exports = controlador;

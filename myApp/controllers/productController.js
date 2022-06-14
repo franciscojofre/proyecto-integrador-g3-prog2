@@ -1,11 +1,11 @@
 const db = require("../database/models");
-const products = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
+const productModel = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
 const op = db.Sequelize.Op;
 
 const data = require('../db/data');
 
 const productController = {
-    detalleProducto: function (req, res) {
+    productDetail: function (req, res) {
         let idSolicitado = req.params.id;
         return res.render('product', {
             listaProductos: data.products,
@@ -13,14 +13,24 @@ const productController = {
             listaComentarios: data.comments,
         })
     },
-    searchResults: function (req, res) { 
-        let dataReq = req.query.search; 
-        return res.render('search-results', {
-            listadoProducts: data.products,
-            dataQuery: dataReq
-        })
+    searchResults: (req, res) => {
+        let queryString = req.query.search;
+        let filtro ={
+            where :{
+             [op.or]: [
+               { title: { [op.like]: `%${queryString}%` } },
+               { descrip: { [op.like]: `%${queryString}%` } }
+             ]
+           }
+           }
+        productModel.findAll(filtro)
+        .then((result) => {
+                res.render('search-results', { listadoProducts : result } )
+        }).catch((err) => {
+            console.log(err);
+        });
     },
-    aniadirProducto: function (req, res) {
+    productAdd: function (req, res) {
         return res.render('product-add', {
             userName: data.user.name
         })

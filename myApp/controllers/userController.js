@@ -1,10 +1,14 @@
 const db = require("../database/models");
+<<<<<<< HEAD
 const modelUser = db.User;
+=======
+const userModel = db.User;
+>>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
 
-
+bcrypt.compare
 const userController = {
     login : (req, res) => {
         return res.render("login")
@@ -25,7 +29,7 @@ const userController = {
             return res.render('login'); 
         } else {
              /* debe ir en el else */
-        user.findOne(filtro)
+        userModel.findOne(filtro)
         .then((result) => {
             
             if (result != null) {
@@ -52,25 +56,10 @@ const userController = {
                 res.locals.errors = errors;
                 return res.render('login');
             }
-
-
-
-
         }).catch((err) => {
-            
+            console.log(err)
         });
         }
-
-
-
-       
-
-
-
-
-    },
-    register: function (req, res) {
-        return res.render('register')
     },
     profile: function (req, res) {
         res.render('profile', {
@@ -84,18 +73,28 @@ const userController = {
             userName: data.user.name
         })
     },
-    procesarRegister: (req, res) => {
+    register: function (req, res) {
+        return res.render('register')
+    },
+    processRegister: (req, res) => {
         let info = req.body;
+        let fotoPerfil = req.file.filename;
         let dataUser = {
             nombre: info.nombre,
             apellido: info.apellido,
             email: info.email,
-            contrasenia: info.contrasenia, //poner hashing
+            contrasenia: bcrypt.hashSync(info.contrasenia, 10), //poner hashing
             created_at: info.fechaNacimiento,
-            numeroDocumento: info.numeroDocumento
+            updated_at: new Date(),
+            numeroDocumento: info.numeroDocumento,
+            fotoPerfil: fotoPerfil
         }
         console.log(info)
+<<<<<<< HEAD
         modelUser.create(dataUser)
+=======
+        userModel.create(dataUser)
+>>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
         .then((result) => {
             return res.redirect('/user/login')    
         }).catch((err) => {

@@ -13,7 +13,10 @@ const userRouter = require('./routes/user');     //Nueva ruta
 //const profileRouter = require('./routes/users');     Nueva ruta
 const session = require('express-session');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
 var app = express();
 
 // view engine setup
@@ -31,12 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/product', productRouters);     //Ruta nueva
 app.use('/user', userRouter);     //Ruta nueva
-//app.use('/profile', profileRouter);     //Ruta nueva
 app.use(session({
   secret : 'myApp',
   resave : false,
   saveUninitialized : true
 }));
+
 
 /* Middleware de session */
 app.use(function(req, res, next) {
@@ -46,6 +49,7 @@ app.use(function(req, res, next) {
   }
   return next();
 });
+
 
 /* creando el middleware de cookies .*/
 app.use(function(req, res, next) {
@@ -60,9 +64,6 @@ app.use(function(req, res, next) {
       }).catch((err) => {
         console.log(err);
       });
-
-
-
   } else {
     return next();
   }
