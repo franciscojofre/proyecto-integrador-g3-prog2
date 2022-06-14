@@ -8,6 +8,10 @@
 					</a>
 				</div>
 
+				<% if (locals.user != undefined) { %>
+					<p>Bienvenido <%= user.email %> </p>
+				<% } %>
+
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">

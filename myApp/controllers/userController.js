@@ -1,5 +1,5 @@
 const db = require("../database/models");
-const user = db.User;
+const modelUser = db.User;
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
@@ -95,7 +95,7 @@ const userController = {
             numeroDocumento: info.numeroDocumento
         }
         console.log(info)
-        Model.create(dataUser)
+        modelUser.create(dataUser)
         .then((result) => {
             return res.redirect('/user/login')    
         }).catch((err) => {

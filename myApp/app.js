@@ -13,7 +13,6 @@ const userRouter = require('./routes/user');     //Nueva ruta
 //const profileRouter = require('./routes/users');     Nueva ruta
 const session = require('express-session');
 
-const db = require("./database/models");
 
 var app = express();
 
