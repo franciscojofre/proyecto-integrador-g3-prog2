@@ -9,7 +9,9 @@ let path = require('path')//Modulo para manipular rutas y directorios
 //configuración multer
 let storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, path.join(__dirname, '../public/images/users'));  //dirname me trae la ruta de user
+        if (path.extname(file.originalname) == 'jgp') {            
+            cb(null, path.join(__dirname, '../public/images/users'));  //dirname me trae la ruta de user
+        }
     },
     filename: function(req, file, cb) {
                 // fotoperfil-234242323432.extensionFile

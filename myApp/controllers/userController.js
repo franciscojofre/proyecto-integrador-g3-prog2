@@ -74,6 +74,7 @@ const userController = {
     },
     processRegister: (req, res) => {
         let info = req.body;
+        let fotoPerfil = req.file.filename;
         let dataUser = {
             nombre: info.nombre,
             apellido: info.apellido,
@@ -81,7 +82,8 @@ const userController = {
             contrasenia: bcrypt.hashSync(info.contrasenia, 10), //poner hashing
             created_at: info.fechaNacimiento,
             updated_at: new Date(),
-            numeroDocumento: info.numeroDocumento
+            numeroDocumento: info.numeroDocumento,
+            fotoPerfil: fotoPerfil
         }
         console.log(info)
         userModel.create(dataUser)
