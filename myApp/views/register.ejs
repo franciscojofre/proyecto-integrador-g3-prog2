@@ -17,7 +17,7 @@
 	<!-- saque los ids de los inputs -->
 
 	<!-- Productos Encontrados -->
-	<form method="POST" action="/user/register">
+	<form method="POST" action="/user/register" enctype="multipart/form-data">
 		<div class="container">
 			<label class="textForm" for="img"><b>Foto de perfil</b></label>
 			<div class="imgcontainer">
@@ -41,7 +41,7 @@
 			<input class="inpForm" type="date" placeholder="Nacimiento" name="fechaNacimiento" required>
 			
 			<label class="textForm" for="psw"><b>DNI</b></label>
-			<input class="inpForm" type="password" placeholder="DNI" name="numeroDocumento" required>
+			<input class="inpForm" type="number" placeholder="DNI" name="numeroDocumento" required>
 			
 			<div class="divButton">
 				<button class="btnForm" type="text">REGISTRARSE</button>

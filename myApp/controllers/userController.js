@@ -4,7 +4,7 @@ const userModel = db.User;
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
 
-
+bcrypt.compare
 const userController = {
     login : (req, res) => {
         return res.render("login")
@@ -78,8 +78,9 @@ const userController = {
             nombre: info.nombre,
             apellido: info.apellido,
             email: info.email,
-            contrasenia: info.contrasenia, //poner hashing
+            contrasenia: bcrypt.hashSync(info.contrasenia, 10), //poner hashing
             created_at: info.fechaNacimiento,
+            updated_at: new Date(),
             numeroDocumento: info.numeroDocumento
         }
         console.log(info)
