@@ -10,39 +10,36 @@
     <!-- /Header -->
 	
     <!-- ProductDetail -->
-    <% for( let i = 0; i < listaProductos.length; i++ ) { %> 
-      <% if (idProducto == listaProductos[i].id) { %>
+
         <div class="container products-wrapper">
           <div class="d-flex align-items-center">
-            <h2 class="products-title"><%= listaProductos[i].titulo %></h2>
+            <h2 class="products-title"><%= product.title %></h2>
             <p class="product-detail-description"></p>
           </div>
-          <div class="product-detail">
-            <div class="row">
-              <article class="col-12 col-lg-8 product-detail-info">
-                <img src="<%= listaProductos[i].img %>" alt="" class="product-detail-img"/>
-                <p class="product-detail-description"> <%= listaProductos[i].descripcion %> </p>
-              </article>
-              <div class="col-12 col-lg-4">
-        <% } %> 
-    <% } %>
+        <div class="product-detail">
+          <div class="row">
+            <article class="col-12 col-lg-8 product-detail-info">
+              <img src="<%= product.image %>" alt="" class="product-detail-img"/>
+              <p class="product-detail-description"> <%= product.descrip %> </p>
+            </article>
+            <div class="col-12 col-lg-4">
                 <section class="comments">
-                  <% for( let i = 0; i < listaComentarios.length; i++ ) { %>
+                  <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
+                    < } %>                                                                                    Relacionar con tabla de comments   -->      
                     <article>
-                      <img src="<%= listaComentarios[i].img %> " alt="" />
+                      <img src="" alt="" />
                       <div class="data">
                         <p class="user">
                           <strong>
-                            <a href="/user/profile"> <%= listaComentarios[i].userName %> </a>
+                            <a href="/user/profile"></a>
                           </strong>
-                          <a href="" class="comment"><%= listaComentarios[i].comment %></a>
+                          <a href="" class="comment"> </a>
                         </p>
                       </div>
                     </article>
-                  <% } %>
                 </section>
                 <form class="form" action="" method="GET">
-                  <input class="form-input" type="text" value="" placeholder="Agregar comentario"/>
+                  <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
                   <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
                 </form>
                 <hr/>
