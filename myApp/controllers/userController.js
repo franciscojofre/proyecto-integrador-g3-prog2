@@ -1,9 +1,5 @@
 const db = require("../database/models");
-<<<<<<< HEAD
-const modelUser = db.User;
-=======
-const userModel = db.User;
->>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
+const user = db.User;
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
@@ -17,6 +13,7 @@ const userController = {
         let info = req.body;
         let filtro = {where : [ { email : info.email}]};
         let errors = {};
+        
 
         if (info.email == "") {
             errors.message = "El email esta vacio";
@@ -29,17 +26,20 @@ const userController = {
             return res.render('login'); 
         } else {
              /* debe ir en el else */
-        userModel.findOne(filtro)
+        user.findOne(filtro)
         .then((result) => {
             
             if (result != null) {
 
-                let passEncriptada = bcrypt.compareSync(info.password , result.password)
+
+                let passEncriptada = bcrypt.compareSync(info.password,result.contrasenia)
                 if (passEncriptada) {
+                    
 
                     /* Poniendo en session al usuario */
-                    req.session.user = result.dataValues;
 
+                    req.session.user = result.dataValues;
+                   
                     if (req.body.remember != undefined) {
                         res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *10 } )
                     }
@@ -78,7 +78,7 @@ const userController = {
     },
     processRegister: (req, res) => {
         let info = req.body;
-        let fotoPerfil = req.file.filename;
+        let fotoPerfil = req.file;
         let dataUser = {
             nombre: info.nombre,
             apellido: info.apellido,
@@ -90,11 +90,7 @@ const userController = {
             fotoPerfil: fotoPerfil
         }
         console.log(info)
-<<<<<<< HEAD
-        modelUser.create(dataUser)
-=======
-        userModel.create(dataUser)
->>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
+        user.create(dataUser)
         .then((result) => {
             return res.redirect('/user/login')    
         }).catch((err) => {

@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let session = require('express-session');
+
 
 // Requerir Database
 const db = require('./database/models');
@@ -11,12 +13,7 @@ var indexRouter = require('./routes/index');
 const productRouters = require('./routes/products');     //Nueva ruta
 const userRouter = require('./routes/user');     //Nueva ruta
 //const profileRouter = require('./routes/users');     Nueva ruta
-const session = require('express-session');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
 var app = express();
 
 // view engine setup
@@ -43,11 +40,13 @@ app.use(session({
 
 /* Middleware de session */
 app.use(function(req, res, next) {
-  if ( req.session.user != undefined) {
+  if ( req.session.User != undefined) {
     res.locals.user = req.session.user;
-    return next()
+    return next();
+  } else{
+    return next();
   }
-  return next();
+  
 });
 
 

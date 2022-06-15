@@ -15,6 +15,9 @@
 	</div>
 	<!-- /Banner -->
 
+	<% if (locals.user != undefined) { %>
+		<h1>Bienvenido <%= locals.user.name %> </h1>
+	<% } %> 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
