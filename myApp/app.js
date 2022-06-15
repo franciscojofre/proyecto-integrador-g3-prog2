@@ -13,10 +13,6 @@ const userRouter = require('./routes/user');     //Nueva ruta
 //const profileRouter = require('./routes/users');     Nueva ruta
 const session = require('express-session');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
 var app = express();
 
 // view engine setup

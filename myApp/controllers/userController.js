@@ -1,21 +1,18 @@
 const db = require("../database/models");
-<<<<<<< HEAD
-const modelUser = db.User;
-=======
 const userModel = db.User;
->>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
+const commentModel = db.Comment;
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
+const data = require("../db/data");
 
-bcrypt.compare
 const userController = {
     login : (req, res) => {
         return res.render("login")
     },
     procesarLogin : (req, res) => {
         let info = req.body;
-        let filtro = {where : [ { email : info.email}]};
+        let filtro = {where : [{ email : info.email}]};
         let errors = {};
 
         if (info.email == "") {
@@ -31,10 +28,9 @@ const userController = {
              /* debe ir en el else */
         userModel.findOne(filtro)
         .then((result) => {
-            
             if (result != null) {
 
-                let passEncriptada = bcrypt.compareSync(info.password , result.password)
+                let passEncriptada = bcrypt.compareSync(info.password, result.password)
                 if (passEncriptada) {
 
                     /* Poniendo en session al usuario */
@@ -78,7 +74,7 @@ const userController = {
     },
     processRegister: (req, res) => {
         let info = req.body;
-        let fotoPerfil = req.file.filename;
+        let fotoPerfil = req.file;  //ver esto si no se le debe agregar .filename
         let dataUser = {
             nombre: info.nombre,
             apellido: info.apellido,
@@ -89,15 +85,11 @@ const userController = {
             numeroDocumento: info.numeroDocumento,
             fotoPerfil: fotoPerfil
         }
-        console.log(info)
-<<<<<<< HEAD
-        modelUser.create(dataUser)
-=======
         userModel.create(dataUser)
->>>>>>> e02ac34d1a9077b587ce76d23f8652f290829af0
         .then((result) => {
             return res.redirect('/user/login')    
-        }).catch((err) => {
+        })
+        .catch((err) => {
             return res.send('El error es: ' + err)
         });
     }

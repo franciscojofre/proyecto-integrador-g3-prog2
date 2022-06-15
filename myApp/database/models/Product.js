@@ -38,6 +38,13 @@ module.exports = function (sequelize, dataTypes) {
 
     const Product = sequelize.define(alias, cols, config);
 
+    Product.associate = function(models){
+        Product.hasMany(models.Comment, {
+            as:'porductComment', //Como voy a llamar a la relación dentro del controlador
+            foreignKey:'product_id' //hasMany= Columna del segundo modelo
+        })
+    }
+
     return Product
 }
 

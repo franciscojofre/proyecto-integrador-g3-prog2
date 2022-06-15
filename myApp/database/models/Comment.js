@@ -22,7 +22,7 @@ module.exports = function (sequelize, dataTypes){
         },
         image:{
             type : dataTypes.STRING
-        },
+        }
 
     }
 
@@ -33,6 +33,13 @@ module.exports = function (sequelize, dataTypes){
     };
 
     const Comment = sequelize.define(alias, cols, config);
+
+    Comment.associate = function(models) {
+        Comment.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id'
+        })
+    }
 
     return Comment;
 
