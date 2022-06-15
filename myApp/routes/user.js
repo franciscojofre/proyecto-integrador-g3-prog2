@@ -28,7 +28,7 @@ router.post('/register', upload.single('fotoPerfil'), userController.processRegi
 
 router.get('/login', userController.login);
 
-router.post('/login', userController.procesarLogin); 
+router.post('/login', userController.processLogin); 
 
 router.get('/login/profile', userController.profile);
 

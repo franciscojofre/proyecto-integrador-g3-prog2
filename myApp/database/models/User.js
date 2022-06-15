@@ -20,26 +20,29 @@ module.exports = function (sequelize, dataTypes){
         contrasenia:{
             type : dataTypes.STRING
         },
-        created_at : {
+        fecha_nacimiento : {
             type: dataTypes.DATE,
-            allowNull:true,
         },
-        
-        numeroDocumento: {
-            type: dataTypes.INTEGER,
+        numero_documento: {
+            type: dataTypes.INTEGER
         },
-        fotoPerfil: {
+        foto_perfil: {
             type: dataTypes.STRING
         },
+        created_at: {
+            type: dataTypes.DATE,
+            allowNull:true
+        },
         updated_at: {
-            type: dataTypes.STRING,
+            type: dataTypes.DATE,
+            allowNull: true
         }
     }
 
     let config = {
         tableName : "users",
-        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
-        underscored: false, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
+        timestamps: true, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
+        underscored: true //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 
     const User = sequelize.define(alias, cols, config);

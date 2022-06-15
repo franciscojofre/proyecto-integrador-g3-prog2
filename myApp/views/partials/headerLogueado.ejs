@@ -8,10 +8,6 @@
 					</a>
 				</div>
 
-				<% if (locals.user != undefined) { %>
-					<p>Bienvenido <%= user.email %> </p>
-				<% } %>
-
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
@@ -22,7 +18,7 @@
 				<div class="col-12 col-md-4">
 					<ul class="main-header_credit-link" id="routesLogued">
 						<li>
-							<a class="nameProfileHeader" href="/user/profile"> <%= userName %>  </a>
+							<a class="nameProfileHeader" href="/user/profile"> <%= locals.user.name %>  </a>
 						</li>
 						<li>
 							<form action="/" method="GET">

@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-let session = require('express-session');
+let session = require('express-session')
 
 
 // Requerir Database
@@ -27,47 +27,27 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
+//Configurar el session
+app.use(session({
+  secret: 'myApp',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(function(req, res, next) {
+  if (req.session.user != undefined) {
+    res.locals.user = req.session.user;
+    return next();
+  } 
+  return next();
+})
+
+
 //Listeners
 app.use('/', indexRouter);
 app.use('/product', productRouters);     //Ruta nueva
 app.use('/user', userRouter);     //Ruta nueva
-app.use(session({
-  secret : 'myApp',
-  resave : false,
-  saveUninitialized : true
-}));
-
-
-/* Middleware de session */
-app.use(function(req, res, next) {
-  if ( req.session.User != undefined) {
-    res.locals.user = req.session.user;
-    return next();
-  } else{
-    return next();
-  }
-  
-});
-
-
-/* creando el middleware de cookies .*/
-app.use(function(req, res, next) {
-  if (req.cookies.userId != undefined && req.session.user == undefined) {
-      let idUsuario = req.cookies.userId;
-
-      db.User.findByPk(idUsuario)
-      .then((user) => {
-        req.session.user = user.dataValues;
-        res.locals.user = user.dataValues;
-        return next();
-      }).catch((err) => {
-        console.log(err);
-      });
-  } else {
-    return next();
-  }
-  
-});
 
 
 // catch 404 and forward to error handler

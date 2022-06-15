@@ -8,6 +8,10 @@
 					</a>
 				</div>
 
+				<% if (locals.user != undefined) { %>
+					<p>Bienvenido <%= locals.user.nombre %> </p>
+				<% } %>
+
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
@@ -29,7 +33,6 @@
 					</ul>
 				</div>
 			</div>
-	
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
@@ -43,10 +46,6 @@
 						<a href="/product/product-add">Cargar productos</a>
 					</li>
 				</ul>
-
-				<a class="right-navbar">
-					Todas las opiniones en un solo lugar
-				</a>
 			</nav>
 		</div>
 	</header>
