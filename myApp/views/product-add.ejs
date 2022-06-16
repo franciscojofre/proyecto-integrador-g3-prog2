@@ -5,9 +5,11 @@
 <!-- Include Header -->
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>
-	<!-- Header -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado.ejs')  %> 
+	<% }else {%>
+		<%- include('./partials/headerDesLogueado.ejs')  %> 
+	<% } %> 
 
 	<!-- ProductsAAniadir -->
 	<div class="titles">

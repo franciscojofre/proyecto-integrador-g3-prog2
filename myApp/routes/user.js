@@ -30,6 +30,8 @@ router.get('/login', userController.login);
 
 router.post('/login', userController.processLogin); 
 
+router.get('/logout', userController.logout);
+
 router.get('/login/profile', userController.profile);
 
 router.get('/profile', userController.profile);

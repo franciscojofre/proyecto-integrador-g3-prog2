@@ -13,7 +13,17 @@ const userController = {
     processLogin: (req, res) => {
         let info = req.body;
         let filtro = {where : [ { email : info.email}]};
+        let errors = {};
 
+        if (info.email == "") {
+            errors.message = "El email esta vacio";
+            res.locals.errors = errors;
+            return res.render('login');
+        }else if (info.password == "") {
+            errors.message = "El password esta vacio";
+            res.locals.errors = errors;
+            return res.render('login');
+        } else {
         userModel.findOne(filtro)
         .then((result) => {
             
@@ -24,17 +34,21 @@ const userController = {
 
                     req.session.user = result.dataValues;
 
-                    // if (req.body.remember != undefined) {
-                    //     res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *10 } )
-                    // }
+                    if (req.body.remember != undefined) {
+                        res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *10 } )
+                    }
 
                     return res.redirect("/")
                 } else {
-                    return res.send("Existe el mail " +  result.email + " pero la clave es incorrecta");
+                    errors.message = "El mail existe pero la password es incorrecta";
+                    res.locals.errors = errors;
+                    return res.render('login');
                 }
                
             } else {
-                return res.send("No existe este mail " +  info.email);
+                errors.message = "El mail no existe";
+                res.locals.errors = errors;
+                return res.render('login');
             }
 
 
@@ -43,7 +57,13 @@ const userController = {
         }).catch((err) => {
             console.log('El error es: ' + err)
         });
+        }
 
+    },
+    logout : (req, res) => {
+        req.session.destroy();
+        res.clearCookie('userId');
+        return res.render("login")
     },
     profile: function (req, res) {
         res.render('profile', {

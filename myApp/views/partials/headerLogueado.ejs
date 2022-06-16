@@ -14,18 +14,23 @@
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
+				
+				
 	
 				<div class="col-12 col-md-4">
+					
 					<ul class="main-header_credit-link" id="routesLogued">
 						<li>
-							<a class="nameProfileHeader" href="/user/profile"> <%= locals.user.name %>  </a>
+							<a class="nameProfileHeader" href="/user/profile"> 
+								<% if (locals.user != undefined) { %>
+								<p>Bienvenido <%= user.nombre %> </p>
+								<% } %>  
+							</a>
 						</li>
 						<li>
-							<form action="/" method="GET">
-								<button class="logout" type="submit">
-									Cerrar Sesión <i class="fas fa-sign-in-alt"></i>
-								</button>
-							</form>
+							
+							<a href="/user/logout" class="itemLista">Cerrar Sesión <i class="fas fa-sign-in-alt"></i></a>
+
 						</li>
 					</ul>
 				</div>

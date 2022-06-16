@@ -9,9 +9,11 @@ let session = require('express-session')
 // Requerir Database
 const db = require('./database/models');
 
+
 var indexRouter = require('./routes/index');
 const productRouters = require('./routes/products');     //Nueva ruta
 const userRouter = require('./routes/user');     //Nueva ruta
+const { user } = require('./db/data');
 //const profileRouter = require('./routes/users');     Nueva ruta
 
 var app = express();
@@ -41,6 +43,24 @@ app.use(function(req, res, next) {
     return next();
   } 
   return next();
+})
+
+//Middleware de Cookies.
+app.use(function(req, res, next) {
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+
+    let idUsuarioEnCookie = req.cookies.userId;
+    db.User.findByPk(idUsuarioEnCookie)
+    .then((user) => {
+      req.session.user = user.dataValues;
+      res.locals.user = user.dataValues;
+      return next();
+    }).catch((err) => {
+      console.log(err);
+    });
+  } else {
+    return next();
+  }
 })
 
 
