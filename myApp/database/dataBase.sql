@@ -9,11 +9,11 @@ CREATE TABLE users (
             apellido				VARCHAR(50)			NOT NULL,
             email					VARCHAR(150)		NOT NULL,
             contrasenia				VARCHAR(200)		NOT NULL,
-            created_at			    DATE 				NOT NULL,
-            updated_at              DATE,
-            numeroDocumento			INT					NOT NULL,
-            fotoPerfil				VARCHAR(1000)
-            
+            fecha_nacimiento        DATE                NOT NULL,
+            numero_documento		INT					NOT NULL,
+            fotoPerfil				VARCHAR(1000)       NULL,
+            created_at              TIMESTAMP           NULL,
+            updated_at              TIMESTAMP           NULL
 );
 
 CREATE TABLE products (

@@ -23,7 +23,7 @@ html, body {
 
 body {
   font-weight: 300;
-  background-color: #edf7f6;
+  background-color: #d5f0ec;
 }
 
 ul,
@@ -57,7 +57,11 @@ figure {
   padding: 0;
 }
 
-img {
+img{
+  width: 100%;
+}
+
+.banner img{
   width: 100%;
 }
 
@@ -71,17 +75,7 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
-.titles {
-  margin: 50px 0px 30px 200px;
-}
-
 /*====== Main Header ======*/
-.main-header {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
 .main-header .container{
   display: flex;
   flex-direction: column;
@@ -103,7 +97,7 @@ hr {
 
 .main-header .container .row .col-5 {
   flex: auto;
-  max-width: 15%;
+  max-width: 25%;
 }
 
 .main-header .container .row .col-12{
@@ -113,17 +107,17 @@ hr {
 
 .main-header .container .row .col-md-6{
   flex: auto;
-  width: 70%;
+  width: 50%;
 }
 
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
-  text-align: end;
+  text-align: center;
 }
 
-.main-header_home-link img {
-  width: 65%;
+.main-header_home-link img{
+  width: 60%;
 }
 
 .main-header_credit-link {
@@ -216,7 +210,6 @@ input:focus{
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  padding-left: 110px;
 }
 
 .logout{
@@ -264,7 +257,6 @@ input:focus{
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  margin: 0px;
 }
 
 .product-box {
@@ -585,6 +577,8 @@ form {
 .error{
   color: rgb(209, 0, 0);
   font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
 }
 
 .inpForm {
@@ -684,8 +678,9 @@ img.avatar {
   background-color: #032ca6d7;
 }
 
-.nameProfileHeader{
+.nameProfileHeader p{
   font-style: normal;
+  margin: 0px;
 }
 
 /*====== Search-Results ======*/

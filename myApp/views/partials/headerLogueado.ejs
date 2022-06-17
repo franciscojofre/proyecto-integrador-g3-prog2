@@ -7,45 +7,36 @@
 						<img src="/images/UdeTech_blanco.png">
 					</a>
 				</div>
-
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-				
-				
-	
 				<div class="col-12 col-md-4">
 					
 					<ul class="main-header_credit-link" id="routesLogued">
 						<li>
 							<a class="nameProfileHeader" href="/user/profile"> 
 								<% if (locals.user != undefined) { %>
-								<p>Bienvenido <%= user.nombre %> </p>
+									<p>Bienvenido <%= user.nombre %> </p>
 								<% } %>  
 							</a>
 						</li>
 						<li>
-							
-							<a href="/user/logout" class="itemLista">Cerrar Sesión <i class="fas fa-sign-in-alt"></i></a>
-
+							<a href="/user/logout" class="itemLista">Cerrar Sesión<i class="fas fa-sign-in-alt"></i></a>
 						</li>
 					</ul>
 				</div>
 			</div>
-	
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
-
 				<a class="right-navbar">
 					Todas las opiniones en un solo lugar
 				</a>

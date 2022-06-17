@@ -11,46 +11,43 @@
 		<%- include('./partials/headerDesLogueado.ejs')  %> 
 	<% } %> 
 
-	<!-- Novedades -->
-	<div class="titles">
+		<!-- saque los ids de los inputs -->
+	<div class="container">
 		<h2 class="products-title">Registrate</h2>
-	</div>
-	
-	<!-- saque los ids de los inputs -->
-
-	<!-- Productos Encontrados -->
-	<form method="POST" action="/user/register" enctype="multipart/form-data">
-		<div class="container">
+		<form method="POST" action="/user/register" enctype="multipart/form-data">
 			<label class="textForm" for="img"><b>Foto de perfil</b></label>
 			<div class="imgcontainer">
 					<img src="/images/users/default-image.png" alt="Avatar" class="avatar">
 					<input type="file" name="fotoPerfil" accept="image/png, .jpeg, .jpeg">
 			</div>			
-			
+
 			<label class="textForm" for="uname"><b>Nombre</b></label>
-			<input class="inpForm" type="text" placeholder="Nombre" name="nombre"  required>
+			<input class="inpForm" type="text" placeholder="Nombre" name="nombre" required>
 
 			<label class="textForm" for="uname"><b>Apellido</b></label>
-			<input class="inpForm" type="text" placeholder="Nombre" name="apellido"  required>
+			<input class="inpForm" type="text" placeholder="Apellido" name="apellido" required>
 
 			<label class="textForm" for="uname"><b>Email</b></label>
-			<input class="inpForm" type="email" placeholder="Email" name="email"  required>
-		
+			<input class="inpForm" type="email" placeholder="Email" name="email">
+			
 			<label class="textForm" for="psw"><b>Contraseña</b></label>
 			<input class="inpForm" type="password" placeholder="Contraseña" name="contrasenia" required>
-			
+				
 			<label class="textForm" for="date"><b>Fecha de nacimiento</b></label>
 			<input class="inpForm" type="date" placeholder="Nacimiento" name="fechaNacimiento" required>
-			
+				
 			<label class="textForm" for="psw"><b>DNI</b></label>
 			<input class="inpForm" type="number" placeholder="DNI" name="numeroDocumento" required>
-			
+				
+			<% if (locals.errors) { %>
+				<p class="error"><%= locals.errors.message %> </p>
+			<% } %>
+
 			<div class="divButton">
-				<button class="btnForm" type="text">REGISTRARSE</button>
+				<button class="btnForm" type="submit">REGISTRARSE</button>
 			</div>
-		</div>
-	</form>
-	<!-- Productos Encontrados -->
+		</form>
+	</div>
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>
