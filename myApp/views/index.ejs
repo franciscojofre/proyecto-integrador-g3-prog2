@@ -26,12 +26,12 @@
 			<!-- Show the "ultimos" products -->
 	
 			<% for(let i = 0; i < listaProductos.length; i++) { %>
-				<% if (listaProductos[i].novedad === true) { %>		
+				<%// if (listaProductos[i].novedad === true) { %>		
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
 							<a href="/product/id/<%= listaProductos[i].id %>">
 								<figure class="product-box_image">
-									<img src="<%= listaProductos[i].image %>" alt="<%= listaProductos[i].title %>">
+									<img src="/images/imgProduct/<%= listaProductos[i].image %>" alt="<%= listaProductos[i].title %>">
 								</figure>
 								<article class="product-box_data">
 									<h2><%= listaProductos[i].title %></h2>
@@ -42,7 +42,7 @@
 						</section>
 					</div>
 				<% } %>
-			<% } %>
+			<%// } %>
 		</div>
 	</div>
 	<!-- /Novedades -->
