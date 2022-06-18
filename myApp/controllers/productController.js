@@ -91,13 +91,23 @@ const productController = {
     processProductAdd: (req, res) => {
         let info = req.body;
         let fotoProducto = req.file.filename;
-        let productoNuevo = {
-            image: fotoProducto,
-            title: info.title,
-            descrip: info.desc,
-            createAt: new Date(),
-        };
+        let errors = {};
 
+        if (info.title == "") {
+            errors.message = "El nombre esta vacio";
+            res.locals.errors = errors;
+            return res.render('product-add')
+        } else if (info.desc == ""){
+            errors.message = "La descripcion esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-add')
+        } else {
+                let productoNuevo = {
+                image: fotoProducto,
+                title: info.title,
+                descrip: info.desc,
+                createAt: new Date(),
+            };
         db.Product.create(productoNuevo)
         .then((resultado) => {
             return res.redirect("/")
@@ -105,6 +115,7 @@ const productController = {
         .catch((err) => {
             return res.send(err)
         })
+        }
     }
 
 }

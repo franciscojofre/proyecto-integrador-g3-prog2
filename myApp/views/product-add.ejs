@@ -14,12 +14,15 @@
 	<!-- ProductsAAniadir -->
 	<div class="container">
 		<h2 class="products-title">Cargar nuevo producto</h2>
+		<% if (locals.errors) { %>
+			<p class="error"><%= locals.errors.message %> </p>
+		<% } %>
 		<form method="POST" action="/product/product-add" enctype="multipart/form-data">
 			<label class="textForm" for="img"><b>Imagen del producto</b></label>
-			<input class="inpForm" type="file" name="imgProduct" required>
+			<input class="inpForm" type="file" name="imgProduct">
 			
 			<label class="textForm" for="name"><b>Nombre del producto</b></label>
-			<input class="inpForm" type="text" placeholder="Ingrese aqui el nombre" name="title" required>
+			<input class="inpForm" type="text" placeholder="Ingrese aqui el nombre" name="title">
 		
 			<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
 			<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
@@ -28,6 +31,7 @@
 				<button id="btnFormPA" class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>
 			</div>
 		</form>
+
 	</div>
 	<!-- ProductsAAniadir -->
 
