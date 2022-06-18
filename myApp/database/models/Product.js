@@ -26,6 +26,12 @@ module.exports = function (sequelize, dataTypes) {
         },
         user_id: {
             type: dataTypes.INTEGER
+        },
+        createAt: {
+            type: dataTypes.DATE
+        },
+        updateAt: {
+            type: dataTypes.DATE
         }
     }
 

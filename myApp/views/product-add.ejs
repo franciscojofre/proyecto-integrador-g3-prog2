@@ -14,18 +14,15 @@
 	<!-- ProductsAAniadir -->
 	<div class="container">
 		<h2 class="products-title">Cargar nuevo producto</h2>
-		<form method="POST" action="/product/product-add">
+		<form method="POST" action="/product/product-add" enctype="multipart/form-data">
 			<label class="textForm" for="img"><b>Imagen del producto</b></label>
-			<input class="inpForm" type="file" name="img" required>
+			<input class="inpForm" type="file" name="imgProduct" required>
 			
 			<label class="textForm" for="name"><b>Nombre del producto</b></label>
 			<input class="inpForm" type="text" placeholder="Ingrese aqui el nombre" name="title" required>
 		
 			<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
 			<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
-
-			<label class="textForm" for="date"><b>Fecha de carga</b></label>
-			<input class="inpForm" type="date" placeholder="¿Que dia estas cargando este producto?" name="date" required>
 			
 			<div class="divButton">
 				<button id="btnFormPA" class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>

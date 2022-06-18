@@ -90,10 +90,12 @@ const productController = {
     },
     processProductAdd: (req, res) => {
         let info = req.body;
-
+        let fotoProducto = req.file.filename;
         let productoNuevo = {
-            name: info.title,
-            descrip: info.desc
+            image: fotoProducto,
+            title: info.title,
+            descrip: info.desc,
+            createAt: new Date(),
         };
 
         db.Product.create(productoNuevo)
