@@ -24,4 +24,7 @@ router.get('/search-results', productController.searchResults);
 router.get('/product-add', productController.productAdd);
 router.post('/product-add', upload.single('imgProduct'), productController.processProductAdd);
 
+router.get('/product-edit/:id', productController.edit); 
+router.post('/product-edit/:id', upload.single('imgProduct'), productController.processEdit);
+
 module.exports = router;

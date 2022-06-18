@@ -46,10 +46,6 @@ const userController = {
                 res.locals.errors = errors;
                 return res.render('login');
             }
-
-
-
-
         }).catch((err) => {
             console.log('El error es: ' + err)
         });

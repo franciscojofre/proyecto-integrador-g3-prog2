@@ -4,13 +4,9 @@ const op = db.Sequelize.Op;
 
 const controlador = {
     products: function (req, res) {
-        products.findAll({
-            include: [
-                {association: 'users'}
-            ]
-        })
+        products.findAll({order : [["createAt", "DESC"]]}, {include: [{association: 'users'}]})
+
             /* where : [{ awards : 1 }, { length : 120}] */
-           /*  order : [["title", "ASC"]] */
            /* limit : 5,
            offset : 3 */
         
