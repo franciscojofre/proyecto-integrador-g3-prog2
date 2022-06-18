@@ -79,8 +79,7 @@ const userController = {
     processRegister: (req, res) => {
         let info = req.body;
         let fotoPerfil = req.file;  //ver esto si no se le debe agregar .filename
-
-        //Guardando error
+        
         let errors = {}
 
         if (info.nombre == '') {

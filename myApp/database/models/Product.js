@@ -39,13 +39,18 @@ module.exports = function (sequelize, dataTypes) {
     const Product = sequelize.define(alias, cols, config);
 
     Product.associate = function(models){
-        Product.hasMany(models.Comment, {
-            as:'porductComment', //Como voy a llamar a la relación dentro del controlador
-            foreignKey:'product_id' //hasMany= Columna del segundo modelo
+        Product.belongsTo(models.User, {
+            as:'users', //Como voy a llamar a la relación dentro del controlador
+            foreignKey: 'user_id' //hasMany= Columna del segundo modelo
         })
+        // Product.belongsTo(models.Comment, {
+        //     as: 'comments_association', //Naming collision between attribute 'comments' and association 'comments' on model Product.
+        //     foreignKey: 'user_id',
+        //     otherKey: 'product_id'
+        // })
     }
 
-    return Product
+    return Product;
 }
 
 

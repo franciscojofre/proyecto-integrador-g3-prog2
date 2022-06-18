@@ -8,12 +8,24 @@ const data = require('../db/data');
 const productController = {
     productDetail: function (req, res) {
         let idSolicitado = req.params.id;
+        let relations = {
+            include: {
+                all: true,
+                nested: false
+            }
+        }
         // return res.render('product', {
         //     listaProductos: data.products,
         //     idProducto: idSolicitado,
         //     listaComentarios: data.comments,
         // })
-        productModel.findByPk(idSolicitado).then((result) =>{
+
+        productModel.findByPk(idSolicitado, {
+            include: [
+                {association: 'users'}
+            ]
+        })
+        .then((result) =>{
 
             // let date = result.release_date;
             // let fechaFormateada = new Date(date).toISOString().slice(0,10);
@@ -26,13 +38,18 @@ const productController = {
               novedad: result.novedad,
               image: result.image,
               createAt: result.createAt,
-              user_id: result.user_id
+              //user_id: result.user_id,
+              users: result.users //asociación, un objeto literal que va a tener todas las columnas de user
+              //comments: result.comments_association //asociación, un objeto que va a tener todas las columnas de comments
             }
-            
             return res.render("product", {
                 product: product
             })
         })
+        .catch((err) => {
+            console.log('El error es: ' + err)
+        })
+
 
     },
     processComment: (req, res) => {

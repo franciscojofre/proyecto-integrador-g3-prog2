@@ -44,12 +44,10 @@ FOREIGN KEY (product_id) REFERENCES products(id)
 CREATE TABLE followers (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            user_id_seguidor 		INT                 UNSIGNED NOT NULL,
-            user_id_seguido			INT                 UNSIGNED NOT NULL,
-
-            
-FOREIGN KEY (user_id_seguidor) REFERENCES users(id),
-FOREIGN KEY (user_id_seguido) REFERENCES users(id)
+            user_id_follower 		INT                 UNSIGNED NOT NULL,
+            user_id_following			INT                 UNSIGNED NOT NULL,     
+FOREIGN KEY (user_id_follower) REFERENCES users(id),
+FOREIGN KEY (user_id_following) REFERENCES users(id)
 );
 
 
