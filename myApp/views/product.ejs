@@ -17,7 +17,7 @@
           <div class="d-flex align-items-center">
             <ul>
               <li><h2 class="products-title"><%= product.title %></h2></li>
-              <li><h2 class="products-tile"> Propietario: <%= product.users.nombre %></h2></li>
+              
             </ul>
           </div>
         <div class="product-detail">
@@ -50,6 +50,7 @@
               </div>
             </div>
           </div>
+          <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
         </div>
     <!-- /product detail -->
 
