@@ -3,7 +3,7 @@ const productModel = db.Product; /* Cambiar por tablas en el database del proyec
 const commentModel = db.Comment;
 const op = db.Sequelize.Op;
 
-const data = require('../db/data');
+//const data = require('../db/data');
 
 const productController = {
     productDetail: function (req, res) {
@@ -86,10 +86,24 @@ const productController = {
         });
     },
     productAdd: function (req, res) {
-        return res.render('product-add', {
-            userName: data.user.name
-        })
+        return res.render('product-add')
     },
+    processProductAdd: (req, res) => {
+        let info = req.body;
+
+        let productoNuevo = {
+            name: info.title,
+            descrip: info.desc
+        };
+
+        db.Product.create(productoNuevo)
+        .then((resultado) => {
+            return res.redirect("/")
+        })
+        .catch((err) => {
+            return res.send(err)
+        })
+    }
 
 }
 
