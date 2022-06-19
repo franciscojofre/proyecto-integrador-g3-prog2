@@ -106,9 +106,9 @@ const productController = {
                 image: fotoProducto,
                 title: info.title,
                 descrip: info.desc,
-                createAt: new Date(),
+                createAt: new Date()
             };
-        db.Product.create(productoNuevo)
+        productModel.create(productoNuevo)
         .then((resultado) => {
             return res.redirect("/")
         })

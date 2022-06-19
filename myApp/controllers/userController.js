@@ -79,7 +79,6 @@ const userController = {
             {email: info.email},
             {numero_documento: info.numeroDocumento}
         ]};
-
         userModel.findOne(filter)
         .then((result) =>{
             if (result != null){
@@ -116,7 +115,7 @@ const userController = {
                     res.locals.errors = errors
                     return res.render('register')
                 } else{
-                    let fotoPerfil = req.file.filename;  //ver esto si no se le debe agregar .filename
+                    let fotoPerfil = req.file.filename;
                     let dataUser = {
                         nombre: info.nombre,
                         apellido: info.apellido,

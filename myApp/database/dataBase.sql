@@ -11,7 +11,7 @@ CREATE TABLE users (
             contrasenia				VARCHAR(200)		NOT NULL,
             fecha_nacimiento        DATE                NOT NULL,
             numero_documento		INT					NOT NULL,
-            foto_perfil				VARCHAR(1000)       NULL,
+            foto_perfil				VARCHAR(1000)       NOT NULL,
             created_at              TIMESTAMP           NULL,
             updated_at              TIMESTAMP           NULL
 );
