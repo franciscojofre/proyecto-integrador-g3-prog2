@@ -17,13 +17,12 @@
           <div class="d-flex align-items-center">
             <ul>
               <li><h2 class="products-title"><%= product.title %></h2></li>
-              <li><h2 class="products-tile"> Propietario: <%= product.users.nombre %></h2></li>
             </ul>
           </div>
         <div class="product-detail">
           <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-              <img src="<%= product.image %>" alt="" class="product-detail-img"/>
+              <img src="/images/imgProduct/<%= product.image %>" alt="" class="product-detail-img"/>
               <p class="product-detail-description"> <%= product.descrip %> </p>
             </article>
             <div class="col-12 col-lg-4">

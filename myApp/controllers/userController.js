@@ -1,6 +1,7 @@
 const db = require("../database/models");
 const userModel = db.User;
 const commentModel = db.Comment;
+const productModel = db.Product;
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
@@ -62,11 +63,16 @@ const userController = {
         return res.render('login')
     },
     profile: function (req, res) {
-        res.render('profile', {
-            listadoProducts: data.products,
-            userInfo: data.user,
-            userName: data.user.name
+        productModel.findAll({
+            where: [{ user_id: req.session.user.id }]
         })
+        .then(result => {
+
+            res.render('profile', {
+                products: result
+            })
+        })
+        .catch(err => console.log(err));
     },
     profileEdit: function (req, res) {
         res.render('profile-edit', {
