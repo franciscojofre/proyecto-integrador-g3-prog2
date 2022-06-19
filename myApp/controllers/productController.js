@@ -90,7 +90,7 @@ const productController = {
     },
     processProductAdd: (req, res) => {
         let info = req.body;
-        let fotoProducto = req.file;
+        let fotoProducto = req.file.filename;
         let errors = {};
 
         if (info.title == "") {
@@ -111,6 +111,7 @@ const productController = {
                 title: info.title,
                 descrip: info.desc,
                 createAt: new Date(),
+                user_id: info.userId
             };
         db.Product.create(productoNuevo)
         .then((resultado) => {
