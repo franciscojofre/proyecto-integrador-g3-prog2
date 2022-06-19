@@ -17,7 +17,7 @@
           <div class="d-flex align-items-center">
             <ul>
               <li><h2 class="products-title"><%= product.title %></h2></li>
-              
+              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/id/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
             </ul>
           </div>
         <div class="product-detail">
@@ -31,10 +31,11 @@
                   <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
                     < } %>          Relacionar con tabla de comments   -->      
                     <article>
-                      <% if (user.foto_perfil != null) { %>
+                      <% if (locals.user != undefined) { %>
                         <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
                       <% } else { %>
                         <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+                        <a href="/user/register">Crea tu perfil para poder comentar</a>
                       <% } %>
                       <div class="data">
                         <p class="user">
@@ -54,7 +55,12 @@
               </div>
             </div>
           </div>
-          <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
+
+          <% if (locals.user.id == product.user_id) { %>
+           <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
+          <% } %>
+
+          
         </div>
     <!-- /product detail -->
 

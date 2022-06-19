@@ -39,8 +39,9 @@ const productController = {
               image: result.image,
               createAt: result.createAt,
               //user_id: result.user_id,
-              users: result.users //asociación, un objeto literal que va a tener todas las columnas de user
+              users: result.users, //asociación, un objeto literal que va a tener todas las columnas de user
               //comments: result.comments_association //asociación, un objeto que va a tener todas las columnas de comments
+              user_id: result.user_id
             }
             return res.render("product", {
                 product: product
@@ -85,7 +86,7 @@ const productController = {
             console.log(err);
         });
     },
-    productAdd: function (req, res) {
+    productAdd: function (_req, res) {
         return res.render('product-add')
     },
     processProductAdd: (req, res) => {
