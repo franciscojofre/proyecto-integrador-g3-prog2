@@ -56,7 +56,7 @@ const userController = {
     logout : (req, res) => {
         req.session.destroy();
         res.clearCookie('userId');
-        return res.render('login')
+        return res.redirect('/')
     },
     profile: (req, res) => {
         productModel.findAll({
@@ -148,6 +148,10 @@ const userController = {
                     return res.render('register')
                 } else if (info.numeroDocumento == ''){
                     errors.message = 'El numero de documento esta vacío'
+                    res.locals.errors = errors
+                    return res.render('register')
+                } else if(info.foto_perfil == ''){
+                    errors.message = 'La imagen de perfil esta vacía'
                     res.locals.errors = errors
                     return res.render('register')
                 } else{
