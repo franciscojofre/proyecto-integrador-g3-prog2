@@ -58,7 +58,7 @@ const userController = {
         res.clearCookie('userId');
         return res.render('login')
     },
-    profile: function (req, res) {
+    profile: (req, res) => {
         productModel.findAll({
             where: [{ user_id: req.session.user.id }]
         })
@@ -70,10 +70,40 @@ const userController = {
         })
         .catch(err => console.log(err));
     },
-    profileEdit: function (req, res) {
-        res.render('profile-edit', {
-            userName: data.user.name
-        })
+    profileEdit: (req, res) => {
+        if (req.session.user != undefined) {
+            res.render('profile-edit')
+        } else {
+            res.redirect('/user/login')
+        }
+    },
+    profileUpdate:(req, res) => {
+        let info = req.body;
+        let userId = req.session.user.id;
+        let imgPerfil = req.file.filename;
+        let filtro = {
+            where: {
+                id: userId
+            }
+        }
+
+        let usuario = {
+            nombre: info.name,
+            apellido: info.apellido,
+            email: info.email,
+            fecha_nacimiento: info.fecha_nacimiento,
+            numero_documento: info.numero_documento,
+            foto_perfil: imgPerfil,
+            updated_at: new Date(),
+        }
+
+        userModel.update(usuario, filtro)
+            .then(result => {
+                req.session.user = result.dataValues;
+                res.redirect('/user/profile')
+            })
+            .catch(err => console.log(err));
+
     },
     register: function (req, res) {
             return res.render('register')

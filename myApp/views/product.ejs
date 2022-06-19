@@ -31,7 +31,11 @@
                   <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
                     < } %>          Relacionar con tabla de comments   -->      
                     <article>
-                      <img src="" alt="" />
+                      <% if (user.foto_perfil != null) { %>
+                        <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+                      <% } else { %>
+                        <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+                      <% } %>
                       <div class="data">
                         <p class="user">
                           <strong>
