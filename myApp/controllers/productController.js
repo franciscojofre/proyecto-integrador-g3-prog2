@@ -139,7 +139,7 @@ const productController = {
     },
     processEdit: (req, res) => {
         let info = req.body;
-        let fotoProducto = req.file;
+        let fotoProducto = req.file.filename;
         let idParaEditar = req.params.id;
         let errors = {};
 
