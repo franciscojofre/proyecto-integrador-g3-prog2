@@ -14,18 +14,19 @@
 					</form>
 				</div>
 				<div class="col-12 col-md-4">
-					
-					<ul class="main-header_credit-link" id="routesLogued">
-						<li>
+					<div class="main-header_credit-link" id="routesLogued">
 							<a class="nameProfileHeader" href="/user/profile"> 
 								<% if (locals.user != undefined) { %>
 									<%= user.foto_perfil %>
 									<p>Bienvenido <%= locals.user.nombre + " " + locals.user.apellido %> </p>
-								<% } %>  
+								<% } %>
+								<% if (user.foto_perfil != null) { %>
+									<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+								<% } else { %>
+									<img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+								<% } %>
 							</a>
-						</li>
-						
-					</ul>
+					</div>
 				</div>
 			</div>
 			<button class="btn-toggle-navbar">
