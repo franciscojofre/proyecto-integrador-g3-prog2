@@ -16,7 +16,7 @@
         <div class="container products-wrapper">
           <div class="d-flex align-items-center">
             <ul>
-              <li><h2 class="products-title"><%= products.title %></h2></li>
+              <li><h2 class="products-title"><%= product.title %></h2></li>
               
             </ul>
           </div>
@@ -31,7 +31,11 @@
                   <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
                     < } %>          Relacionar con tabla de comments   -->      
                     <article>
-                      <img src="" alt="" />
+                      <% if (user.foto_perfil != null) { %>
+                        <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+                      <% } else { %>
+                        <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+                      <% } %>
                       <div class="data">
                         <p class="user">
                           <strong>
@@ -50,7 +54,7 @@
               </div>
             </div>
           </div>
-          <a class= "btn" href="/product/product-edit/<%= products.id %>">Editar</a>
+          <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
         </div>
     <!-- /product detail -->
 

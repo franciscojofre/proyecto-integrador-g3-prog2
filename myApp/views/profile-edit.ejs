@@ -14,17 +14,29 @@
 	<!-- profileEdit -->
 	<div class="container">
 		<h2 class="products-title">Editar mi perfil</h2>
-		<form method="GET">
-			<label class="textForm" for="uname"><b>Email</b></label>
-			<input class="inpForm" type="text" placeholder="Email Establecido" name="uname" required>
+		<form action="edit" enctype="multipart/form-data" method="POST">
+			<label class="textForm" for="img"><b>Foto de perfil</b></label>
+			<input class="inpForm" type="file"  name="imgPerfil" id="">
+
 			
-			<label class="textForm" for="uname"><b>Nombre</b></label>
-			<input class="inpForm" type="text" placeholder="Nombre Establecido" name="uname" required>
+			<label class="textForm" for="email"><b>Email</b></label>
+			<input class="inpForm" type="email" value="<%= locals.user.email %> " name="email" id="">
+			
+			<label class="textForm" for="name"><b>Nombre</b></label>
+			<input class="inpForm" type="text" value="<%= locals.user.nombre %>" name="name" id="">
 		
-			<label class="textForm" for="psw"><b>Contraseña</b></label>
-			<input class="inpForm" type="password" placeholder="Contraseña Establecida" name="psw" required>
+			<label class="textForm" for="apellido"><b>Apellido</b></label>
+			<input class="inpForm" type="text" value="<%= locals.user.apellido %>" name="apellido" id="">
+
+			<label class="textForm" for="fecha_nacimiento"><b>Fecha de Nacimiento</b></label>
+			<input class="inpForm" type="text" value="<%= locals.user.fecha_nacimiento %>" name="fecha_nacimiento" id="">
+
+			<label class="textForm" for="numero_documento"><b>Numero de Documento</b></label>
+			<input class="inpForm" type="text" value="<%= locals.user.numero_documento %>" name="numero_documento" id="">
+
+			
 		
-			<a href="/user/profile"><button class="bttnLogin" type="button"> Confirmar Edición </button></a>	
+			<a href="/user/profile"><button class="bttnLogin" type="submit"> Confirmar Edición </button></a>	
 		</form>
 	</div>
 	<!-- profileEdit -->
