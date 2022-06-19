@@ -11,7 +11,7 @@ CREATE TABLE users (
             contrasenia				VARCHAR(200)		NOT NULL,
             fecha_nacimiento        DATE                NOT NULL,
             numero_documento		INT					NOT NULL,
-            fotoPerfil				VARCHAR(1000)       NULL,
+            foto_perfil				VARCHAR(1000)       NULL,
             created_at              TIMESTAMP           NULL,
             updated_at              TIMESTAMP           NULL
 );
@@ -26,6 +26,7 @@ CREATE TABLE products (
             image					VARCHAR(1000),
             user_id					INT 				UNSIGNED,
             createAt                DATE                NOT NULL,
+            updatedAt                                   NULL,
 FOREIGN KEY (user_id) REFERENCES users(id)
 );
 

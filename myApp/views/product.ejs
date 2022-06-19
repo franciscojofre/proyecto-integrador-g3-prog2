@@ -16,19 +16,20 @@
         <div class="container products-wrapper">
           <div class="d-flex align-items-center">
             <ul>
-              <li><h2 class="products-title"><%= product.title %></h2></li>
+              <li><h2 class="products-title"><%= products.title %></h2></li>
+              
             </ul>
           </div>
         <div class="product-detail">
           <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-              <img src="/images/imgProduct/<%= product.image %>" alt="" class="product-detail-img"/>
-              <p class="product-detail-description"> <%= product.descrip %> </p>
+              <img src="/images/imgProduct/<%= products.image %>" alt="" class="product-detail-img"/>
+              <p class="product-detail-description"> <%= products.descrip %> </p>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
                   <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
-                    < } %>                                                                                    Relacionar con tabla de comments   -->      
+                    < } %>          Relacionar con tabla de comments   -->      
                     <article>
                       <img src="" alt="" />
                       <div class="data">
@@ -49,6 +50,7 @@
               </div>
             </div>
           </div>
+          <a class= "btn" href="/product/product-edit/<%= products.id %>">Editar</a>
         </div>
     <!-- /product detail -->
 

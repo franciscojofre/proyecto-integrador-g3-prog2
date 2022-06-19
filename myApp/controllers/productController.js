@@ -90,14 +90,28 @@ const productController = {
     },
     processProductAdd: (req, res) => {
         let info = req.body;
-        let fotoProducto = req.file.filename;
-        let productoNuevo = {
-            image: fotoProducto,
-            title: info.title,
-            descrip: info.desc,
-            createAt: new Date(),
-        };
+        let fotoProducto = req.file;
+        let errors = {};
 
+        if (info.title == "") {
+            errors.message = "El nombre esta vacio";
+            res.locals.errors = errors;
+            return res.render('product-add')
+        } else if (info.desc == ""){
+            errors.message = "La descripcion esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-add')
+        } else if (fotoProducto == null){
+            errors.message = "La foto esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-add')
+        } else {
+                let productoNuevo = {
+                image: fotoProducto,
+                title: info.title,
+                descrip: info.desc,
+                createAt: new Date(),
+            };
         db.Product.create(productoNuevo)
         .then((resultado) => {
             return res.redirect("/")
@@ -105,8 +119,61 @@ const productController = {
         .catch((err) => {
             return res.send(err)
         })
-    }
+        }
+    },
+    edit: (req, res) => {
+        let id = req.params.id;
+        db.Product.findByPk(id)
+        .then((resultado) => {
+            let product = {
+                id: resultado.id,
+                title : resultado.title,
+                descrip : resultado.descrip,
+              }
 
+            res.render('product-edit', {
+                product: product,
+            })
+        })
+    },
+    processEdit: (req, res) => {
+        let info = req.body;
+        let fotoProducto = req.file;
+        let idParaEditar = req.params.id;
+        let errors = {};
+
+        if (info.title == "") {
+            errors.message = "El nombre esta vacio";
+            res.locals.errors = errors;
+            return res.render('product-edit')
+        } else if (info.desc == ""){
+            errors.message = "La descripcion esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-edit')
+        } else if (fotoProducto == null){
+            errors.message = "La foto esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-edit')
+        } else {
+                let productoEdit = {
+                image: fotoProducto,
+                title: info.title,
+                descrip: info.descrip,
+                updateAt: new Date(),
+            };
+        db.Product.update(productoEdit, {
+            where: {
+                id: idParaEditar
+            }
+        })
+        .then((resultado) => {
+            return res.redirect("/")
+        })
+        .catch((err) => {
+            return res.send(err)
+        })
+        }
+    }
 }
 
 

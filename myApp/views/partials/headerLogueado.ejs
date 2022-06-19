@@ -19,13 +19,12 @@
 						<li>
 							<a class="nameProfileHeader" href="/user/profile"> 
 								<% if (locals.user != undefined) { %>
-									<p>Bienvenido <%= user.nombre %> </p>
+									<%= user.foto_perfil %>
+									<p>Bienvenido <%= locals.user.nombre + " " + locals.user.apellido %> </p>
 								<% } %>  
 							</a>
 						</li>
-						<li>
-							<a href="/user/logout" class="itemLista">Cerrar Sesión<i class="fas fa-sign-in-alt"></i></a>
-						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -38,7 +37,7 @@
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
 				<p class="right-navbar">
-					Todas las opiniones en un solo lugar
+					<a href="/user/logout" class="itemLista" type="submit">Cerrar Sesión<i class="fas fa-sign-in-alt"></i></a>
 				</p>
 			</nav>
 		</div>
