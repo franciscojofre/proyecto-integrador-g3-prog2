@@ -101,12 +101,17 @@ const productController = {
             errors.message = "La descripcion esta vacia";
             res.locals.errors = errors;
             return res.render('product-add')
+        } else if (fotoProducto == null){
+            errors.message = "La foto esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-add')
         } else {
                 let productoNuevo = {
                 image: fotoProducto,
                 title: info.title,
                 descrip: info.desc,
-                createAt: new Date()
+                createAt: new Date(),
+                user_id: info.userId
             };
         productModel.create(productoNuevo)
         .then((resultado) => {
@@ -134,16 +139,20 @@ const productController = {
     },
     processEdit: (req, res) => {
         let info = req.body;
-        let fotoProducto = req.file.filename;
+        let fotoProducto = req.file;
         let idParaEditar = req.params.id;
         let errors = {};
 
         if (info.title == "") {
             errors.message = "El nombre esta vacio";
             res.locals.errors = errors;
-            return res.render('product-add')
+            return res.render('product-edit')
         } else if (info.desc == ""){
             errors.message = "La descripcion esta vacia";
+            res.locals.errors = errors;
+            return res.render('product-edit')
+        } else if (fotoProducto == null){
+            errors.message = "La foto esta vacia";
             res.locals.errors = errors;
             return res.render('product-edit')
         } else {

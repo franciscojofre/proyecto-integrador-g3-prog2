@@ -22,10 +22,12 @@
 			<input class="inpForm" type="file" name="imgProduct">
 			
 			<label class="textForm" for="name"><b>Nombre del producto</b></label>
-			<input class="inpForm" type="text" placeholder="Nombre" name="title" required>
+			<input class="inpForm" type="text" placeholder="Nombre" name="title">
 		
 			<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
 			<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
+
+			<input class="inpForm" type="hidden" placeholder="Describa el producto que quiere cargar (opcional)" name="userId" value="<%= locals.user.id %> ">
 			
 			<div class="divButton">
 				<button id="btnFormPA" class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>
