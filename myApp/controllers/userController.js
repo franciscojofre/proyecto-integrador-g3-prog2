@@ -155,7 +155,6 @@ const userController = {
                     res.locals.errors = errors
                     return res.render('register')
                 } else{
-                    let fotoPerfil = req.file.filename;
                     let dataUser = {
                         nombre: info.nombre,
                         apellido: info.apellido,
@@ -164,14 +163,19 @@ const userController = {
                         fecha_nacimiento: info.fechaNacimiento,
                         created_at: new Date(),
                         numero_documento: info.numeroDocumento,
-                        foto_perfil: fotoPerfil
+                        foto_perfil: ''
+                    }
+                    if (req.file != undefined){
+                        dataUser.foto_perfil = req.file.filename
+                    } else {
+                        dataUser.foto_perfil = 'default-image.png'
                     }
                     userModel.create(dataUser)
                     .then((result) => {
                         return res.redirect('/user/login')    
                     })
                     .catch((err) => {
-                        return res.send('El error es: ' + err)
+                        console.log('El error es: ' + err)
                     });
                 }
             }
