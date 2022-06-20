@@ -31,7 +31,7 @@ const productController = {
             // let date = result.release_date;
             // let fechaFormateada = new Date(date).toISOString().slice(0,10);
       
-            let product = {
+            let productInfo = {
               id: result.id,
               title: result.title,
               descrip: result.descrip,
@@ -45,7 +45,7 @@ const productController = {
               user_id: result.user_id
             }
             return res.render("product", {
-                product: product
+                product: productInfo
             })
         })
         .catch((err) => {
@@ -53,18 +53,31 @@ const productController = {
         })
     },
     searchResults: (req, res) => {
+        // let relations = {
+        //     include: {
+        //         all: true,
+        //         nested: true
+        //     }
+        // }
         let queryString = req.query.search;
-        let filtro ={
+        let filtro = {
             where :{
              [op.or]: [
-               { title: { [op.like]: `%${queryString}%` } },
-               { descrip: { [op.like]: `%${queryString}%` } }
+               {title: {[op.like]: `%${queryString}%`}},
+               {descrip: {[op.like]: `%${queryString}%`}}
              ]
-           }
-           }
+           },
+           include: {
+            all: true,
+            nested: false
+            }
+        }
+           
         productModel.findAll(filtro)
         .then((result) => {
-                res.render('search-results', {listadoProducts: result} )
+            res.render('search-results', {
+                listProducts: result,
+            });
         }).catch((err) => {
             console.log(err);
         });

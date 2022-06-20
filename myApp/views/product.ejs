@@ -49,7 +49,7 @@
                 </section>
                 <form class="form" action="" method="POST">
                   <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
-                  <input class="form-input" name="user_id" type="hidden" value="<%= user.id %> " />
+                  <input class="form-input" name="user_id" type="hidden" value="<%= product.users_id %> " />
                   <input class="form-input" name="product_id" type="hidden" value="<%= product.id %> " />
                   <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
                 </form>
@@ -58,8 +58,8 @@
             </div>
           </div>
 
-          <% if (locals.user.id == product.user_id) { %>
-           <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
+          <% if (locals.user != undefined) { %>
+            <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
           <% } %>
 
           
