@@ -1,10 +1,6 @@
 const db = require("../database/models");
-<<<<<<< HEAD
-const user = db.User;
-=======
 const userModel = db.User;
 const commentModel = db.Comment;
->>>>>>> 3d5c78eba3c7b7d98143fdf37c46677dbd583faf
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
@@ -35,12 +31,7 @@ const userController = {
         .then((result) => {
             if (result != null) {
 
-<<<<<<< HEAD
-
-                let passEncriptada = bcrypt.compareSync(info.password,result.contrasenia)
-=======
                 let passEncriptada = bcrypt.compareSync(info.password, result.password)
->>>>>>> 3d5c78eba3c7b7d98143fdf37c46677dbd583faf
                 if (passEncriptada) {
                     
 
@@ -86,11 +77,7 @@ const userController = {
     },
     processRegister: (req, res) => {
         let info = req.body;
-<<<<<<< HEAD
-        let fotoPerfil = req.file;
-=======
         let fotoPerfil = req.file;  //ver esto si no se le debe agregar .filename
->>>>>>> 3d5c78eba3c7b7d98143fdf37c46677dbd583faf
         let dataUser = {
             nombre: info.nombre,
             apellido: info.apellido,
@@ -101,12 +88,7 @@ const userController = {
             numeroDocumento: info.numeroDocumento,
             fotoPerfil: fotoPerfil
         }
-<<<<<<< HEAD
-        console.log(info)
-        user.create(dataUser)
-=======
         userModel.create(dataUser)
->>>>>>> 3d5c78eba3c7b7d98143fdf37c46677dbd583faf
         .then((result) => {
             return res.redirect('/user/login')    
         })
