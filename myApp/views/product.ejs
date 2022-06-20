@@ -5,29 +5,38 @@
   <!-- Include Header -->
 
   <body>
-    <!-- Header -->
-    <%- include('./partials/headerDesLogueado') %>
-    <!-- /Header -->
+    <% if (locals.user != undefined) { %>
+      <%- include('./partials/headerLogueado.ejs')  %> 
+    <% }else {%>
+      <%- include('./partials/headerDesLogueado.ejs')  %> 
+    <% } %> 
 	
     <!-- ProductDetail -->
 
         <div class="container products-wrapper">
           <div class="d-flex align-items-center">
-            <h2 class="products-title"><%= product.title %></h2>
-            <p class="product-detail-description"></p>
+            <ul>
+              <li><h2 class="products-title"><%= product.title %></h2></li>
+              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/id/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
+            </ul>
           </div>
         <div class="product-detail">
           <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-              <img src="<%= product.image %>" alt="" class="product-detail-img"/>
+              <img src="/images/imgProduct/<%= product.image %>" alt="" class="product-detail-img"/>
               <p class="product-detail-description"> <%= product.descrip %> </p>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
                   <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
-                    < } %>                                                                                    Relacionar con tabla de comments   -->      
+                    < } %>          Relacionar con tabla de comments   -->      
                     <article>
-                      <img src="" alt="" />
+                      <% if (locals.user != undefined) { %>
+                        <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+                      <% } else { %>
+                        <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+                        <a href="/user/register">Crea tu perfil para poder comentar</a>
+                      <% } %>
                       <div class="data">
                         <p class="user">
                           <strong>
@@ -46,6 +55,12 @@
               </div>
             </div>
           </div>
+
+          <% if (locals.user.id == product.user_id) { %>
+           <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
+          <% } %>
+
+          
         </div>
     <!-- /product detail -->
 

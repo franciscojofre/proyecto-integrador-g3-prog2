@@ -20,29 +20,49 @@ module.exports = function (sequelize, dataTypes){
         contrasenia:{
             type : dataTypes.STRING
         },
-        created_at : {
+        fecha_nacimiento : {
             type: dataTypes.DATE,
-            allowNull:true,
         },
-        
-        numeroDocumento: {
-            type: dataTypes.INTEGER,
+        numero_documento: {
+            type: dataTypes.INTEGER
         },
-        fotoPerfil: {
+        foto_perfil: {
             type: dataTypes.STRING
         },
+        created_at: {
+            type: dataTypes.DATE,
+            allowNull:true
+        },
         updated_at: {
-            type: dataTypes.STRING,
+            type: dataTypes.DATE,
+            allowNull: true
         }
     }
 
     let config = {
         tableName : "users",
-        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
-        underscored: false, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
+        timestamps: true, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
+        underscored: true //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        User.hasMany(models.Product, {
+            as:'products',
+            foreignKey: 'user_id'       
+        })
+        // User.hasMany(models.Comment, {
+        //     as: 'comments',
+        //     foreignKey: 'user_id',
+        //     otherKey: 'product_id'
+        // })
+        // User.belongsToMany(models.User, {
+        //     as: 'users',
+        //     through: 'followers',
+        //     foreignKey:'user_id_follower',
+        // })
+    }
 
     return User;
 

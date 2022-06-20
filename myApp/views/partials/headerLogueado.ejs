@@ -7,47 +7,38 @@
 						<img src="/images/UdeTech_blanco.png">
 					</a>
 				</div>
-
-				<% if (locals.user != undefined) { %>
-					<p>Bienvenido <%= user.email %> </p>
-				<% } %>
-
 				<div class="col-7 col-md-6">
 					<form action="/product/search-results" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-	
 				<div class="col-12 col-md-4">
-					<ul class="main-header_credit-link" id="routesLogued">
-						<li>
-							<a class="nameProfileHeader" href="/user/profile"> <%= userName %>  </a>
-						</li>
-						<li>
-							<form action="/" method="GET">
-								<button class="logout" type="submit">
-									Cerrar Sesión <i class="fas fa-sign-in-alt"></i>
-								</button>
-							</form>
-						</li>
-					</ul>
+					<div class="main-header_credit-link" id="routesLogued">
+							<a class="nameProfileHeader" href="/user/profile"> 
+								<% if (locals.user != undefined) { %>
+									<p>Bienvenido <%= locals.user.nombre + " " + locals.user.apellido %> </p>
+								<% } %>
+								<% if (user.foto_perfil != undefined) { %>
+									<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+								<% } else { %>
+									<img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+								<% } %>
+							</a>
+					</div>
 				</div>
 			</div>
-	
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
-
-				<a class="right-navbar">
-					Todas las opiniones en un solo lugar
-				</a>
+				<p class="right-navbar">
+					<a href="/user/logout" class="itemLista" type="submit">Cerrar Sesión<i class="fas fa-sign-in-alt"></i></a>
+				</p>
 			</nav>
 		</div>
 	</header>

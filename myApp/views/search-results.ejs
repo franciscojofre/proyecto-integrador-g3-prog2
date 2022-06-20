@@ -5,9 +5,11 @@
 <!-- Include Header -->
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/headerDesLogueado') %>
-	<!-- Header -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado.ejs')  %> 
+	<% }else {%>
+		<%- include('./partials/headerDesLogueado.ejs')  %> 
+	<% } %> 
 
 	<!-- Novedades -->
 	<div class="titles">

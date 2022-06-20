@@ -6,29 +6,35 @@
 
 </head>
 <body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>
-	<!-- Header -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado.ejs')  %> 
+	<% }else {%>
+		<%- include('./partials/headerDesLogueado.ejs')  %> 
+	<% } %> 
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="/images/users/default-image.png" alt="foto de perfil" class="foto-perfil">
+				<% if (user.foto_perfil != null) { %>
+					<img class="foto-perfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+				<% } else { %>
+					<img class="foto-perfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+				<% } %>
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%- userInfo.name %> 
+					<h1 class="main-title"><%= locals.user.nombre + " " + locals.user.apellido %> 
 						<a href="/user/profile/edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
-				<p class="emailProfile"> <%= userInfo.email %> </p>
+				<p class="emailProfile"> <%= locals.user.email %>
 				<div>
 					<ul class="info-gen">
-						<li>8 productos</li>
+						<li><%= products.length %> productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -45,17 +51,17 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<% for(let i = 0; i < 8; i++ ) { %>	
+			<% for(let i = 0; i < products.length; i++ ) { %>	
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/product/id/<%- listadoProducts[i].id %> ">
+						<a href="/product/id/<%- products[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%- listadoProducts[i].img %>" alt="">
+								<img src="/images/imgProduct/<%- products[i].image %>" alt="">
 							</figure>
 							<article class="product-box_data">
-								<h2><%- listadoProducts[i].titulo %> </h2>
-								<p><%- listadoProducts[i].descripcion %> </p>
-								<p>Comentarios: <%- listadoProducts[i].comentarios %> </p>
+								<h2><%- products[i].title %> </h2>
+								<p><%- products[i].descrip %> </p>
+								<p>Comentarios: <%- products[i].comments %> </p>
 							</article>
 						</a>
 					</section>

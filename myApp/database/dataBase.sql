@@ -9,11 +9,11 @@ CREATE TABLE users (
             apellido				VARCHAR(50)			NOT NULL,
             email					VARCHAR(150)		NOT NULL,
             contrasenia				VARCHAR(200)		NOT NULL,
-            created_at			    DATE 				NOT NULL,
-            updated_at              DATE,
-            numeroDocumento			INT					NOT NULL,
-            fotoPerfil				VARCHAR(1000)
-            
+            fecha_nacimiento        DATE                NOT NULL,
+            numero_documento		INT					NOT NULL,
+            foto_perfil				VARCHAR(1000)       NOT NULL,
+            created_at              TIMESTAMP           NULL,
+            updated_at              TIMESTAMP           NULL
 );
 
 CREATE TABLE products (
@@ -26,6 +26,7 @@ CREATE TABLE products (
             image					VARCHAR(1000),
             user_id					INT 				UNSIGNED,
             createAt                DATE                NOT NULL,
+            updatedAt                                   NULL,
 FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -44,12 +45,10 @@ FOREIGN KEY (product_id) REFERENCES products(id)
 CREATE TABLE followers (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            user_id_seguidor 		INT                 UNSIGNED NOT NULL,
-            user_id_seguido			INT                 UNSIGNED NOT NULL,
-
-            
-FOREIGN KEY (user_id_seguidor) REFERENCES users(id),
-FOREIGN KEY (user_id_seguido) REFERENCES users(id)
+            user_id_follower 		INT                 UNSIGNED NOT NULL,
+            user_id_following			INT                 UNSIGNED NOT NULL,     
+FOREIGN KEY (user_id_follower) REFERENCES users(id),
+FOREIGN KEY (user_id_following) REFERENCES users(id)
 );
 
 

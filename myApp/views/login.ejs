@@ -11,33 +11,28 @@
 		<%- include('./partials/headerDesLogueado.ejs')  %> 
 	<% } %> 
 
-	<!-- Novedades -->
-	<div class="titles">
-		<h2 class="products-title" id="titleLogin">Ingresar</h2>
-	</div>		
-	
 	<!-- Show the "ultimos" products -->
-	<form method="POST" action="login">
-		<div class="container">
+	<div class="container">
+		<h2 class="products-title" id="titleLogin">Ingresar</h2>
+		<form method="POST" action="/user/login">
 			<label class="textForm" for="uname"><b>Email</b></label>
 			<input class="inpForm" id="email" type="email" placeholder="Introduce un Email" name="email" required>
 		
 			<label class="textForm" for="psw"><b>Contraseña</b></label>
-			<input class="inpForm" id="password" type="password" placeholder="Introduce una Contraseña" name="password" required>
+			<input class="inpForm" id="password" type="password" placeholder="Introduce una Contraseña" name="contrasenia" required>
 			
 			<div class="input-container ic1 checkbox">
 				<label for="remember">Recordarme</label>
 				<input id="remember" class="input" type="checkbox" name="remember" /> 
 			</div>
 			
-<<<<<<< HEAD
-			<button class="bttnLogin" type="text">LOGIN</button>
-			
-=======
-			<button class="bttnLogin" type="button">LOGIN</button>
->>>>>>> 3d5c78eba3c7b7d98143fdf37c46677dbd583faf
-		</div>
-	</form>
+			<% if (locals.errors) { %>
+				<p class="error"><%= locals.errors.message %> </p>
+			<% } %>
+
+			<button class="bttnLogin" type="submit">LOGIN</button>
+		</form>
+	</div>
 	<!-- Show the "ultimos" products -->
 
 	<!-- footer -->
