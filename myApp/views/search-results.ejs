@@ -17,25 +17,26 @@
 	</div>
 	<div class="container products-wrapper">
 		<div class="row">
-			<% if (listadoProducts != '') { %>
-			 	<% for( let i = 0; i < listadoProducts.length; i++ ) { %>
+			<% if (listProducts != '') { %>
+			 	<% for( let i = 0; i < listProducts.length; i++ ) { %>
 						<div class="col-12 col-sm-6 col-lg-3">
-							<section class="product-box">
-								<a href="/product/id/<%= listadoProducts[i].id %> ">
+							<section class="product-box" id="search-results">
+								<a href="/product/id/<%= listProducts[i].id %> ">
 									<figure class="product-box_image">
-										<img src="<%= listadoProducts[i].image %> " alt="<%= listadoProducts[i].title %> ">
+										<img src="/images/imgProduct/<%= listProducts[i].image %> " alt="<%= listProducts[i].title %> ">
 									</figure>
 									<article class="product-box_data">
-										<h2><%= listadoProducts[i].title %> </h2>
-										<p><%= listadoProducts[i].descrip %> </p>
-										<p>Comentarios: <%= listadoProducts[i].comments %></p>
+										<h2><%= listProducts[i].title %> </h2>
+										<p><%= listProducts[i].descrip %> </p>
+										<p>Comentarios: <%= listProducts[i].comments %></p>
 									</article>
 								</a>
+								<a class="producerName" href="/user/profile/id/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
 							</section>
 						</div>
 				<% } %>
 				<% } else { %>
-					<h2 class="notResult"> Lo sentimos, no encontramos un resultados para tu búsqueda :(</h2> 
+					<h2 class="notResult">No hay resultados para su criterio de búsqueda</h2> 
 				<% } %>
 		</div>
 	</div>

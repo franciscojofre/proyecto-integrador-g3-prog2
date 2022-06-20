@@ -12,7 +12,8 @@ const productController = {
             include: {
                 all: true,
                 nested: false
-            }
+            },
+            order: [["comment", "create_at", "DESC"]]
         }
         // return res.render('product', {
         //     listaProductos: data.products,
@@ -30,7 +31,7 @@ const productController = {
             // let date = result.release_date;
             // let fechaFormateada = new Date(date).toISOString().slice(0,10);
       
-            let product = {
+            let productInfo = {
               id: result.id,
               title: result.title,
               descrip: result.descrip,
@@ -44,44 +45,39 @@ const productController = {
               user_id: result.user_id
             }
             return res.render("product", {
-                product: product
+                product: productInfo
             })
         })
         .catch((err) => {
             console.log('El error es: ' + err)
         })
-
-
-    },
-    processComment: (req, res) => {
-        let info = req.body;
-        let dataComment = {
-            userName: info.userName,
-            commentDescription: info.commentDescription,
-            image: info.image
-        }
-        commentModel.create(dataComment)
-        .then((result) => {
-            return res.redirect('/')
-        })
-        .catch((err) => {
-            return res.send('El error es: ' + err)
-        })
-      
     },
     searchResults: (req, res) => {
+        // let relations = {
+        //     include: {
+        //         all: true,
+        //         nested: true
+        //     }
+        // }
         let queryString = req.query.search;
-        let filtro ={
+        let filtro = {
             where :{
              [op.or]: [
-               { title: { [op.like]: `%${queryString}%` } },
-               { descrip: { [op.like]: `%${queryString}%` } }
+               {title: {[op.like]: `%${queryString}%`}},
+               {descrip: {[op.like]: `%${queryString}%`}}
              ]
-           }
-           }
+           },
+           include: {
+            all: true,
+            nested: false
+            }
+        }
+           
         productModel.findAll(filtro)
         .then((result) => {
-                res.render('search-results', {listadoProducts: result} )
+            res.render('search-results', {
+                listProducts: result,
+            });
         }).catch((err) => {
             console.log(err);
         });
@@ -175,7 +171,31 @@ const productController = {
             return res.send(err)
         })
         }
-    }
+    },
+    processComment: (req, res) => {
+        let info = req.body;
+
+        let relations = {
+            include: {
+                all: true,
+                nested: false
+            }
+        }
+
+        let comentarioNuevo = {
+            comment_description: info.commentDescription,
+            user_id: info.user_id,
+            product_id: info.product_id,
+            create_at: new Date(),
+        };
+    commentModel.create(comentarioNuevo)
+    .then((comentario) => {
+        return res.redirect("/product/id/" + comentarioNuevo.product_id)
+    })
+    .catch((err) => {
+        return res.send(err)
+    })
+    },
 }
 
 

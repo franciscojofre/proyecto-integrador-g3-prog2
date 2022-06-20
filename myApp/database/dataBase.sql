@@ -25,7 +25,7 @@ CREATE TABLE products (
             novedad					BOOLEAN				NOT NULL,
             image					VARCHAR(1000),
             user_id					INT 				UNSIGNED,
-            createAt                DATE                NOT NULL,
+            createAt                DATETIME            NOT NULL,
             updatedAt                                   NULL,
 FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -36,8 +36,9 @@ CREATE TABLE comments (
             userName				VARCHAR(50)			NOT NULL,
             user_id 				INT                 UNSIGNED,
             product_id				INT                 UNSIGNED,
-            commentDescription		VARCHAR(1500)		NOT NULL,
+            comment_description		VARCHAR(1500)		NOT NULL,
             image					VARCHAR(1000),
+            created_at              DATETIME            NOT NULL
 FOREIGN KEY (user_id) REFERENCES users(id),
 FOREIGN KEY (product_id) REFERENCES products(id)
 );

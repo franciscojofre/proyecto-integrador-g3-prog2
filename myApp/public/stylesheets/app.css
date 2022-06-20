@@ -689,6 +689,17 @@ img.avatar {
 }
 
 /*====== Search-Results ======*/
+#search-results{
+  display: flex;
+  flex-direction: column;
+}
+.producerName{
+  text-align: center;
+  padding: 5px 0px;
+}
+.producerName:hover{
+  color: #dde9e7;
+}
 .notResult{
   width: 100%;
   text-align: center;

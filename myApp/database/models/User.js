@@ -52,11 +52,10 @@ module.exports = function (sequelize, dataTypes){
             as:'products',
             foreignKey: 'user_id'       
         })
-        // User.hasMany(models.Comment, {
-        //     as: 'comments',
-        //     foreignKey: 'user_id',
-        //     otherKey: 'product_id'
-        // })
+        User.hasMany(models.Comment, {
+            as: 'comments',
+            foreignKey: 'user_id',
+        })
         // User.belongsToMany(models.User, {
         //     as: 'users',
         //     through: 'followers',

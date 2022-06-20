@@ -19,11 +19,7 @@
 								<% if (locals.user != undefined) { %>
 									<p>Bienvenido <%= locals.user.nombre + " " + locals.user.apellido %> </p>
 								<% } %>
-								<% if (user.foto_perfil != undefined) { %>
-									<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
-								<% } else { %>
-									<img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
-								<% } %>
+								<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
 							</a>
 					</div>
 				</div>
