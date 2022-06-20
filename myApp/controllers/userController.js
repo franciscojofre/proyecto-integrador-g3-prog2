@@ -105,8 +105,19 @@ const userController = {
             .catch(err => console.log(err));
 
     },
-    register: function (req, res) {
-            return res.render('register')
+    register: function (req, res) {   
+        // let selectionFile = document.getElementById('selectionFile')   
+        // let img = document.getElementById('img')
+        // let convertion = img.src;
+        // selectionFile.addEventListener('change', () => {
+        //     if (req.file != undefined){
+        //         convertion = URL.createObjectURL(req.file)
+        //     } else {
+        //         convertion = '/images/users/default-image.png'
+        //     }
+        // })  
+        return res.render('register')       
+
     },
     processRegister: (req, res) => {
         let info = req.body;
