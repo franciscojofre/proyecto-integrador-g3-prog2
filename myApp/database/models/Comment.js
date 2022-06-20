@@ -17,18 +17,20 @@ module.exports = function (sequelize, dataTypes){
         product_id: {
             type: dataTypes.INTEGER
         },
-        commentDescription: {
+        comment_description: {
             type: dataTypes.STRING
         },
         image:{
             type : dataTypes.STRING
+        },
+        create_at:{
+            type: dataTypes.DATE
         }
-
     }
 
     let config = {
         tableName : "comments",
-        timestamps:true, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
+        timestamps:false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 
@@ -38,15 +40,13 @@ module.exports = function (sequelize, dataTypes){
         Comment.belongsTo(models.User, {
             as: 'users',
             foreignKey: 'user_id',
-            otherKey: 'product_id'
+        }),
+        Comment.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id',
         })
-        // Comment.belongsTo(models.Product, {
-        //     as: 'products',
-        //     foreignKey: 'user_id',
-        //     otherKey: 'user_id_following'
-        // })
-    }
-
+    };
+    
     return Comment;
 
 }

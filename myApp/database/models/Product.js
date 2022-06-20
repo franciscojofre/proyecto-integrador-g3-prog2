@@ -49,11 +49,11 @@ module.exports = function (sequelize, dataTypes) {
             as:'users', //Como voy a llamar a la relación dentro del controlador
             foreignKey: 'user_id' //hasMany= Columna del segundo modelo
         })
-        // Product.belongsTo(models.Comment, {
-        //     as: 'comments_association', //Naming collision between attribute 'comments' and association 'comments' on model Product.
-        //     foreignKey: 'user_id',
-        //     otherKey: 'product_id'
-        // })
+        Product.hasMany(models.Comment, {
+            as: 'comentarios',
+            foreignKey: 'product_id'
+        })
+        
     }
 
     return Product;

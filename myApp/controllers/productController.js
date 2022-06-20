@@ -12,7 +12,8 @@ const productController = {
             include: {
                 all: true,
                 nested: false
-            }
+            },
+            order: [["comment", "create_at", "DESC"]]
         }
         // return res.render('product', {
         //     listaProductos: data.products,
@@ -50,24 +51,6 @@ const productController = {
         .catch((err) => {
             console.log('El error es: ' + err)
         })
-
-
-    },
-    processComment: (req, res) => {
-        let info = req.body;
-        let dataComment = {
-            userName: info.userName,
-            commentDescription: info.commentDescription,
-            image: info.image
-        }
-        commentModel.create(dataComment)
-        .then((result) => {
-            return res.redirect('/')
-        })
-        .catch((err) => {
-            return res.send('El error es: ' + err)
-        })
-      
     },
     searchResults: (req, res) => {
         let queryString = req.query.search;
@@ -175,7 +158,31 @@ const productController = {
             return res.send(err)
         })
         }
-    }
+    },
+    processComment: (req, res) => {
+        let info = req.body;
+
+        let relations = {
+            include: {
+                all: true,
+                nested: false
+            }
+        }
+
+        let comentarioNuevo = {
+            comment_description: info.commentDescription,
+            user_id: info.user_id,
+            product_id: info.product_id,
+            create_at: new Date(),
+        };
+    commentModel.create(comentarioNuevo)
+    .then((comentario) => {
+        return res.redirect("/product/id/" + comentarioNuevo.product_id)
+    })
+    .catch((err) => {
+        return res.send(err)
+    })
+    },
 }
 
 

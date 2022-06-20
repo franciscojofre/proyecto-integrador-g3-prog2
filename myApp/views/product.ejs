@@ -47,8 +47,10 @@
                       </div>
                     </article>
                 </section>
-                <form class="form" action="" method="GET">
+                <form class="form" action="" method="POST">
                   <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
+                  <input class="form-input" name="user_id" type="hidden" value="<%= user.id %> " />
+                  <input class="form-input" name="product_id" type="hidden" value="<%= product.id %> " />
                   <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
                 </form>
                 <hr/>
