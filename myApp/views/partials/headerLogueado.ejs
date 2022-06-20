@@ -15,7 +15,7 @@
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="main-header_credit-link" id="routesLogued">
-							<a class="nameProfileHeader" href="/user/profile"> 
+							<a class="nameProfileHeader" href="/user/profile/<%= locals.user.id %> " > 
 								<% if (locals.user != undefined) { %>
 									<p>Bienvenido <%= locals.user.nombre + " " + locals.user.apellido %> </p>
 								<% } %>
