@@ -12,7 +12,7 @@ const productController = {
             include: {
                 all: true,
                 nested: true,
-            }, order : [["comments", "create_at", "DESC"]]
+            }, order : [["comments", "created_at", "DESC"]]
         }
         // return res.render('product', {
         //     listaProductos: data.products,
@@ -144,15 +144,15 @@ const productController = {
         if (info.imgProduct == null && info.title == "" && info.desc == ""){
             errors.message = "Todos los campos son obligatorios";
             res.locals.errors = errors;
-            return res.render('product-add')
+            return res.render('product-edit', {product: info})
         } else if (info.title == "") {
             errors.message = "El nombre esta vacio";
             res.locals.errors = errors;
-            return res.render('product-add')
+            return res.render('product-edit', {product: info})
         } else if (info.desc == ""){
             errors.message = "La descripcion esta vacia";
             res.locals.errors = errors;
-            return res.render('product-add')
+            return res.render('product-edit', {product: info})
         } else {
                 let productoEdit = {
                     id: req.params.id,
@@ -166,7 +166,7 @@ const productController = {
             } else {
                 errors.message = "La foto esta vacia";
                 res.locals.errors = errors;
-                return res.render('product-add')
+                return res.render('product-edit', {product: info})
             }
         db.Product.update(productoEdit, {
             where: {
@@ -206,6 +206,20 @@ const productController = {
         return res.send(err)
     })
     },
+    deleteProduct: (req, res) => {
+        let idABorrar = req.params.id;
+        db.Product.destroy({
+            where: {
+                id: idABorrar
+            }
+        })
+        .then((result) => {
+            return res.redirect('/')
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
 }
 
 

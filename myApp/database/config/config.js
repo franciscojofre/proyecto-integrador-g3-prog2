@@ -5,6 +5,9 @@ module.exports = {
     "database": "dataBaseut",
     "host": "127.0.0.1",
     "dialect": "mysql",
+    "define": {
+      "paranoid": true
+    }
   },
   "test": {
     "username": "root",

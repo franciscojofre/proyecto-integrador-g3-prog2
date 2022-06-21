@@ -37,7 +37,7 @@
                         <div class="data">
                           <p class="user">
                             <strong>
-                              <a href="/user/profile/id/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
+                              <a href="/user/profile/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
                             </strong>
                             <a href="" class="comment"> <%= product.comments[i].comment_description %>  </a>
                           </p>
@@ -46,10 +46,8 @@
                   <% } %>
                     
                 </section>
-                <form class="form" action="" method="POST">
-                  <section class="comments">
-                    <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
-                      < } %>          Relacionar con tabla de comments   -->      
+                <form class="form" action="/product/id/<%= product.id %>" method="POST">
+                  <section class="comments">   
                       <article>
                         <% if (locals.user != undefined) { %>
                           <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil"> <div class="data">
@@ -64,7 +62,6 @@
                           <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
                           <a href="/user/register">Crea tu perfil para poder comentar</a>
                         <% } %>
-                        
                       </article>
                   </section>
                   <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
@@ -77,13 +74,13 @@
 
           <% if (locals.user != undefined) { %>
             <% if (locals.user.id == product.user_id) { %>
-            <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
+            <a class= "buy-now-button" href="/product/product-edit/<%= product.id %>">Editar</a>
+            <form action="/product/id/<%= product.id %>/delete" method="POST">
+              <input type="hidden" name="id" id="" value="<%= product.id %> ">
+              <button class="buy-now-button" type="submit">ELIMINAR</button>
+            </form>
             <% } %>
           <% } %>
-
-          
-
-          
         </div>
     <!-- /product detail -->
 
