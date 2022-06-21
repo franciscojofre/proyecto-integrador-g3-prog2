@@ -55,7 +55,7 @@ const productController = {
         //     }
         // }
         let queryString = req.query.search;
-        let filtro = {
+        let filer = {
             where :{
              [op.or]: [
                {title: {[op.like]: `%${queryString}%`}},
@@ -68,7 +68,7 @@ const productController = {
             }
         }
            
-        productModel.findAll(filtro)
+        productModel.findAll(filer)
         .then((result) => {
             res.render('search-results', {
                 listProducts: result,
@@ -101,7 +101,7 @@ const productController = {
                 image: '',
                 title: info.title,
                 descrip: info.desc,
-                createAt: new Date(),
+                created_at: new Date(),
                 user_id: info.userId
             };
             if(req.file != undefined) {

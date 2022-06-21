@@ -11,7 +11,6 @@ const controlador = {
            offset : 3 */
         
         .then((result) => {
-            let users = result.users
             return res.render('index', {
                 listaProductos: result
             });   
@@ -24,4 +23,4 @@ const controlador = {
     }
 }
 
-module.exports = controlador;
+module.exports = indexController;

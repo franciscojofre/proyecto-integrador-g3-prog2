@@ -15,11 +15,20 @@
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="main-header_credit-link" id="routesLogued">
-							<a class="nameProfileHeader" href="/user/profile/<%= locals.user.id %> " > 
-								<% if (locals.user != undefined) { %>
-									<p>Bienvenido <%= locals.user.nombre + " " + locals.user.apellido %> </p>
-								<% } %>
-								<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+							<a class="nameProfileHeader" href="/user/profile/<%= locals.user.id %> " >
+								<div>
+									<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+								</div> 
+								<ul>
+									<li>
+										<p>Bienvenid@</p>
+									</li>
+									<li>
+										<% if (locals.user != undefined) { %>
+											<p><%= locals.user.nombre + " " + locals.user.apellido %></p>
+										<% } %>
+									</li>
+								</ul>
 							</a>
 					</div>
 				</div>
@@ -33,7 +42,7 @@
 					<li><a href="/product/product-add">Cargar productos</a></li>
 				</ul>
 				<p class="right-navbar">
-					<a href="/user/logout" class="itemLista" type="submit">Cerrar Sesión<i class="fas fa-sign-in-alt"></i></a>
+					<a href="/user/logout" class="itemLista" type="submit">Cerrar Sesión <i class="fas fa-sign-in-alt"></i></a>
 				</p>
 			</nav>
 		</div>
