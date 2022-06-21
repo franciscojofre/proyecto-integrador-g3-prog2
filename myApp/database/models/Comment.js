@@ -8,9 +8,6 @@ module.exports = function (sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        username: {
-            type: dataTypes.STRING
-        },
         user_id: {
             type: dataTypes.INTEGER
         },
@@ -19,9 +16,6 @@ module.exports = function (sequelize, dataTypes){
         },
         comment_description: {
             type: dataTypes.STRING
-        },
-        image:{
-            type : dataTypes.STRING
         },
         created_at:{
             type: dataTypes.DATE

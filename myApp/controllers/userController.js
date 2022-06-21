@@ -119,7 +119,7 @@ const userController = {
         userModel.update(usuario, filtro)
             .then(result => {
                 req.session.user = result.dataValues;
-                res.redirect('/user/profile')
+                res.redirect('/user/profile/' + userId)
             })
             .catch(err => console.log(err));
 
@@ -215,27 +215,27 @@ const userController = {
         })
 
     },
-    follow: (req, res) => {
-        let idLog = req.params.id
-        let idFollowing = req.body.idFollow
-        let follow = {
-            user_id_follower: idLog,
-            user_id_following: idFollowing
-        }
+    // follow: (req, res) => {
+    //     let idLog = req.params.id
+    //     let idFollowing = req.body.idFollow
+    //     let follow = {
+    //         user_id_follower: idLog,
+    //         user_id_following: idFollowing
+    //     }
 
-        followerModel.create(follow, {
-            include: [
-                {
-                    association: "seguidor"
-                }
-            ]
-        })
-        .then((result) => {
-            return res.redirect('/user/profile/:id')    
-        })
-        .catch(err => console.log(err))
+    //     followerModel.create(follow, {
+    //         include: [
+    //             {
+    //                 association: "seguidor"
+    //             }
+    //         ]
+    //     })
+    //     .then((result) => {
+    //         return res.redirect('/user/profile/:id')    
+    //     })
+    //     .catch(err => console.log(err))
 
-    }
+    // }
 }
 
 module.exports = userController;

@@ -23,14 +23,14 @@ module.exports = function (sequelize, dataTypes){
     };
     const Follower = sequelize.define(alias, cols, config)
 
-    Follower.associate = function(models){
-        Follower.belongsToMany(models.User, {
-            as: 'seguidor',
-            through: 'followers',
-            foreignKey:'user_id_following',
-            otherKey: 'user_id_follower',
-            timestamps: false
-        })
-    }
+    // Follower.associate = function(models){
+    //     Follower.belongsToMany(models.User, {
+    //         as: 'seguidor',
+    //         through: 'followers',
+    //         foreignKey:'user_id_following',
+    //         otherKey: 'user_id_follower',
+    //         timestamps: false
+    //     })
+    // }
 return Follower
 }

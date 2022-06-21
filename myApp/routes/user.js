@@ -32,11 +32,11 @@ router.get('/logout', userController.logout);
 
 router.get('/profile/:id', userController.profile);
 
-router.post('/profile/:id', userController.follow);
+// router.post('/profile/:id', userController.follow);
 
-router.get('/profile/edit', userController.profileEdit);
+router.get('/profile/edit/:id', userController.profileEdit);
 
-router.post('/profile/edit', upload.single('imgPerfil'), userController.profileUpdate),
+router.post('/profile/edit/:id', upload.single('imgPerfil'), userController.profileUpdate),
 
 
 module.exports = router;

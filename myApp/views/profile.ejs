@@ -21,13 +21,17 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%= nombre + " " + apellido %> 
-						<a href="/user/profile/edit">
-							<i class="fas fa-cog"></i>
-						</a>
+						<% if (locals.user.id == id) { %>
+							<a href="/user/profile/edit/<%= locals.user.id %> ">
+								<i class="fas fa-cog"></i>
+							</a>
+						<% } %> 
 					</h1>
-					<form action="/user/profile/<%= id %>" method="POST">
-						<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
-					</form>
+					<% if (locals.user.id != id) { %>
+						<form action="/user/profile/<%= id %>" method="POST">
+							<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
+						</form>
+					<% } %> 
 				</div>
 				<p class="emailProfile"> <%= email %>
 				<p class="emailProfile"> <%= fecha_nacimiento %>
