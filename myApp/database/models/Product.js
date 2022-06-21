@@ -15,12 +15,6 @@ module.exports = function (sequelize, dataTypes) {
         descrip:{
             type: dataTypes.STRING
         },
-        comments:{
-            type: dataTypes.STRING
-        },
-        novedad:{
-            type:dataTypes.BOOLEAN
-        },
         image: {
             type:dataTypes.STRING
         },
@@ -50,7 +44,7 @@ module.exports = function (sequelize, dataTypes) {
             foreignKey: 'user_id' //hasMany= Columna del segundo modelo
         })
         Product.hasMany(models.Comment, {
-            as: 'comentarios',
+            as: 'comments',
             foreignKey: 'product_id'
         })
         
