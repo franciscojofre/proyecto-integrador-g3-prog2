@@ -29,9 +29,8 @@ router.post('/login', userController.processLogin);
 
 router.get('/logout', userController.logout);
 
-router.get('/login/profile', userController.profile);
 
-router.get('/profile/id/:id', userController.profile);
+router.get('/profile/:id', userController.profile);
 
 router.get('/profile/edit', userController.profileEdit);
 

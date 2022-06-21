@@ -17,7 +17,7 @@
           <div class="d-flex align-items-center">
             <ul>
               <li><h2 class="products-title"><%= product.title %></h2></li>
-              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/id/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
+              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
             </ul>
           </div>
         <div class="product-detail">

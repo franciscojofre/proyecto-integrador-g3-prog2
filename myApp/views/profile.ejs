@@ -16,25 +16,24 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<% if (user.foto_perfil != null) { %>
-					<img class="foto-perfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
-				<% } else { %>
-					<img class="foto-perfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
-				<% } %>
-			</div>
+				<img class="foto-perfil" src="/images/users/<%= foto_perfil %>" alt="fotoPerfil">
+		</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= locals.user.nombre + " " + locals.user.apellido %> 
+					<h1 class="main-title"><%= nombre + " " + apellido %> 
 						<a href="/user/profile/edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
-				<p class="emailProfile"> <%= locals.user.email %>
+				<p class="emailProfile"> <%= email %>
+				<p class="emailProfile"> <%= fecha_nacimiento %>
+
+
 				<div>
 					<ul class="info-gen">
-						<li><%= products.length %> productos</li>
+						<li> <%= products.length %> productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -44,32 +43,35 @@
 	</section>
 	<!-- Datos del usuario -->
 
-	<!-- Mis productos -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Mis productos</h2>
-			</div>
-			<!-- Show mis productos -->
-			<% for(let i = 0; i < products.length; i++ ) { %>	
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/product/id/<%- products[i].id %> ">
-							<figure class="product-box_image">
-								<img src="/images/imgProduct/<%- products[i].image %>" alt="">
-							</figure>
-							<article class="product-box_data">
-								<h2><%- products[i].title %> </h2>
-								<p><%- products[i].descrip %> </p>
-								<p>Comentarios: <%- products[i].comments %> </p>
-							</article>
-						</a>
-					</section>
+	<% if (products.length != 0) { %>
+		<!-- Mis productos -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Mis productos</h2>
 				</div>
-			<% } %>
+				<!-- Show mis productos -->
+				<% for(let i = 0; i < products.length; i++ ) { %>	
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/product/id/<%- products[i].id %> ">
+								<figure class="product-box_image">
+									<img src="/images/imgProduct/<%- products[i].image %>" alt="">
+								</figure>
+								<article class="product-box_data">
+									<h2><%- products[i].title %> </h2>
+									<p><%- products[i].descrip %> </p>
+									<p>Comentarios: <%- products[i].comments %> </p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %>
+			</div>
 		</div>
-	</div>
-	<!-- /Mis productos -->
+		<!-- /Mis productos -->
+	<% } %>
+	
 
 
 	<!-- footer -->

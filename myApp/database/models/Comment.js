@@ -23,14 +23,14 @@ module.exports = function (sequelize, dataTypes){
         image:{
             type : dataTypes.STRING
         },
-        create_at:{
+        created_at:{
             type: dataTypes.DATE
         }
     }
 
     let config = {
         tableName : "comments",
-        timestamps:false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
+        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 

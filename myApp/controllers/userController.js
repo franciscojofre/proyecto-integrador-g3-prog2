@@ -59,17 +59,35 @@ const userController = {
         return res.redirect('/')
     },
     profile: (req, res) => {
-        productModel.findAll({
-            where: [{ user_id: req.session.user.id }]
-        })
-        .then(result => {
+        let idSolicitado = req.params.id
 
-            res.render('profile', {
-                products: result
-            })
+        
+        userModel.findByPk(idSolicitado, {
+            include: [
+                {association: 'products'}
+            ]
         })
-        .catch(err => console.log(err));
+        .then((result) =>{
+
+            let infoUser = {
+                nombre: result.nombre,
+                apellido: result.apellido,
+                email: result.email,
+                fecha_nacimiento: result.fecha_nacimiento,
+                numero_documento: result.numero_documento,
+                foto_perfil: result.foto_perfil,
+                created_at: result.created_at,
+                products: result.products
+            }
+            
+            return res.render('profile', infoUser)
+
+        })
+        .catch((err) => {
+            return console.log('El error es: ' + err)
+        });
     },
+    
     profileEdit: (req, res) => {
         if (req.session.user != undefined) {
             res.render('profile-edit')
@@ -105,8 +123,19 @@ const userController = {
             .catch(err => console.log(err));
 
     },
-    register: function (req, res) {
-            return res.render('register')
+    register: function (req, res) {   
+        // let selectionFile = document.getElementById('selectionFile')   
+        // let img = document.getElementById('img')
+        // let convertion = img.src;
+        // selectionFile.addEventListener('change', () => {
+        //     if (req.file != undefined){
+        //         convertion = URL.createObjectURL(req.file)
+        //     } else {
+        //         convertion = '/images/users/default-image.png'
+        //     }
+        // })  
+        return res.render('register')       
+
     },
     processRegister: (req, res) => {
         let info = req.body;

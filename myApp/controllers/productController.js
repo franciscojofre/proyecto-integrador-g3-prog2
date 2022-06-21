@@ -48,18 +48,31 @@ const productController = {
         })
     },
     searchResults: (req, res) => {
+        // let relations = {
+        //     include: {
+        //         all: true,
+        //         nested: true
+        //     }
+        // }
         let queryString = req.query.search;
-        let filtro ={
+        let filtro = {
             where :{
              [op.or]: [
-               { title: { [op.like]: `%${queryString}%` } },
-               { descrip: { [op.like]: `%${queryString}%` } }
+               {title: {[op.like]: `%${queryString}%`}},
+               {descrip: {[op.like]: `%${queryString}%`}}
              ]
-           }
-           }
+           },
+           include: {
+            all: true,
+            nested: false
+            }
+        }
+           
         productModel.findAll(filtro)
         .then((result) => {
-                res.render('search-results', {listadoProducts: result} )
+            res.render('search-results', {
+                listProducts: result,
+            });
         }).catch((err) => {
             console.log(err);
         });
