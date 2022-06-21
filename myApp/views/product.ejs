@@ -57,15 +57,19 @@
                             </strong>
                             <a href="" class="comment"> </a>
                           </p>
-                        </div>
+                          <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
+                          <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
                         <% }else {%>
-                          <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
-                          <a href="/user/register">Crea tu perfil para poder comentar</a>
+                          <!-- <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+                          <a href="/user/register">Crea tu perfil para poder comentar</a> -->
+
+                          <input class="form-input" name="commentDescription" type="text" value="" placeholder="Para agregar un comentario debes registrarte"/>
+                          <a href="/user/register/" class="buy-now-button"> AGREGAR COMENTARIO </a>
+
                         <% } %>
                       </article>
                   </section>
-                  <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
-                  <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
+
                 </form>
                 <hr/>
               </div>
