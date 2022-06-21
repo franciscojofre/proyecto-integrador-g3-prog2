@@ -28,29 +28,46 @@
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
-                  <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
-                    < } %>          Relacionar con tabla de comments   -->      
+
+                  <p><%= product.comments.length %> </p>
+
+                  <% for( let i = 0; i < product.comments.length; i++ ) { %>
                     <article>
-                      <% if (locals.user != undefined) { %>
-                        <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
-                      <% } else { %>
-                        <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
-                        <a href="/user/register">Crea tu perfil para poder comentar</a>
-                      <% } %>
-                      <div class="data">
-                        <p class="user">
-                          <strong>
-                            <a href="/user/profile"></a>
-                          </strong>
-                          <a href="" class="comment"> </a>
-                        </p>
-                      </div>
-                    </article>
+                          <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
+                        <div class="data">
+                          <p class="user">
+                            <strong>
+                              <a href="/user/profile/id/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
+                            </strong>
+                            <a href="" class="comment"> <%= product.comments[i].comment_description %>  </a>
+                          </p>
+                        </div>
+                      </article>
+                  <% } %>
+                    
                 </section>
                 <form class="form" action="" method="POST">
+                  <section class="comments">
+                    <!-- < for( let i = 0; i < listaComentarios.length; i++ ) { %>
+                      < } %>          Relacionar con tabla de comments   -->      
+                      <article>
+                        <% if (locals.user != undefined) { %>
+                          <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil"> <div class="data">
+                          <p class="user">
+                            <strong>
+                              <a href="/user/profile"><%= user.nombre %> <%= user.apellido %>  </a>
+                            </strong>
+                            <a href="" class="comment"> </a>
+                          </p>
+                        </div>
+                        <% }else {%>
+                          <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet">
+                          <a href="/user/register">Crea tu perfil para poder comentar</a>
+                        <% } %>
+                        
+                      </article>
+                  </section>
                   <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/>
-                  <input class="form-input" name="user_id" type="hidden" value="<%= product.users_id %> " />
-                  <input class="form-input" name="product_id" type="hidden" value="<%= product.id %> " />
                   <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
                 </form>
                 <hr/>
@@ -59,8 +76,12 @@
           </div>
 
           <% if (locals.user != undefined) { %>
+            <% if (locals.user.id == product.user_id) { %>
             <a class= "btn" href="/product/product-edit/<%= product.id %>">Editar</a>
+            <% } %>
           <% } %>
+
+          
 
           
         </div>
