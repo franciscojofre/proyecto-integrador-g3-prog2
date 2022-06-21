@@ -39,6 +39,9 @@
 									<p>Comentarios: <%= listaProductos[i].comments %></p>
 								</article>
 							</a>
+							<% if (listaProductos[i].users != undefined) { %>
+								<a class="producerName" href="/user/profile/<%= listaProductos[i].user_id %>">Creado por <%= listaProductos[i].users.nombre %> <%= listaProductos[i].users.apellido %></a>
+							<% } %>
 						</section>
 					</div>
 				<% } %>

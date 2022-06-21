@@ -120,13 +120,14 @@ hr {
 }
 
 .fotoPerfil{
-  width: 10%;
+  width: 60px;
   border-radius: 20px;
 }
 
 .main-header_credit-link {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  margin: 0px;
   font-size: 1.8em;
   font-weight: bold;
 }
@@ -265,6 +266,7 @@ input:focus{
 }
 
 .product-box {
+  flex-direction: column;
   background-color: #ffffff;
   border-radius: 5px;
   overflow: hidden;
@@ -345,7 +347,7 @@ input:focus{
 }
 
 .product-box:hover p {
-  height: 36px;
+  height: 45px;
   margin-top: 15px;
 }
 
@@ -683,9 +685,28 @@ img.avatar {
   background-color: #032ca6d7;
 }
 
+.nameProfileHeader{
+  display: flex;
+  justify-content: center;
+}
 .nameProfileHeader p{
   font-style: normal;
   margin: 0px;
+}
+
+.nameProfileHeader div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  flex-direction: column;
+}
+
+.nameProfileHeader ul{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /*====== Search-Results ======*/
@@ -694,6 +715,7 @@ img.avatar {
   flex-direction: column;
 }
 .producerName{
+  font-size: 12px;
   text-align: center;
   padding: 5px 0px;
 }

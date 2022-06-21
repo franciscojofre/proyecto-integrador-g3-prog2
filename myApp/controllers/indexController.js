@@ -2,16 +2,17 @@ const db = require('../database/models');
 const products = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
 const op = db.Sequelize.Op;
 
-const controlador = {
-    products: function (req, res) {
-        products.findAll({order : [["created_at", "DESC"]]}, {include: [{association: 'users'}]})
-
-            /* where : [{ awards : 1 }, { length : 120}] */
-           /* limit : 5,
-           offset : 3 */
-        
+const indexController = {
+    index: function (req, res) {
+        let filter = {
+            order : [["created_at", "DESC"]],
+            include: {
+                all: true,
+                nested: false
+            }
+        }
+        products.findAll(filter)
         .then((result) => {
-            let users = result.users
             return res.render('index', {
                 listaProductos: result
             });   
@@ -24,4 +25,4 @@ const controlador = {
     }
 }
 
-module.exports = controlador;
+module.exports = indexController;

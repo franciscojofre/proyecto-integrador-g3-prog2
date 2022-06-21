@@ -12,8 +12,7 @@ const productController = {
             include: {
                 all: true,
                 nested: false
-            },
-            
+            }   
         }
         // return res.render('product', {
         //     listaProductos: data.products,
@@ -56,7 +55,7 @@ const productController = {
         //     }
         // }
         let queryString = req.query.search;
-        let filtro = {
+        let filer = {
             where :{
              [op.or]: [
                {title: {[op.like]: `%${queryString}%`}},
@@ -69,7 +68,7 @@ const productController = {
             }
         }
            
-        productModel.findAll(filtro)
+        productModel.findAll(filer)
         .then((result) => {
             res.render('search-results', {
                 listProducts: result,

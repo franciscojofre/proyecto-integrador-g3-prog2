@@ -12,13 +12,11 @@
 	<% } %> 
 
 	<!-- Novedades -->
-	<div class="titles">
-		<h2 class="products-title">Resultados de búsqueda</h2>
-	</div>
 	<div class="container products-wrapper">
-		<div class="row">
-			<% if (listProducts != '') { %>
-			 	<% for( let i = 0; i < listProducts.length; i++ ) { %>
+		<h2 class="products-title">Resultados de búsqueda</h2>
+			<div class="row">
+				<% if (listProducts != '' && listProducts) { %>
+					<% for( let i = 0; i < listProducts.length; i++ ) { %>
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box" id="search-results">
 								<a href="/product/id/<%= listProducts[i].id %> ">
@@ -31,10 +29,12 @@
 										<p>Comentarios: <%= listProducts[i].comments %></p>
 									</article>
 								</a>
-								<a class="producerName" href="/user/profile/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
+								<% if (listProducts[i].users != undefined) { %>
+                                    <a class="producerName" href="/user/profile/id/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
+                                <% } %>
 							</section>
 						</div>
-				<% } %>
+					<% } %>
 				<% } else { %>
 					<h2 class="notResult">No hay resultados para su criterio de búsqueda</h2> 
 				<% } %>
