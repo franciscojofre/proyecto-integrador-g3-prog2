@@ -6,6 +6,7 @@ const followerModel = db.Follower;
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
 const data = require("../db/data");
+const { user } = require("../db/data");
 
 const userController = {
     login : (req, res) => {
@@ -78,10 +79,12 @@ const userController = {
                 numero_documento: result.numero_documento,
                 foto_perfil: result.foto_perfil,
                 created_at: result.created_at,
-                products: result.products
+                products: result.products,
+                userSession: req.session.user
             }
+
             
-            return res.render('profile', infoUser)
+            return res.render('profile', {infoUser: infoUser})
 
         })
         .catch((err) => {
@@ -215,27 +218,21 @@ const userController = {
         })
 
     },
-    // follow: (req, res) => {
-    //     let idLog = req.params.id
-    //     let idFollowing = req.body.idFollow
-    //     let follow = {
-    //         user_id_follower: idLog,
-    //         user_id_following: idFollowing
-    //     }
+    follow: (req, res) => {
+        let idprodUser = req.params.id
+        let idFollowing = req.session.user.id
+        let follow = {
+            user_id_follower: idFollowing,
+            user_id_followed: idprodUser
+        }
 
-    //     followerModel.create(follow, {
-    //         include: [
-    //             {
-    //                 association: "seguidor"
-    //             }
-    //         ]
-    //     })
-    //     .then((result) => {
-    //         return res.redirect('/user/profile/:id')    
-    //     })
-    //     .catch(err => console.log(err))
+        followerModel.create(follow)
+        .then((result) => {
+            return res.redirect('/user/profile/' + idprodUser)    
+        })
+        .catch(err => console.log(err))
 
-    // }
+    }
 }
 
 module.exports = userController;

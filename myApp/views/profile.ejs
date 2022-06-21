@@ -16,30 +16,33 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img class="foto-perfil" src="/images/users/<%= foto_perfil %>" alt="fotoPerfil">
+				<img class="foto-perfil" src="/images/users/<%= infoUser.foto_perfil %>" alt="fotoPerfil">
 		</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= nombre + " " + apellido %> 
-						<% if (locals.user.id == id) { %>
-							<a href="/user/profile/edit/<%= locals.user.id %> ">
-								<i class="fas fa-cog"></i>
-							</a>
+					<h1 class="main-title"><%= infoUser.nombre + " " + infoUser.apellido %> 
+						<% if (locals.user != undefined) { %>
+							<% if (locals.user.id == infoUser.id) { %>							 
+								<a href="/user/profile/edit/<%= locals.user.id %> ">
+									<i class="fas fa-cog"></i>
+								</a>
+							<% } %>
+							<% if (locals.user.id != infoUser.id) { %>
+								<form action="/user/profile/<%= infoUser.id %>" method="POST">
+									<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
+								</form>
+							<% } %>
 						<% } %> 
+						 
 					</h1>
-					<% if (locals.user.id != id) { %>
-						<form action="/user/profile/<%= id %>" method="POST">
-							<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
-						</form>
-					<% } %> 
 				</div>
-				<p class="emailProfile"> <%= email %>
-				<p class="emailProfile"> <%= fecha_nacimiento %>
+				<p class="emailProfile"> <%= infoUser.email %>
+				<p class="emailProfile"> <%= infoUser.fecha_nacimiento %>
 
 
 				<div>
 					<ul class="info-gen">
-						<li> <%= products.length %> productos</li>
+						<li> <%= infoUser.products.length %> productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -49,7 +52,7 @@
 	</section>
 	<!-- Datos del usuario -->
 
-	<% if (products.length != 0) { %>
+	<% if (infoUser.products.length != 0) { %>
 		<!-- Mis productos -->
 		<div class="container products-wrapper">
 			<div class="row">
@@ -57,17 +60,17 @@
 					<h2 class="products-title">Mis productos</h2>
 				</div>
 				<!-- Show mis productos -->
-				<% for(let i = 0; i < products.length; i++ ) { %>	
+				<% for(let i = 0; i < infoUser.products.length; i++ ) { %>	
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="/product/id/<%- products[i].id %> ">
+							<a href="/product/id/<%- infoUser.products[i].id %> ">
 								<figure class="product-box_image">
-									<img src="/images/imgProduct/<%- products[i].image %>" alt="">
+									<img src="/images/imgProduct/<%- infoUser.products[i].image %>" alt="">
 								</figure>
 								<article class="product-box_data">
-									<h2><%- products[i].title %> </h2>
-									<p><%- products[i].descrip %> </p>
-									<p>Comentarios: <%- products[i].comments %> </p>
+									<h2><%- infoUser.products[i].title %> </h2>
+									<p><%- infoUser.products[i].descrip %> </p>
+									<p>Comentarios: <%- infoUser.products[i].comments %> </p>
 								</article>
 							</a>
 						</section>
