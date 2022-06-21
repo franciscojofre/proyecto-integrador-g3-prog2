@@ -31,7 +31,7 @@
 										<p>Comentarios: <%= listProducts[i].comments %></p>
 									</article>
 								</a>
-								<a class="producerName" href="/user/profile/id/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
+								<a class="producerName" href="/user/profile/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
 							</section>
 						</div>
 				<% } %>

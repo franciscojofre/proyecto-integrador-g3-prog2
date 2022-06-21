@@ -1,7 +1,7 @@
 const db = require("../database/models");
 const userModel = db.User;
-const commentModel = db.Comment;
-const productModel = db.Product;
+const followerModel = db.Follower;
+
 
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
@@ -70,6 +70,7 @@ const userController = {
         .then((result) =>{
 
             let infoUser = {
+                id: result.id,
                 nombre: result.nombre,
                 apellido: result.apellido,
                 email: result.email,
@@ -212,6 +213,27 @@ const userController = {
         .catch((err) => {
             console.log('El error es: ' + err)
         })
+
+    },
+    follow: (req, res) => {
+        let idLog = req.params.id
+        let idFollowing = req.body.idFollow
+        let follow = {
+            user_id_follower: idLog,
+            user_id_following: idFollowing
+        }
+
+        followerModel.create(follow, {
+            include: [
+                {
+                    association: "seguidor"
+                }
+            ]
+        })
+        .then((result) => {
+            return res.redirect('/user/profile/:id')    
+        })
+        .catch(err => console.log(err))
 
     }
 }

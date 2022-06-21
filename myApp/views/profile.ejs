@@ -25,7 +25,9 @@
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					<form action="/user/profile/<%= id %>" method="POST">
+						<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
+					</form>
 				</div>
 				<p class="emailProfile"> <%= email %>
 				<p class="emailProfile"> <%= fecha_nacimiento %>

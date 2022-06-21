@@ -32,6 +32,8 @@ router.get('/logout', userController.logout);
 
 router.get('/profile/:id', userController.profile);
 
+router.post('/profile/:id', userController.follow);
+
 router.get('/profile/edit', userController.profileEdit);
 
 router.post('/profile/edit', upload.single('imgPerfil'), userController.profileUpdate),

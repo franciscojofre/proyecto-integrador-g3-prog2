@@ -4,7 +4,7 @@ const op = db.Sequelize.Op;
 
 const controlador = {
     products: function (req, res) {
-        products.findAll({order : [["createAt", "DESC"]]}, {include: [{association: 'users'}]})
+        products.findAll({order : [["created_at", "DESC"]]}, {include: [{association: 'users'}]})
 
             /* where : [{ awards : 1 }, { length : 120}] */
            /* limit : 5,

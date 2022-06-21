@@ -13,7 +13,7 @@ const productController = {
                 all: true,
                 nested: false
             },
-            order: [["comment", "create_at", "DESC"]]
+            
         }
         // return res.render('product', {
         //     listaProductos: data.products,
@@ -38,7 +38,7 @@ const productController = {
               comments: result.comments,
               novedad: result.novedad,
               image: result.image,
-              createAt: result.createAt,
+              created_at: result.created_at,
               //user_id: result.user_id,
               users: result.users, //asociación, un objeto literal que va a tener todas las columnas de user
               //comments: result.comments_association //asociación, un objeto que va a tener todas las columnas de comments
@@ -107,7 +107,7 @@ const productController = {
                 image: fotoProducto,
                 title: info.title,
                 descrip: info.desc,
-                createAt: new Date(),
+                created_at: new Date(),
                 user_id: info.userId
             };
         productModel.create(productoNuevo)

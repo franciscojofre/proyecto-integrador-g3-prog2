@@ -27,10 +27,10 @@ module.exports = function (sequelize, dataTypes) {
         user_id: {
             type: dataTypes.INTEGER
         },
-        createAt: {
+        created_at: {
             type: dataTypes.DATE
         },
-        updateAt: {
+        updated_at: {
             type: dataTypes.DATE
         }
     }
