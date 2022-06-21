@@ -2,7 +2,7 @@ const db = require('../database/models');
 const products = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
 const op = db.Sequelize.Op;
 
-const controlador = {
+const indexController = {
     products: function (req, res) {
         products.findAll({order : [["createdAt", "DESC"]]}, {include: [{association: 'users'}]})
 
