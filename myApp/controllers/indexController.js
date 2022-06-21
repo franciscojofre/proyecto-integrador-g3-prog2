@@ -4,12 +4,7 @@ const op = db.Sequelize.Op;
 
 const indexController = {
     products: function (req, res) {
-        products.findAll({order : [["createdAt", "DESC"]]}, {include: [{association: 'users'}]})
-
-            /* where : [{ awards : 1 }, { length : 120}] */
-           /* limit : 5,
-           offset : 3 */
-        
+        products.findAll({order : [["created_at", "DESC"]]}, {include: [{association: 'users'}]})
         .then((result) => {
             return res.render('index', {
                 listaProductos: result

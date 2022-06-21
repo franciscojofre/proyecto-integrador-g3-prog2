@@ -25,8 +25,9 @@ CREATE TABLE products (
             novedad					BOOLEAN				NOT NULL,
             image					VARCHAR(1000),
             user_id					INT 				UNSIGNED,
-            createAt                DATETIME            NOT NULL,
-            updatedAt                                   NULL,
+            create_at               DATETIME            NOT NULL,
+            updated_at                                  NULL,
+            deleted_at                                  NOT NULL,
 FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -47,7 +48,7 @@ CREATE TABLE followers (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             user_id_follower 		INT                 UNSIGNED NOT NULL,
-            user_id_following			INT                 UNSIGNED NOT NULL,     
+            user_id_following	    INT                 UNSIGNED NOT NULL,     
 FOREIGN KEY (user_id_follower) REFERENCES users(id),
 FOREIGN KEY (user_id_following) REFERENCES users(id)
 );
