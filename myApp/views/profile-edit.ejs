@@ -34,7 +34,9 @@
 			<label class="textForm" for="numero_documento"><b>Numero de Documento</b></label>
 			<input class="inpForm" type="text" value="<%= locals.user.numero_documento %>" name="numero_documento" id="">
 
-			
+			<% if (locals.errors) { %>
+				<p class="error"><%= locals.errors.message %> </p>
+			<% } %>
 		
 			<a href="/user/profile"><button class="bttnLogin" type="submit"> Confirmar Edición </button></a>	
 		</form>

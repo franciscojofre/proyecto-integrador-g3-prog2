@@ -22,10 +22,12 @@
 			<input class="inpForm" id="password" type="password" placeholder="Introduce una Contraseña" name="contrasenia" required>
 			
 			<div class="input-container ic1 checkbox">
-				<label for="remember">Recordarme</label>
-				<input id="remember" class="input" type="checkbox" name="remember" /> 
+				<label class="textForm" for="remember">Recordarme</label>
+				<input id="remember" class="input" type="checkbox" name="remember" />
+				<br>
+				<p class="textForm">Si aún no cuentas con un usuario registrado, ¿Qué esperas? <a href="/user/register"> Registrate</a></p> 
 			</div>
-			
+			 
 			<% if (locals.errors) { %>
 				<p class="error"><%= locals.errors.message %> </p>
 			<% } %>
