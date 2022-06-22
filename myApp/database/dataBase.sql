@@ -3,43 +3,41 @@ CREATE SCHEMA dataBaseut;
 USE dataBaseut;
 
 CREATE TABLE users (
-/*			nombreColumna			tipoDato			restricciones							*/
-			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            nombre					VARCHAR(50)			NOT NULL,
-            apellido				VARCHAR(50)			NOT NULL,
-            email					VARCHAR(150)		NOT NULL,
-            contrasenia				VARCHAR(200)		NOT NULL,
+/*          nombreColumna           tipoDato            restricciones                           */
+            id                      INT                 UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            nombre                  VARCHAR(50)         NOT NULL,
+            apellido                VARCHAR(50)         NOT NULL,
+            email                   VARCHAR(150)        NOT NULL,
+            contrasenia             VARCHAR(200)        NOT NULL,
             fecha_nacimiento        DATE                NOT NULL,
-            numero_documento		INT					NOT NULL,
-            foto_perfil				VARCHAR(1000)       NOT NULL,
+            numero_documento        INT                 NOT NULL,
+            foto_perfil             VARCHAR(1000)       NOT NULL,
             created_at              TIMESTAMP           NULL,
             updated_at              TIMESTAMP           NULL
 );
 
 CREATE TABLE products (
-/*			nombreColumna			tipoDato			restricciones							*/
-			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            title					VARCHAR(50)			NOT NULL,
-            descrip					VARCHAR(1000)		NOT NULL,
-            comments				INT					NOT NULL,                   
-            novedad					BOOLEAN				NOT NULL,
-            image					VARCHAR(1000),
-            user_id					INT 				UNSIGNED,
-            create_at               DATETIME            NOT NULL,
-            updated_at                                  NULL,
-            deleted_at                                  NOT NULL,
+/*          nombreColumna           tipoDato            restricciones                           */
+            id                      INT                 UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            title                   VARCHAR(50)         NOT NULL,
+            descrip                 VARCHAR(1000)       NOT NULL,
+            image                   VARCHAR(1000),
+            user_id                 INT                 UNSIGNED,
+            createdAt               TIMESTAMP            NOT NULL,
+            updatedAt               TIMESTAMP            NULL,
+            deletedAt               TIMESTAMP            NULL,
 FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE comments (
-/*			nombreColumna			tipoDato			restricciones							*/
-			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            userName				VARCHAR(50)			NOT NULL,
-            user_id 				INT                 UNSIGNED,
-            product_id				INT                 UNSIGNED,
-            comment_description		VARCHAR(1500)		NOT NULL,
-            image					VARCHAR(1000),
-            created_at              DATETIME            NOT NULL
+/*          nombreColumna           tipoDato            restricciones                           */
+            id                      INT                 UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            user_id                 INT                 UNSIGNED,
+            product_id              INT                 UNSIGNED,
+            comment_description     VARCHAR(1500)       NOT NULL,
+            created_at              DATETIME            NOT NULL,
+            updated_at              DATE                NULL,
+            deleted_at              DATETIME            NULL,
 FOREIGN KEY (user_id) REFERENCES users(id),
 FOREIGN KEY (product_id) REFERENCES products(id)
 );
