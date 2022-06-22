@@ -21,21 +21,21 @@ module.exports = function (sequelize, dataTypes) {
         user_id: {
             type: dataTypes.INTEGER
         },
-        created_at: {
-            type: dataTypes.DATE
-        },
-        updated_at: {
-            type: dataTypes.DATE
-        },
-        deleted_at:{
-            type: dataTypes.DATE
-        }
+        // created_at: {
+        //     type: dataTypes.DATE
+        // },
+        // updated_at: {
+        //     type: dataTypes.DATE
+        // },
+        // deleted_at:{
+        //     type: dataTypes.DATE
+        // }
     }
 
 
     let config = {
         tableName: 'products',
-        timestamps: false, //Si la tabla tiene los campos created_at y updated_at
+        timestamps: true, //Si la tabla tiene los campos created_at y updated_at
         underscore: true  //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     }
 

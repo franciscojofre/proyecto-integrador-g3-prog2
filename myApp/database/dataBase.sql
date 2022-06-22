@@ -23,9 +23,9 @@ CREATE TABLE products (
             descrip                 VARCHAR(1000)       NOT NULL,
             image                   VARCHAR(1000),
             user_id                 INT                 UNSIGNED,
-            create_at               DATETIME            NOT NULL,
-            updated_at              DATE                NULL,
-            deleted_at              DATETIME            NULL,
+            createdAt               TIMESTAMP            NOT NULL,
+            updatedAt               TIMESTAMP            NULL,
+            deletedAt               TIMESTAMP            NULL,
 FOREIGN KEY (user_id) REFERENCES users(id)
 );
 

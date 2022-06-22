@@ -5,7 +5,7 @@ const op = db.Sequelize.Op;
 const indexController = {
     products: function (req, res) {
         let filter = {
-            order : [["created_at", "DESC"]],
+            order : [["createdAt", "DESC"]],
             include: {
                 all: true,
                 nested: false
