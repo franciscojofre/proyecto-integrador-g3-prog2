@@ -20,11 +20,7 @@
 		</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= infoUser.nombre + " " + infoUser.apellido %> 
-
-						
-
-						
+					<h1 class="main-title"><%= infoUser.nombre + " " + infoUser.apellido %>
 						<% if (locals.user != undefined) { %>
 							<% if (locals.user.id == infoUser.id) { %>							 
 								<a href="/user/profile/edit/<%= locals.user.id %> ">
@@ -42,7 +38,7 @@
 										<button class="btnForm" type="submit" name="idFollow">DEJAR DE SEGUIR</button>
 									</form>
 								<% } %> 
-						<% } %> 
+							<% } %> 
 						<% } %> 
 						 
 					</h1>

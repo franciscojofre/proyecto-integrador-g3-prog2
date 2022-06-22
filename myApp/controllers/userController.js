@@ -67,11 +67,8 @@ const userController = {
                 nested: true,
             }
         }
-
-        
         userModel.findByPk(idSolicitado, relations)
         .then((result) =>{
-
             let infoUser = {
                 id: result.id,
                 nombre: result.nombre,
@@ -87,10 +84,7 @@ const userController = {
                 follower: result.userFollower,
                 comments: result.comments
             }
-
-            
             return res.render('profile', {infoUser: infoUser})
-
         })
         .catch((err) => {
             return console.log('El error es: ' + err)
