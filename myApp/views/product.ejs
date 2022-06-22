@@ -40,14 +40,14 @@
                 <section class="comments">
                   <% for( let i = 0; i < product.comments.length; i++ ) { %>
                     <article>
-                          <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
+                        <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
                         <div class="data">
                           <p class="user">
                             <strong>
                               <a href="/user/profile/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
                             </strong>
-                            <a href="" class="comment"> <%= product.comments[i].comment_description %>  </a>
                           </p>
+                          <p class="comment"> <%= product.comments[i].comment_description %> </p>
                         </div>
                       </article>
                   <% } %>

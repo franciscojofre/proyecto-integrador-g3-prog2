@@ -526,7 +526,7 @@ input:focus{
 }
 
 .comments {
-  padding: 15px 15px 15px 0;
+  padding: 30px 15px 15px 0px;
 }
 
 .comments article{
@@ -544,6 +544,8 @@ input:focus{
 }
 
 .comments .data{
+  display: flex;
+  flex-direction: column;
   width: 85%;
   
 }
@@ -555,6 +557,7 @@ input:focus{
 
 .comments .user{
   font-size: 1.7em;
+  margin: 0px;
 }
 
 .product-ul-edit{
@@ -680,7 +683,7 @@ img.avatar {
 /*====== Profile ======*/
 .img-container{
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .info-usuario{
@@ -738,6 +741,10 @@ img.avatar {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#data-profile{
+  padding-right: 0px;
 }
 
 /*====== Search-Results ======*/
