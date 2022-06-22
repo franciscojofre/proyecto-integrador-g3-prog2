@@ -196,7 +196,7 @@ const productController = {
             comment_description: info.commentDescription,
             user_id: req.session.user.id,
             product_id: req.params.id,
-            create_at: new Date(),
+            created_at: new Date(),
         };
     commentModel.create(comentarioNuevo)
     .then((comentario) => {

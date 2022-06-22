@@ -35,7 +35,7 @@ const userController = {
                     req.session.user = result.dataValues;
 
                     if (req.body.remember != undefined) {
-                        res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *10 } )
+                        res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *60 } )
                     }
                     return res.redirect("/")
                 } else {
@@ -61,13 +61,15 @@ const userController = {
     },
     profile: (req, res) => {
         let idSolicitado = req.params.id
+        let relations = {
+            include: {
+                all: true,
+                nested: true,
+            }
+        }
 
         
-        userModel.findByPk(idSolicitado, {
-            include: [
-                {association: 'products'}
-            ]
-        })
+        userModel.findByPk(idSolicitado, relations)
         .then((result) =>{
 
             let infoUser = {
@@ -80,7 +82,10 @@ const userController = {
                 foto_perfil: result.foto_perfil,
                 created_at: result.created_at,
                 products: result.products,
-                userSession: req.session.user
+                userSession: req.session.user,
+                follow: result.userFollow,
+                follower: result.userFollower,
+                comments: result.comments
             }
 
             
@@ -225,9 +230,20 @@ const userController = {
             user_id_follower: idFollowing,
             user_id_followed: idprodUser
         }
+        let relations = {
+            include: {
+                all: true,
+                nested: true,
+            }
+        }
+    
 
-        followerModel.create(follow)
+        followerModel.create(follow, relations)
         .then((result) => {
+            let follow = {
+                user_id_follower: idFollowing,
+                user_id_followed: idprodUser
+            }
             return res.redirect('/user/profile/' + idprodUser)    
         })
         .catch(err => console.log(err))

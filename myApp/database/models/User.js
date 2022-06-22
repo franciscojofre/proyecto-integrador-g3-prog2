@@ -1,3 +1,5 @@
+const Follower = require("./Follower");
+
 module.exports = function (sequelize, dataTypes){
     
     let alias = 'User'; //Este alias se busca como nombre en de la tabla en plural dentro de la base de datos.
@@ -57,12 +59,19 @@ module.exports = function (sequelize, dataTypes){
             foreignKey: 'user_id',
         })
         User.belongsToMany(models.Follower, {
-            as: 'users',
+            as: 'userFollower',
             through: 'followers',
             foreignKey:'user_id_follower',
             otherKey: 'user_id_followed',
             timestamps: false
         })
+        User.belongsToMany(models.User, {
+            as: 'userFollow',
+            through: 'followers',
+            foreignKey:'user_id_followed',
+            otherKey: 'user_id_follower',
+            timestamps: false
+            })
     }
 
     return User;
