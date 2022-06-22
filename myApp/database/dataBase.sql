@@ -1,6 +1,6 @@
-CREATE SCHEMA dataBaseut;
+CREATE SCHEMA dataBasePrueba;
 
-USE dataBaseut;
+USE dataBasePrueba;
 
 CREATE TABLE users (
 /*          nombreColumna           tipoDato            restricciones                           */

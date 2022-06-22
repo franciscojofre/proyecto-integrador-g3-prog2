@@ -2,8 +2,8 @@
 <html lang="es">
   <!-- Include Head -->
   <%- include('./partials/head') %>
-  <!-- Include Header -->
 
+  <!-- Include Header -->
   <body>
     <% if (locals.user != undefined) { %>
       <%- include('./partials/headerLogueado.ejs')  %> 
@@ -12,25 +12,32 @@
     <% } %> 
 	
     <!-- ProductDetail -->
-
         <div class="container products-wrapper">
           <div class="d-flex align-items-center">
-            <ul>
-              <li><h2 class="products-title"><%= product.title %></h2></li>
+            <ul class="product-ul-edit">
+              <li class="product-boton-edit">
+                <h2 class="products-title" id="title-detail"><%= product.title %></h2>
+                <% if (locals.user != undefined) { %>
+                  <% if (locals.user.id == product.user_id) { %>
+                    <a class= "buy-now-button" href="/product/product-edit/<%= product.id %>">Editar</a>
+                    <form class="boton-delete-product" action="/product/id/<%= product.id %>/delete" method="POST">
+                      <input type="hidden" name="id" id="" value="<%= product.id %> ">
+                      <button class="buy-now-button" id="deleteBtn" type="submit">Eliminar</button>
+                    </form>
+                  <% } %>
+                <% } %>
+              </li>
               <li><h2 class="products-title">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
             </ul>
           </div>
         <div class="product-detail">
           <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-              <img src="/images/imgProduct/<%= product.image %>" alt="" class="product-detail-img"/>
+              <img src="/images/products/<%= product.image %>" alt="" class="product-detail-img"/>
               <p class="product-detail-description"> <%= product.descrip %> </p>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
-
-                  <p><%= product.comments.length %> </p>
-
                   <% for( let i = 0; i < product.comments.length; i++ ) { %>
                     <article>
                           <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
@@ -44,7 +51,6 @@
                         </div>
                       </article>
                   <% } %>
-                    
                 </section>
                 <form class="form" action="/product/id/<%= product.id %>" method="POST">
                   <section class="comments">   
@@ -67,22 +73,11 @@
                         <% } %>
                       </article>
                   </section>
-
                 </form>
                 <hr/>
               </div>
             </div>
           </div>
-
-          <% if (locals.user != undefined) { %>
-            <% if (locals.user.id == product.user_id) { %>
-            <a class= "buy-now-button" href="/product/product-edit/<%= product.id %>">Editar</a>
-            <form action="/product/id/<%= product.id %>/delete" method="POST">
-              <input type="hidden" name="id" id="" value="<%= product.id %> ">
-              <button class="buy-now-button" type="submit">ELIMINAR</button>
-            </form>
-            <% } %>
-          <% } %>
         </div>
     <!-- /product detail -->
 

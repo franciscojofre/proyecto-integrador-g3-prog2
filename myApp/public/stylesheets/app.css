@@ -495,10 +495,10 @@ input:focus{
   background-color: #032ca6;
   font-size: 1.6em;
   color: #edf7f6;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   border: none;
-  margin-bottom: 15px;
+  margin: 0px 0px 15px 0px;
 }
 
 .buy-now-button:hover{
@@ -526,7 +526,7 @@ input:focus{
 }
 
 .comments {
-  padding: 30px 15px 15px 0;
+  padding: 15px 15px 15px 0;
 }
 
 .comments article{
@@ -555,6 +555,37 @@ input:focus{
 
 .comments .user{
   font-size: 1.7em;
+}
+
+.product-ul-edit{
+  width: 100%;
+}
+
+.product-boton-edit{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.boton-delete-product{
+  width: auto;
+}
+
+#deleteBtn{
+  background-color: rgb(209, 0, 0);
+}
+
+#title-detail{
+  width: auto;
+  margin-right: 10px;
+}
+
+.buy-now-button{
+  margin: 0px 10px;
+}
+
+.boton-delete-product{
+  margin: 0px;
 }
 
 /*====== Formularios ======*/
@@ -703,7 +734,7 @@ img.avatar {
 }
 
 .nameProfileHeader ul{
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;

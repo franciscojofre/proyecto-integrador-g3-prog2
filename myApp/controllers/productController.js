@@ -1,9 +1,7 @@
 const db = require("../database/models");
-const productModel = db.Product; /* Cambiar por tablas en el database del proyecto, el alias que le pondre a mi modelo */
+const productModel = db.Product; 
 const commentModel = db.Comment;
 const op = db.Sequelize.Op;
-
-//const data = require('../db/data');
 
 const productController = {
     productDetail: function (req, res) {
@@ -154,6 +152,7 @@ const productController = {
             res.locals.errors = errors;
             return res.render('product-edit', {product: info})
         } else {
+            if(req.file != undefined) {
                 let productoEdit = {
                     id: req.params.id,
                     image: '',
@@ -161,27 +160,40 @@ const productController = {
                     descrip: info.descrip,
                     updateAt: new Date(),
                 }
-            if(req.file != undefined) {
                 productoEdit.image = req.file.filename;
+                db.Product.update(productoEdit, {
+                    where: {
+                        id: idParaEditar
+                    }
+                })
+                .then((result) => {
+                    return res.redirect("/product/id/" + productoEdit.id)
+                })
+                .catch((err) => {
+                    return res.send(err)
+                })
             } else {
-                errors.message = "La foto esta vacia";
-                res.locals.errors = errors;
-                return res.render('product-edit', {product: info})
+                info.imgProduct = ''
+                let productoEdit = {
+                    id: req.params.id,
+                    title: info.title,
+                    descrip: info.descrip,
+                    updateAt: new Date(),
+                }
+                db.Product.update(productoEdit, {
+                    where: {
+                        id: idParaEditar
+                    }
+                })
+                .then((result) => {
+                    return res.redirect("/product/id/" + productoEdit.id)
+                })
+                .catch((err) => {
+                    return res.send(err)
+                })
             }
-        db.Product.update(productoEdit, {
-            where: {
-                id: idParaEditar
-            }
-        })
-        .then((resultado) => {
-            return res.redirect("/product/id/" + productoEdit.id)
-        })
-        .catch((err) => {
-            return res.send(err)
-        })
-            };
-            
-        },
+        }
+    },
     processComment: (req, res) => {
         let info = req.body;
 

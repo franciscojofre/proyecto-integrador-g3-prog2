@@ -14,9 +14,7 @@
 	<!-- ProductsAAniadir -->
 	<div class="container">
 		<h2 class="products-title">Editar el producto <%= product.title %> </h2>
-		<% if (locals.errors) { %>
-			<p class="error"><%= locals.errors.message %> </p>
-		<% } %>
+
 		<form method="POST" action="/product/product-edit/<%= product.id %>" enctype="multipart/form-data">
 			<label class="textForm" for="img"><b>Imagen del producto</b></label>
 			<input class="inpForm" type="file" name="imgProduct">
@@ -25,8 +23,12 @@
 			<input class="inpForm" type="text" value="<%= product.title %> " name="title">
 		
 			<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
-			<input class="inpForm" type="text" value="<%= product.descrip %>" name="descrip">
+			<textarea class="inpForm" type="text" name="descrip" id="" cols="30" rows="10"><%= product.descrip %></textarea>
 			
+			<% if (locals.errors) { %>
+				<p class="error"><%= locals.errors.message %> </p>
+			<% } %>
+
 			<div class="divButton">
 				<button id="btnFormPA" class="btnForm" type="submit"> CONFIRMAR EDICION DEL PRODUCTO </button>
 			</div>

@@ -5,16 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let session = require('express-session')
 
-
 // Requerir Database
 const db = require('./database/models');
 
-
 var indexRouter = require('./routes/index');
-const productRouters = require('./routes/products');     //Nueva ruta
-const userRouter = require('./routes/user');     //Nueva ruta
-const { user } = require('./db/data');
-//const profileRouter = require('./routes/users');     Nueva ruta
+const productRouters = require('./routes/products');  
+const userRouter = require('./routes/user');   
 
 var app = express();
 
@@ -27,8 +23,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-
 
 //Configurar el session
 app.use(session({
@@ -63,12 +57,10 @@ app.use(function(req, res, next) {
   }
 })
 
-
 //Listeners
 app.use('/', indexRouter);
-app.use('/product', productRouters);     //Ruta nueva
-app.use('/user', userRouter);     //Ruta nueva
-
+app.use('/product', productRouters); 
+app.use('/user', userRouter);     
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

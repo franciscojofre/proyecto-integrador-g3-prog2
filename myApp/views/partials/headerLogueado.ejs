@@ -15,10 +15,7 @@
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="main-header_credit-link" id="routesLogued">
-							<a class="nameProfileHeader" href="/user/profile/<%= locals.user.id %> " >
-								<div>
-									<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
-								</div> 
+							<a class="nameProfileHeader" href="/user/profile/<%= locals.user.id %> " > 
 								<ul>
 									<li>
 										<p>Bienvenid@</p>
@@ -29,6 +26,9 @@
 										<% } %>
 									</li>
 								</ul>
+								<div>
+									<img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil">
+								</div>
 							</a>
 					</div>
 				</div>

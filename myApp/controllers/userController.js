@@ -2,11 +2,8 @@ const db = require("../database/models");
 const userModel = db.User;
 const followerModel = db.Follower;
 
-
 /* Requerir mi modulo instalado */
 const bcrypt = require('bcryptjs');
-const data = require("../db/data");
-const { user } = require("../db/data");
 
 const userController = {
     login : (req, res) => {

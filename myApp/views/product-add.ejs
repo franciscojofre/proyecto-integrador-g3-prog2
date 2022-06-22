@@ -25,10 +25,10 @@
 			<input class="inpForm" type="text" placeholder="Nombre" name="title">
 		
 			<label class="textForm" for="descripcion"><b>Descipcion del producto</b></label>
-			<input class="inpForm" type="text" placeholder="Describa el producto que quiere cargar (opcional)" name="desc">
+			<textarea class="inpForm" placeholder="Describa el producto que quiere cargar" type= "text" cols="30" rows="10"></textarea>
 
 			<input class="inpForm" type="hidden" placeholder="Describa el producto que quiere cargar (opcional)" name="userId" value="<%= locals.user.id %> ">
-			
+
 			<div class="divButton">
 				<button id="btnFormPA" class="btnForm" type="submit"> CONFIRMAR CARGA DEL PRODUCTO </button>
 			</div>
