@@ -46,7 +46,7 @@ CREATE TABLE followers (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             user_id_follower 		INT                 UNSIGNED NOT NULL,
-            user_id_followed	    INT                 UNSIGNED NOT NULL,     
+            user_id_following	    INT                 UNSIGNED NOT NULL,     
 FOREIGN KEY (user_id_follower) REFERENCES users(id),
 FOREIGN KEY (user_id_following) REFERENCES users(id)
 );
@@ -69,9 +69,9 @@ INSERT INTO `products` (`id`,`title`,`descrip`,`image`,`user_id`,`createdAt`,`up
 INSERT INTO `products` (`id`,`title`,`descrip`,`image`,`user_id`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (9,'Auriculares gamer Redragon Zeus X ','¡Experimentá la adrenalina de sumergirte en la escena de otra manera! Tener auriculares específicos para jugar cambia completamente tu experiencia en cada partida. Con los Redragon Zeus X no te perdés ningún detalle y escuchás el audio tal y como fue diseñado por los creadores.\r\n\r\nEl formato perfecto para vos\r\nEl diseño over-ear brinda una comodidad insuperable gracias a sus suaves almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.','imgProduct-1655927929633.png',3,'2022-06-22 17:27:30','2022-06-22 17:27:30',NULL);
 
 -- INSERCION DATOS DE SEGUIDORES --
-INSERT INTO `followers` (`id`,`user_id_follower`,`user_id_followed`) VALUES (1,2,3);
-INSERT INTO `followers` (`id`,`user_id_follower`,`user_id_followed`) VALUES (2,1,3);
-INSERT INTO `followers` (`id`,`user_id_follower`,`user_id_followed`) VALUES (3,1,2);
+INSERT INTO `followers` (`id`,`user_id_follower`,`user_id_following`) VALUES (1,2,3);2022-06-22
+INSERT INTO `followers` (`id`,`user_id_follower`,`user_id_following`) VALUES (2,1,3);
+INSERT INTO `followers` (`id`,`user_id_follower`,`user_id_following`) VALUES (3,1,2);
 
 -- INSERCION DATOS DE COMENTARIOS --
 INSERT INTO `comments` (`id`,`user_id`,`product_id`,`comment_description`,`created_at`,`updated_at`,`deleted_at`) VALUES (7,1,8,'¡Excelente Teclado!','2022-06-22 21:10:30',NULL,NULL);
