@@ -544,6 +544,7 @@ input:focus{
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin-right: 5px;
 }
 
 .comments .data{
@@ -612,6 +613,7 @@ input:focus{
 #creadoPor{
   font-size: 2em;
 }
+
 
 /*====== Formularios ======*/
 form {
@@ -759,7 +761,7 @@ img.avatar {
 }
 
 .nameProfileHeader ul{
-  width: 50%;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

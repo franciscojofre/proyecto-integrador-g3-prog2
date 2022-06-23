@@ -61,10 +61,17 @@ const userController = {
         let relations = {
             include: {
                 all: true,
-                nested: true,
+                nested: true
             }
         }
-        userModel.findByPk(idSolicitado, relations)
+        userModel.findByPk(idSolicitado, {
+            include: [
+                {association: 'products',
+                include: ['comments']},
+                {association: 'comments'},
+                {association:'follower'}
+            ]
+        })
         .then((result) =>{
             let infoUser = {
                 id: result.id,
@@ -76,10 +83,15 @@ const userController = {
                 foto_perfil: result.foto_perfil,
                 created_at: result.created_at,
                 products: result.products,
-                userSession: req.session.user,
-                follow: result.userFollow,
+                follow: result.follower,
                 follower: result.userFollower,
-                comments: result.comments
+                comments: result.comments,
+                idFollower: ''
+            }
+            for (let i = 0; i < infoUser.follow.length; i++) {
+                if (infoUser.follow[i].followers.user_id_follower == req.session.user.id) {
+                    infoUser.idFollower = req.session.user.id
+                }
             }
             return res.render('profile', {infoUser: infoUser})
         })
@@ -116,7 +128,7 @@ const userController = {
             errors.message = 'El email esta vacío'
             res.locals.errors = errors
             return res.render('profile-edit')
-        } else if (info.fechaNacimiento === ''){
+        } else if (info.fechaNacimiento == ''){
             errors.message = 'La fecha de nacimiento esta vacía'
             res.locals.errors = errors
             return res.render('profile-edit')
@@ -245,27 +257,23 @@ const userController = {
         })
     },
     follow: (req, res) => {
-        let idprodUser = req.params.id
-        let idFollowing = req.session.user.id
-        let follow = {
-            user_id_follower: idFollowing,
-            user_id_followed: idprodUser
-        }
         let relations = {
             include: {
                 all: true,
-                nested: true,
+                nested: true
             }
         }
-        followerModel.create(follow, relations)
-        .then((result) => {
-            let follow = {
-                user_id_follower: idFollowing,
-                user_id_followed: idprodUser
-            }
-            return res.redirect('/user/profile/' + idprodUser)    
+        let idFollower = req.session.user.id
+        let idFollowing = req.params.id
+        let followProcess = {
+            user_id_follower: idFollower,
+            user_id_following: parseInt(idFollowing)
+        }
+        followerModel.create(followProcess, relations)
+        .then(result => {
+            res.redirect('/user/profile/' + idFollowing) 
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log('El error es: ' + err))
 
     }
 }

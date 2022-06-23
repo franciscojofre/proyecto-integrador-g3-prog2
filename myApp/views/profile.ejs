@@ -28,17 +28,19 @@
 								</a>
 							<% } %>
 							<% if (locals.user.id != infoUser.id) { %>
-								<form action="/user/profile/<%= infoUser.id %>" method="POST">
-									<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
-								</form>
-							<% } %>
-							<% for( let i = 0; i < infoUser.follow.length; i++ ) { %> 
-								<% if (locals.user.id != infoUser.id && locals.user.id == infoUser.follow[i].id) { %>
+								<% if (infoUser.idFollower != locals.user.id) { %>							
+									<form action="/user/profile/<%= infoUser.id %>" method="POST">
+										<button class="btnForm" type="submit" name="idFollow">SEGUIR</button>
+									</form>
+									<% if (locals.errors) { %>
+										<p class="error"><%= locals.errors.message %> </p>
+									<% } %>
+								<% } else { %>
 									<form action="/user/profile/<%= infoUser.id %>" method="POST">
 										<button class="btnForm" type="submit" name="idFollow">DEJAR DE SEGUIR</button>
 									</form>
-								<% } %> 
-							<% } %> 
+								<% } %>
+							<% } %>
 						<% } %> 
 						 
 					</h1>

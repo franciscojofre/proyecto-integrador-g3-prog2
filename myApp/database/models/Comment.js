@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes){
     
-    let alias = 'Comment'; //Este alias se busca como nombre en de la tabla en plural dentro de la base de datos.
+    let alias = 'Comment'; 
 
     let cols = {
         id: {
@@ -30,8 +30,8 @@ module.exports = function (sequelize, dataTypes){
 
     let config = {
         tableName : "comments",
-        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
-        underscored: true //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
+        timestamps: false, 
+        underscored: true 
     };
 
     const Comment = sequelize.define(alias, cols, config);
@@ -46,7 +46,6 @@ module.exports = function (sequelize, dataTypes){
             foreignKey: 'product_id',
         })
     };
-    
-    return Comment;
 
+    return Comment;
 }
