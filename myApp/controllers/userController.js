@@ -22,7 +22,7 @@ const userController = {
             errors.message = 'La contraseña esta vacía';
             res.locals.errors = errors;
             return res.render('login');
-        } else {
+        } else { 
         userModel.findOne(filtro)
         .then((result) => {
             if (result != null) {
@@ -116,7 +116,6 @@ const userController = {
             errors.message = 'El email esta vacío'
             res.locals.errors = errors
             return res.render('profile-edit')
-        
         } else if (info.fechaNacimiento === ''){
             errors.message = 'La fecha de nacimiento esta vacía'
             res.locals.errors = errors
@@ -130,7 +129,8 @@ const userController = {
             res.locals.errors = errors
             return res.render('profile-edit')
         } else{
-            let usuario = {
+            if (req.file != undefined) {
+                let usuario = {
                 nombre: info.name,
                 apellido: info.apellido,
                 email: info.email,
@@ -139,19 +139,31 @@ const userController = {
                 foto_perfil: '',
                 updated_at: new Date(),
             }
-            if (req.file != undefined){
-                usuario.foto_perfil = req.file.filename
-            } else {
-                usuario.foto_perfil = 'default-image.png'
-            }
+            usuario.foto_perfil = req.file.filename;
             userModel.update(usuario, filtro)
             .then(result => {
                 req.session.user = result.dataValues;
                 res.redirect('/user/profile/' + userId)
             })
             .catch(err => console.log(err));
-        }   
+            } else {
+                let usuario = {
+                    nombre: info.name,
+                    apellido: info.apellido,
+                    email: info.email,
+                    fecha_nacimiento: info.fecha_nacimiento,
+                    numero_documento: info.numero_documento,
+                    updated_at: new Date(),
+                }
+            userModel.update(usuario, filtro)
+            .then(result => {
+                req.session.user = result.dataValues;
+                res.redirect('/user/profile/' + userId)
+            })
+            .catch(err => console.log(err));
+            }
 
+        }   
     },
     register: function (req, res) {   
         return res.render('register')       

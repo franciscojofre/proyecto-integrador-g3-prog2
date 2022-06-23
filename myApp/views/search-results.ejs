@@ -30,7 +30,7 @@
 									</article>
 								</a>
 								<% if (listProducts[i].users != undefined) { %>
-                                    <a class="producerName" href="/user/profile/id/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
+                                    <a class="producerName" href="/user/profile/<%= listProducts[i].user_id %>">Creado por <%= listProducts[i].users.nombre %> <%= listProducts[i].users.apellido %></a>
                                 <% } %>
 							</section>
 						</div>

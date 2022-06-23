@@ -532,9 +532,12 @@ input:focus{
 .comments article{
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
-  border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
+}
+
+#commentmade{
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .comments img{
@@ -551,7 +554,7 @@ input:focus{
 }
 
 .comments p{
-  font-size: 1.5em;
+  font-size: 1.8em;
   margin-top: 0;
 }
 
@@ -590,6 +593,24 @@ input:focus{
 
 .boton-delete-product{
   margin: 0px;
+}
+
+#commentadd{
+  padding: 10px 15px 15px 0px;
+  margin-bottom: 7.5px;
+  padding-bottom: 7.5px;
+  display: flex;
+}
+
+#commentadd a{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 5%;
+}
+
+#creadoPor{
+  font-size: 2em;
 }
 
 /*====== Formularios ======*/

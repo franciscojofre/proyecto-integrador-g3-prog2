@@ -27,7 +27,7 @@
                   <% } %>
                 <% } %>
               </li>
-              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %></a></h2></li>
+              <li><h2 class="products-title" id="creadoPor">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
             </ul>
           </div>
         <div class="product-detail">
@@ -39,7 +39,7 @@
             <div class="col-12 col-lg-4">
                 <section class="comments">
                   <% for( let i = 0; i < product.comments.length; i++ ) { %>
-                    <article>
+                    <article id="commentmade">
                         <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
                         <div class="data">
                           <p class="user">
@@ -53,8 +53,8 @@
                   <% } %>
                 </section>
                 <form class="form" action="/product/id/<%= product.id %>" method="POST">
-                  <section class="comments">   
-                      <article>
+                  <section class="comments" id="commentadd">   
+                      <article id="commentadd">
                         <% if (locals.user != undefined) { %>
                           <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil"> <div class="data">
                           <p class="user">
@@ -63,11 +63,11 @@
                             </strong>
                             <a href="" class="comment"> </a>
                           </p>
-                          <input class="form-input" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/> 
+                          <input class="form-input" id="input-add-comment" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/> 
                           <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
                         <% }else {%>
                           <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet"><div class="data">
-                          <input class="form-input" name="commentDescription" type="text" value="" placeholder="Realiza el login para comentar"/>
+                          <input class="form-input" id="input-add-comment" name="commentDescription" type="text" value="" placeholder="Realiza el login para comentar"/>
                           <a href="/user/login/" class="buy-now-button"> AGREGAR COMENTARIO </a>
                         </div>
                         <% } %>
