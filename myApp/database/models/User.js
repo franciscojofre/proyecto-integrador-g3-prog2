@@ -2,7 +2,7 @@ const Follower = require("./Follower");
 
 module.exports = function (sequelize, dataTypes){
     
-    let alias = 'User'; //Este alias se busca como nombre en de la tabla en plural dentro de la base de datos.
+    let alias = 'User'; 
 
     let cols = {
         id: {
@@ -43,8 +43,8 @@ module.exports = function (sequelize, dataTypes){
 
     let config = {
         tableName : "users",
-        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
-        underscored: true //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
+        timestamps: false,
+        underscored: true 
     };
 
     const User = sequelize.define(alias, cols, config);
@@ -58,22 +58,14 @@ module.exports = function (sequelize, dataTypes){
             as: 'comments',
             foreignKey: 'user_id',
         })
-        User.belongsToMany(models.Follower, {
-            as: 'userFollower',
-            through: 'followers',
-            foreignKey:'user_id_follower',
-            otherKey: 'user_id_followed',
-            timestamps: false
-        })
         User.belongsToMany(models.User, {
-            as: 'userFollow',
+            as: 'follower',
             through: 'followers',
-            foreignKey:'user_id_followed',
-            otherKey: 'user_id_follower',
+            foreignKey:'user_id_following', //seguidor
+            otherKey: 'user_id_follower', //seguido
             timestamps: false
             })
     }
 
     return User;
-
 }

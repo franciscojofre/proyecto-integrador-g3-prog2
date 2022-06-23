@@ -1,6 +1,6 @@
-CREATE SCHEMA dataBasePrueba;
+CREATE SCHEMA dataBaseut;
 
-USE dataBasePrueba;
+USE dataBaseut;
 
 CREATE TABLE users (
 /*          nombreColumna           tipoDato            restricciones                           */
@@ -48,7 +48,7 @@ CREATE TABLE followers (
             user_id_follower 		INT                 UNSIGNED NOT NULL,
             user_id_followed	    INT                 UNSIGNED NOT NULL,     
 FOREIGN KEY (user_id_follower) REFERENCES users(id),
-FOREIGN KEY (user_id_followed) REFERENCES users(id)
+FOREIGN KEY (user_id_following) REFERENCES users(id)
 );
 
 

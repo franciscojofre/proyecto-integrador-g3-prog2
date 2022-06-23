@@ -10,10 +10,15 @@ const productController = {
             order : [["comments", "created_at", "DESC"]],
             include: {
                 all: true,
-                nested: true,
+                nested: true
             }
         }
         productModel.findByPk(idSolicitado, relations)
+            // {include: [
+            //     {association: 'users'},
+            //     {association: 'comments',
+            //         include: [{association:'users'}]}
+            // ]}
         .then((result) =>{
             let date = result.createdAt;
             let fechaFormateada = new Date(date).toISOString().slice(0,10);
@@ -29,7 +34,7 @@ const productController = {
               user_id: result.user_id,
               users: result.users
             }
-
+            
             return res.render("product", {
                 product: product
             })

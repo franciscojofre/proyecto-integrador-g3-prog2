@@ -1,8 +1,7 @@
 module.exports = function (sequelize, dataTypes) {
-    //Alias 
+
     let alias = 'Product';
 
-    //Configurando columnas de la tabla 
     let cols = {
         id:{
             autoIncrement: true,
@@ -35,16 +34,16 @@ module.exports = function (sequelize, dataTypes) {
 
     let config = {
         tableName: 'products',
-        timestamps: true, //Si la tabla tiene los campos created_at y updated_at
-        underscore: true  //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
+        timestamps: true, 
+        underscore: true 
     }
 
     const Product = sequelize.define(alias, cols, config);
 
     Product.associate = function(models){
         Product.belongsTo(models.User, {
-            as:'users', //Como voy a llamar a la relación dentro del controlador
-            foreignKey: 'user_id' //hasMany= Columna del segundo modelo
+            as:'users',
+            foreignKey: 'user_id' 
         })
         Product.hasMany(models.Comment, {
             as: 'comments',
