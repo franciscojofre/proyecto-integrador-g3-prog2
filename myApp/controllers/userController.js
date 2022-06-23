@@ -7,7 +7,11 @@ const bcrypt = require('bcryptjs');
 
 const userController = {
     login : (req, res) => {
-            return res.render('login')
+        if(req.session.user != undefined){
+            return res.redirect('/')
+        } else {
+            return res.render('login');
+        }
     },
     processLogin: (req, res) => {
         let info = req.body;
@@ -178,7 +182,11 @@ const userController = {
         }   
     },
     register: function (req, res) {   
-        return res.render('register')       
+        if(req.session.user != undefined ){
+            return res.redirect('/')
+        } else {
+            return res.render('register') 
+        }       
     },
     processRegister: (req, res) => {
         let info = req.body;
