@@ -4,6 +4,12 @@ const op = db.Sequelize.Op;
 
 const indexController = {
     products: function (req, res) {
+        // let relation = {
+        //     include: [
+        //         {association: 'users'},
+        //         {association: 'comments'}
+        //     ]
+        // }
         let filter = {
             order : [["createdAt", "DESC"]],
             include: {
@@ -17,11 +23,7 @@ const indexController = {
                 listaProductos: result
             });   
         })
-        .catch(err => console.log(err));
-
-        // return res.render('index', {
-        //     listaProductos: productsIndex.products,
-        // })
+        .catch(err => console.log('El error es' + err));
     }
 }
 

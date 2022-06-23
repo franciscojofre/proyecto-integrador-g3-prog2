@@ -27,14 +27,14 @@
                   <% } %>
                 <% } %>
               </li>
-              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
+              <li><h2 class="products-title">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %></a></h2></li>
             </ul>
           </div>
         <div class="product-detail">
           <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
               <img src="/images/products/<%= product.image %>" alt="" class="product-detail-img"/>
-              <p class="product-detail-description"> <%= product.descrip %> </p>
+              <p class="product-detail-description"> <%= product.descrip %> <%= product.createdAt %></p>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
@@ -47,7 +47,7 @@
                               <a href="/user/profile/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
                             </strong>
                           </p>
-                          <p class="comment"> <%= product.comments[i].comment_description %> </p>
+                          <p class="comment"> <%= product.comments[i].comment_description %></p>
                         </div>
                       </article>
                   <% } %>

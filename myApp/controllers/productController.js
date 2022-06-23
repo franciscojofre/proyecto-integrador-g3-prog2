@@ -7,38 +7,31 @@ const productController = {
     productDetail: function (req, res) {
         let idSolicitado = req.params.id;
         let relations = {
+            order : [["comments", "created_at", "DESC"]],
             include: {
                 all: true,
                 nested: true,
-            }, order : [["comments", "created_at", "DESC"]]
+            }
         }
-        // return res.render('product', {
-        //     listaProductos: data.products,
-        //     idProducto: idSolicitado,
-        //     listaComentarios: data.comments,
-        // })
-
         productModel.findByPk(idSolicitado, relations)
         .then((result) =>{
+            let date = result.createdAt;
+            let fechaFormateada = new Date(date).toISOString().slice(0,10);
+    
+            let product = {
+              id: result.id,
+              title: result.title,
+              descrip: result.descrip,
+              comments: result.comments,
+              novedad: result.novedad,
+              image: result.image,
+              createdAt: fechaFormateada,
+              user_id: result.user_id,
+              users: result.users
+            }
 
-            // let date = result.release_date;
-            // let fechaFormateada = new Date(date).toISOString().slice(0,10);
-      
-            // let product = {
-            //   id: result.id,
-            //   title: result.title,
-            //   descrip: result.descrip,
-            //   comments: result.comments,
-            //   novedad: result.novedad,
-            //   image: result.image,
-            //   createAt: result.createAt,
-            //   //user_id: result.user_id,
-            //   users: result.users, //asociación, un objeto literal que va a tener todas las columnas de user
-            //   //comments: result.comments_association //asociación, un objeto que va a tener todas las columnas de comments
-            //   user_id: result.user_id
-            // }
             return res.render("product", {
-                product: result.dataValues
+                product: product
             })
         })
         .catch((err) => {
@@ -64,8 +57,7 @@ const productController = {
             all: true,
             nested: false
             }
-        }
-           
+        }   
         productModel.findAll(filer)
         .then((result) => {
             res.render('search-results', {

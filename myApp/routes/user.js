@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 
 //Importaciones
 let multer = require('multer');
-let path = require('path')//Modulo para manipular rutas y directorios
+let path = require('path') //Modulo para manipular rutas y directorios
 
 //configuración multer
 let storage = multer.diskStorage({
@@ -19,9 +19,9 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage: storage});
 
-router.get('/register', userController.register); //ruta por GET que envía el formulario de creación
+router.get('/register', userController.register); 
 
-router.post('/register', upload.single('foto_perfil'), userController.processRegister) //ruta por POST que procesa la información del formulario
+router.post('/register', upload.single('foto_perfil'), userController.processRegister) 
 
 router.get('/login', userController.login);
 

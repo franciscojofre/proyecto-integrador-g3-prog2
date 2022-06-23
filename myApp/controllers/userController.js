@@ -87,7 +87,6 @@ const userController = {
             return console.log('El error es: ' + err)
         });
     },
-    
     profileEdit: (req, res) => {
         if (req.session.user != undefined) {
             res.render('profile-edit')
@@ -155,18 +154,7 @@ const userController = {
 
     },
     register: function (req, res) {   
-        // let selectionFile = document.getElementById('selectionFile')   
-        // let img = document.getElementById('img')
-        // let convertion = img.src;
-        // selectionFile.addEventListener('change', () => {
-        //     if (req.file != undefined){
-        //         convertion = URL.createObjectURL(req.file)
-        //     } else {
-        //         convertion = '/images/users/default-image.png'
-        //     }
-        // })  
         return res.render('register')       
-
     },
     processRegister: (req, res) => {
         let info = req.body;
@@ -243,7 +231,6 @@ const userController = {
         .catch((err) => {
             console.log('El error es: ' + err)
         })
-
     },
     follow: (req, res) => {
         let idprodUser = req.params.id
@@ -258,8 +245,6 @@ const userController = {
                 nested: true,
             }
         }
-    
-
         followerModel.create(follow, relations)
         .then((result) => {
             let follow = {

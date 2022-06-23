@@ -585,6 +585,7 @@ input:focus{
 
 .buy-now-button{
   margin: 0px 10px;
+  text-align: center;
 }
 
 .boton-delete-product{
