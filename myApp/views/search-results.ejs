@@ -5,13 +5,15 @@
 <!-- Include Header -->
 
 <body>
+	<!-- Include Header -->
 	<% if (locals.user != undefined) { %>
 		<%- include('./partials/headerLogueado.ejs')  %> 
 	<% }else {%>
 		<%- include('./partials/headerDesLogueado.ejs')  %> 
 	<% } %> 
+    <!-- Include Header -->
 
-	<!-- Novedades -->
+	<!-- Busqueda -->
 	<div class="container products-wrapper">
 		<h2 class="products-title">Resultados de búsqueda</h2>
 			<div class="row">
@@ -40,7 +42,7 @@
 				<% } %>
 		</div>
 	</div>
-	<!-- Novedades -->
+	<!-- Busqueda -->
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>

@@ -5,13 +5,14 @@
 <!-- Include Header -->
 
 <body>
+    <!-- Include Header -->
 	<% if (locals.user != undefined) { %>
 		<%- include('./partials/headerLogueado.ejs')  %> 
 	<% }else {%>
 		<%- include('./partials/headerDesLogueado.ejs')  %> 
 	<% } %> 
+    <!-- Include Header --> 
 
-		<!-- saque los ids de los inputs -->
 	<div class="container">
 		<h2 class="products-title">Registrate</h2>
 		<form method="POST" action="/user/register" enctype="multipart/form-data">
@@ -53,5 +54,4 @@
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
 </body>
-
 </html>

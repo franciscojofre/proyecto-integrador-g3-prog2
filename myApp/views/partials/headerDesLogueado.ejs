@@ -1,50 +1,49 @@
 <!-- Header -->
-	<header class="main-header">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-5 col-md-2">
-					<a href="/" class="main-header_home-link">
-						<img src="/images/UdeTech_blanco.png">
-					</a>
-				</div>
-
-				<% if (locals.user != undefined) { %>
-					<p>Bienvenido <%= locals.user.nombre %> </p>
-				<% } %>
-
-				<div class="col-7 col-md-6">
-					<form action="/product/search-results" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-	
-				<div class="col-12 col-md-4">
-					<ul class="main-header_credit-link">	
-						<li>
-							<a href="/user/register"> Creá tu cuenta </a>
-						</li>
-						<li>
-							<a href="/user/login"> Iniciá Sesión </a>
-						</li> 
-					</ul>
-				</div>
+<header class="main-header">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-5 col-md-2">
+				<a href="/" class="main-header_home-link">
+					<img src="/images/UdeTech_blanco.png">
+				</a>
 			</div>
-			<button class="btn-toggle-navbar">
-				<i class="fas fa-bars"></i>
-			</button>
-	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
+			<% if (locals.user != undefined) { %>
+				<p>Bienvenido <%= locals.user.nombre %> </p>
+			<% } %>
+			<div class="col-7 col-md-6">
+				<form action="/product/search-results" method="GET" class="search-form" name="search">
+					<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input"  required>
+					<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+				</form>
+				<% if (locals.errors) { %>
+					<%= locals.errors.message %>
+				<% } %>	
+			</div>
+			<div class="col-12 col-md-4">
+				<ul class="main-header_credit-link">	
 					<li>
-						<a href="/">Todos los productos</a>
+						<a href="/user/register"> Creá tu cuenta </a>
 					</li>
+					<li>
+						<a href="/user/login"> Iniciá Sesión </a>
+					</li> 
 				</ul>
-				<p class="right-navbar">
-					Todas las opiniones en un solo lugar
-				</p>
-			</nav>
+			</div>
 		</div>
-	</header>
+		<button class="btn-toggle-navbar">
+			<i class="fas fa-bars"></i>
+		</button>
+		<nav class="main-navbar">
+			<ul class="left-navbar">
+				<li>
+					<a href="/">Todos los productos</a>
+				</li>
+			</ul>
+			<p class="right-navbar">
+				Todas las opiniones en un solo lugar
+			</p>
+		</nav>
+	</div>
+</header>
 <!-- Header -->
 

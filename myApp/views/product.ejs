@@ -2,87 +2,89 @@
 <html lang="es">
   <!-- Include Head -->
   <%- include('./partials/head') %>
+  <!-- Include Head -->
 
+<body>
   <!-- Include Header -->
-  <body>
-    <% if (locals.user != undefined) { %>
-      <%- include('./partials/headerLogueado.ejs')  %> 
-    <% }else {%>
-      <%- include('./partials/headerDesLogueado.ejs')  %> 
-    <% } %> 
+  <% if (locals.user != undefined) { %>
+    <%- include('./partials/headerLogueado.ejs')  %> 
+  <% }else {%>
+    <%- include('./partials/headerDesLogueado.ejs')  %> 
+  <% } %> 
+  <!-- Include Header -->
 	
-    <!-- ProductDetail -->
-        <div class="container products-wrapper">
-          <div class="d-flex align-items-center">
-            <ul class="product-ul-edit">
-              <li class="product-boton-edit">
-                <h2 class="products-title" id="title-detail"><%= product.title %></h2>
-                <% if (locals.user != undefined) { %>
-                  <% if (locals.user.id == product.user_id) { %>
-                    <a class= "buy-now-button" href="/product/product-edit/<%= product.id %>">Editar</a>
-                    <form class="boton-delete-product" action="/product/id/<%= product.id %>/delete" method="POST">
-                      <input type="hidden" name="id" id="" value="<%= product.id %> ">
-                      <button class="buy-now-button" id="deleteBtn" type="submit">Eliminar</button>
-                    </form>
-                  <% } %>
-                <% } %>
-              </li>
-              <li><h2 class="products-title" id="creadoPor">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
-            </ul>
-          </div>
-        <div class="product-detail">
-          <div class="row">
-            <article class="col-12 col-lg-8 product-detail-info">
-              <img src="/images/products/<%= product.image %>" alt="" class="product-detail-img"/>
-              <p class="product-detail-description"> <%= product.descrip %> <%= product.createdAt %></p>
-            </article>
-            <div class="col-12 col-lg-4">
-                <section class="comments">
-                  <% for( let i = 0; i < product.comments.length; i++ ) { %>
-                    <article id="commentmade">
-                        <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
-                        <div class="data">
-                          <p class="user">
-                            <strong>
-                              <a href="/user/profile/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
-                            </strong>
-                          </p>
-                          <p class="comment"> <%= product.comments[i].comment_description %></p>
-                        </div>
-                      </article>
-                  <% } %>
-                </section>
-                <form class="form" action="/product/id/<%= product.id %>" method="POST">
-                  <section class="comments" id="commentadd">   
-                      <article id="commentadd">
-                        <% if (locals.user != undefined) { %>
-                          <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil"> <div class="data">
-                          <p class="user">
-                            <strong>
-                              <a href="/user/profile"><%= user.nombre %> <%= user.apellido %>  </a>
-                            </strong>
-                            <a href="" class="comment"> </a>
-                          </p>
-                          <input class="form-input" id="input-add-comment" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/> 
-                          <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
-                        <% }else {%>
-                          <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet"><div class="data">
-                          <input class="form-input" id="input-add-comment" name="commentDescription" type="text" value="" placeholder="Loguearse para comentar"/>
-                          <a href="/user/login/" class="buy-now-button"> AGREGAR COMENTARIO </a>
-                        </div>
-                        <% } %>
-                      </article>
-                  </section>
+  <!-- ProductDetail -->
+    <div class="container products-wrapper">
+      <div class="d-flex align-items-center">
+        <ul class="product-ul-edit">
+          <li class="product-boton-edit">
+            <h2 class="products-title" id="title-detail"><%= product.title %></h2>
+            <% if (locals.user != undefined) { %>
+              <% if (locals.user.id == product.user_id) { %>
+                <a class= "buy-now-button" href="/product/product-edit/<%= product.id %>">Editar</a>
+                <form class="boton-delete-product" action="/product/id/<%= product.id %>/delete" method="POST">
+                  <input type="hidden" name="id" id="" value="<%= product.id %> ">
+                  <button class="buy-now-button" id="deleteBtn" type="submit">Eliminar</button>
                 </form>
-                <hr/>
-              </div>
-            </div>
+              <% } %>
+            <% } %>
+          </li>
+          <li><h2 class="products-title" id="creadoPor">Producto creado por: <a href="/user/profile/<%= product.user_id %>"><%= product.users.nombre %> <%= product.users.apellido %> </a></h2></li>
+        </ul>
+      </div>
+    <div class="product-detail">
+      <div class="row">
+        <article class="col-12 col-lg-8 product-detail-info">
+          <img src="/images/products/<%= product.image %>" alt="" class="product-detail-img"/>
+          <p class="product-detail-description"> <%= product.descrip %> <%= product.createdAt %></p>
+        </article>
+        <div class="col-12 col-lg-4">
+            <section class="comments">
+              <% for( let i = 0; i < product.comments.length; i++ ) { %>
+                <article id="commentmade">
+                    <img class="fotoPerfil" src="/images/users/<%= product.comments[i].users.foto_perfil %>" alt="fotoPerfil">
+                    <div class="data">
+                      <p class="user">
+                        <strong>
+                          <a href="/user/profile/<%= product.comments[i].users.id %> "><%= product.comments[i].users.nombre %> <%= product.comments[i].users.apellido %> </a>
+                        </strong>
+                      </p>
+                      <p class="comment"> <%= product.comments[i].comment_description %></p>
+                    </div>
+                  </article>
+              <% } %>
+            </section>
+            <form class="form" action="/product/id/<%= product.id %>" method="POST">
+              <section class="comments" id="commentadd">   
+                  <article id="commentadd">
+                    <% if (locals.user != undefined) { %>
+                      <img class="fotoPerfil" src="/images/users/<%= user.foto_perfil %>" alt="fotoPerfil"> <div class="data">
+                      <p class="user">
+                        <strong>
+                          <a href="/user/profile"><%= user.nombre %> <%= user.apellido %>  </a>
+                        </strong>
+                        <a href="" class="comment"> </a>
+                      </p>
+                      <input class="form-input" id="input-add-comment" name="commentDescription" type="text" value="" placeholder="Agregar comentario"/> 
+                      <button type="submit" class="buy-now-button"> AGREGAR COMENTARIO </button>
+                    <% }else {%>
+                      <img class="fotoPerfil" src="/images/users/default-image.png" alt="fotoPerfilPredet"><div class="data">
+                      <input class="form-input" id="input-add-comment" name="commentDescription" type="text" value="" placeholder="Loguearse para comentar"/>
+                      <a href="/user/login/" class="buy-now-button"> AGREGAR COMENTARIO </a>
+                    </div>
+                    <% } %>
+                  </article>
+              </section>
+            </form>
+            <hr/>
           </div>
         </div>
-    <!-- /product detail -->
+      </div>
+    </div>
+  <!-- ProductDetail -->
 
-    <!-- footer -->
-    <%- include('./partials/footer') %>
-    <!-- /footer -->
+  <!-- footer -->
+  <%- include('./partials/footer') %>
+  <!-- /footer -->
   </body>
 </html>

@@ -4,17 +4,17 @@ const userController = require('../controllers/userController');
 
 //Importaciones
 let multer = require('multer');
-let path = require('path') //Modulo para manipular rutas y directorios
+let path = require('path')
 
 //configuración multer
 let storage = multer.diskStorage({
     destination: function(req, file, cb) {
-            cb(null, path.join(__dirname, '../public/images/users'));  //dirname me trae la ruta de user
+            cb(null, path.join(__dirname, '../public/images/users'));  
     },
     filename: function(req, file, cb) {
-                // fotoperfil-234242323432.extensionFile
+                // foto_perfil-234242323432.extensionFile
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    },
+    }
 })
 
 let upload = multer({storage: storage});

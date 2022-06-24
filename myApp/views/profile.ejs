@@ -4,13 +4,14 @@
 <%- include('./partials/head') %>
 <!-- Include Header -->
 
-</head>
 <body>
+    <!-- Include Header -->
 	<% if (locals.user != undefined) { %>
 		<%- include('./partials/headerLogueado.ejs')  %> 
 	<% }else {%>
 		<%- include('./partials/headerDesLogueado.ejs')  %> 
 	<% } %> 
+    <!-- Include Header -->
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
@@ -68,7 +69,6 @@
 				<div class="col-12">
 					<h2 class="products-title">Mis productos</h2>
 				</div>
-				<!-- Show mis productos -->
 				<% for(let i = 0; i < infoUser.products.length; i++ ) { %>	
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">

@@ -11,7 +11,7 @@ const userController = {
     },
     processLogin: (req, res) => {
         let info = req.body;
-        let filtro = {where : [ { email : info.email}]};
+        let filtro = {where : [{email: info.email}]};
         let errors = {};
 
         if (info.email == '') {
@@ -23,33 +23,32 @@ const userController = {
             res.locals.errors = errors;
             return res.render('login');
         } else { 
-        userModel.findOne(filtro)
-        .then((result) => {
-            if (result != null) {
-                let passEncriptada = bcrypt.compareSync(info.contrasenia , result.contrasenia)
-                if (passEncriptada) {
+            userModel.findOne(filtro)
+            .then((result) => {
+                if (result != null) {
+                    let passEncriptada = bcrypt.compareSync(info.contrasenia , result.contrasenia)
+                    if (passEncriptada) {
 
-                    req.session.user = result.dataValues;
+                        req.session.user = result.dataValues;
 
-                    if (req.body.remember != undefined) {
-                        res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *60 } )
+                        if (req.body.remember != undefined) {
+                            res.cookie('userId', result.dataValues.id, {maxAge : 1000 * 60 *60 } )
+                        }
+                        return res.redirect("/")
+                    } else {
+                        errors.message = "El email existe, pero la contraseña es incorrecta";
+                        res.locals.errors = errors;
+                        return res.render('login');
                     }
-                    return res.redirect("/")
                 } else {
-                    errors.message = "El email existe, pero la contraseña es incorrecta";
+                    errors.message = "El email no existe";
                     res.locals.errors = errors;
                     return res.render('login');
                 }
-            } else {
-                errors.message = "El email no existe";
-                res.locals.errors = errors;
-                return res.render('login');
-            }
-        }).catch((err) => {
-            console.log('El error es: ' + err)
-        });
+            }).catch((err) => {
+                console.log('El error es: ' + err)
+            });
         }
-
     },
     logout : (req, res) => {
         req.session.destroy();
@@ -59,19 +58,15 @@ const userController = {
     profile: (req, res) => {
         let idSolicitado = req.params.id
         let relations = {
-            include: {
-                all: true,
-                nested: true
-            }
-        }
-        userModel.findByPk(idSolicitado, {
             include: [
                 {association: 'products',
-                include: ['comments']},
+                    include: ['comments']},
                 {association: 'comments'},
                 {association:'follower'}
             ]
-        })
+        }
+
+        userModel.findByPk(idSolicitado, relations)
         .then((result) =>{
             let infoUser = {
                 id: result.id,
@@ -84,7 +79,6 @@ const userController = {
                 created_at: result.created_at,
                 products: result.products,
                 follow: result.follower,
-                follower: result.userFollower,
                 comments: result.comments,
                 idFollower: ''
             }
@@ -109,11 +103,7 @@ const userController = {
     profileUpdate:(req, res) => {
         let info = req.body;
         let userId = req.session.user.id;
-        let filtro = {
-            where: {
-                id: userId
-            }
-        };
+        let filtro = {where: {id: userId}};
         let errors = {}
 
         if (info.nombre == '') {
@@ -150,14 +140,14 @@ const userController = {
                 numero_documento: info.numero_documento,
                 foto_perfil: '',
                 updated_at: new Date(),
-            }
-            usuario.foto_perfil = req.file.filename;
-            userModel.update(usuario, filtro)
-            .then(result => {
-                req.session.user = result.dataValues;
-                res.redirect('/user/profile/' + userId)
-            })
-            .catch(err => console.log(err));
+                }
+                usuario.foto_perfil = req.file.filename;
+                userModel.update(usuario, filtro)
+                .then(result => {
+                    req.session.user = result.dataValues;
+                    res.redirect('/user/profile/' + userId)
+                })
+                .catch(err => console.log('El error es: ' + err));
             } else {
                 let usuario = {
                     nombre: info.name,
@@ -167,14 +157,13 @@ const userController = {
                     numero_documento: info.numero_documento,
                     updated_at: new Date(),
                 }
-            userModel.update(usuario, filtro)
-            .then(result => {
-                req.session.user = result.dataValues;
-                res.redirect('/user/profile/' + userId)
-            })
-            .catch(err => console.log(err));
-            }
-
+                userModel.update(usuario, filtro)
+                .then(result => {
+                    req.session.user = result.dataValues;
+                    res.redirect('/user/profile/' + userId)
+                })
+                .catch(err => console.log('El error es: ' + err));
+                }
         }   
     },
     register: function (req, res) {   
@@ -187,6 +176,7 @@ const userController = {
             {email: info.email},
             {numero_documento: info.numeroDocumento}
         ]};
+
         userModel.findOne(filter)
         .then((result) =>{
             if (result != null){
@@ -269,6 +259,7 @@ const userController = {
             user_id_follower: idFollower,
             user_id_following: parseInt(idFollowing)
         }
+        
         followerModel.create(followProcess, relations)
         .then(result => {
             res.redirect('/user/profile/' + idFollowing) 

@@ -14,11 +14,11 @@ const productController = {
             }
         }
         productModel.findByPk(idSolicitado, relations)
-            // {include: [
-            //     {association: 'users'},
-            //     {association: 'comments',
-            //         include: [{association:'users'}]}
-            // ]}
+        // {include: [
+        //     {association: 'users'},
+        //     {association: 'comments',
+        //         include: [{association:'users'}]}
+        // ]}
         .then((result) =>{
             let date = result.createdAt;
             let fechaFormateada = new Date(date).toISOString().slice(0,10);
@@ -35,23 +35,17 @@ const productController = {
               users: result.users
             }
             
-            return res.render("product", {
-                product: product
-            })
+            return res.render("product", {product: product})
         })
         .catch((err) => {
             console.log('El error es: ' + err)
         })
     },
     searchResults: (req, res) => {
-        // let relations = {
-        //     include: {
-        //         all: true,
-        //         nested: true
-        //     }
-        // }
+        let errors = {};
+        let info = req.body;
         let queryString = req.query.search;
-        let filer = {
+        let filter = {
             where :{
              [op.or]: [
                {title: {[op.like]: `%${queryString}%`}},
@@ -62,15 +56,15 @@ const productController = {
             all: true,
             nested: false
             }
-        }   
-        productModel.findAll(filer)
+        }
+        productModel.findAll(filter)
         .then((result) => {
             res.render('search-results', {
-                listProducts: result,
+                listProducts: result
             });
         }).catch((err) => {
-            console.log(err);
-        });
+            console.log('El error es: ' + err);
+        });   
     },
     productAdd: function (_req, res) {
         return res.render('product-add')
@@ -92,13 +86,13 @@ const productController = {
             res.locals.errors = errors;
             return res.render('product-add')
         } else {
-                let productoNuevo = {
-                image: '',
-                title: info.title,
-                descrip: info.desc,
-                created_at: new Date(),
-                user_id: info.userId
-            };
+            let productoNuevo = {
+            image: '',
+            title: info.title,
+            descrip: info.desc,
+            created_at: new Date(),
+            user_id: info.userId
+            }
             if(req.file != undefined) {
                 productoNuevo.image = req.file.filename;
             } else {
@@ -106,13 +100,13 @@ const productController = {
                 res.locals.errors = errors;
                 return res.render('product-add')
             }
-        productModel.create(productoNuevo)
-        .then((resultado) => {
-            return res.redirect("/")
-        })
-        .catch((err) => {
-            return res.send(err)
-        })
+            productModel.create(productoNuevo)
+            .then((resultado) => {
+                return res.redirect("/")
+            })
+            .catch((err) => {
+                return res.send(err)
+            })
         }
     },  
     edit: (req, res) => {
@@ -126,9 +120,7 @@ const productController = {
                 image : resultado.image,
               }
 
-            res.render('product-edit', {
-                product: product,
-            })
+            res.render('product-edit', {product: product})
         })
     },
     processEdit: (req, res) => {
@@ -158,10 +150,8 @@ const productController = {
                     updateAt: new Date(),
                 }
                 productoEdit.image = req.file.filename;
-                db.Product.update(productoEdit, {
-                    where: {
-                        id: idParaEditar
-                    }
+                productModel.update(productoEdit, {
+                    where: {id: idParaEditar}
                 })
                 .then((result) => {
                     return res.redirect("/product/id/" + productoEdit.id)
@@ -177,43 +167,33 @@ const productController = {
                     descrip: info.descrip,
                     updateAt: new Date(),
                 }
-                db.Product.update(productoEdit, {
-                    where: {
-                        id: idParaEditar
-                    }
+                productModel.update(productoEdit, {
+                    where: {id: idParaEditar}
                 })
                 .then((result) => {
                     return res.redirect("/product/id/" + productoEdit.id)
                 })
                 .catch((err) => {
-                    return res.send(err)
+                    return res.send('El error es: ' + err)
                 })
             }
         }
     },
     processComment: (req, res) => {
-        let info = req.body;
-
-        let relations = {
-            include: {
-                all: true,
-                nested: true
-            }
-        }
-
+        let info = req.body
         let comentarioNuevo = {
             comment_description: info.commentDescription,
             user_id: req.session.user.id,
             product_id: req.params.id,
             created_at: new Date(),
         };
-    commentModel.create(comentarioNuevo)
-    .then((comentario) => {
-        return res.redirect("/product/id/" + comentarioNuevo.product_id)
-    })
-    .catch((err) => {
-        return res.send(err)
-    })
+        commentModel.create(comentarioNuevo)
+        .then((result) => {
+            return res.redirect("/product/id/" + comentarioNuevo.product_id)
+        })
+        .catch((err) => {
+            return res.send(err)
+        })
     },
     deleteProduct: (req, res) => {
         let idABorrar = req.params.id;
@@ -226,7 +206,7 @@ const productController = {
             return res.redirect('/')
         })
         .catch((err) => {
-            res.send(err)
+            res.send('El error es: ' + err)
         })
     }
 }
