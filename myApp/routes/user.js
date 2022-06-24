@@ -29,7 +29,6 @@ router.post('/login', userController.processLogin);
 
 router.get('/logout', userController.logout);
 
-
 router.get('/profile/:id', userController.profile);
 
 router.post('/profile/:id', userController.follow);
@@ -38,6 +37,5 @@ router.post('/profile/:id/unfollow', userController.unfollow);
 router.get('/profile/edit/:id', userController.profileEdit);
 
 router.post('/profile/edit/:id', upload.single('imgPerfil'), userController.profileUpdate),
-
 
 module.exports = router;

@@ -56,7 +56,7 @@ FOREIGN KEY (user_id_following) REFERENCES users(id)
 
 
 -- INSERCION DATOS DE USUARIOS --
-INSERT INTO `users` (`id`,`nombre`,`apellido`,`email`,`contrasenia`,`fecha_nacimiento`,`numero_documento`,`foto_perfil`,`created_at`,`updated_at`) VALUES (1,'Walter','White','walterw@gmail.com','$2a$10$0gG2E1.3EAe8vvCF.HtcQOI63AqHFKW.enB.5s6NlOkoG3dKYz7Ea','1973-02-12',24560275,'imgPerfil-1655933146994.jpg','2022-06-22 15:34:39', NULL);
+INSERT INTO `users` (`id`,`nombre`,`apellido`,`email`,`contrasenia`,`fecha_nacimiento`,`numero_documento`,`foto_perfil`,`created_at`,`updated_at`) VALUES (1,'Walter','White','walterw@gmail.com','$2a$10$0gG2E1.3EAe8vvCF.HtcQOI63AqHFKW.enB.5s6NlOkoG3dKYz7Ea','1973-02-12',24560275,'foto_perfil-1655933146994.jpg','2022-06-22 15:34:39', NULL);
 INSERT INTO `users` (`id`,`nombre`,`apellido`,`email`,`contrasenia`,`fecha_nacimiento`,`numero_documento`,`foto_perfil`,`created_at`,`updated_at`) VALUES (2,'Valeria','Mercado','valemer@hotmail.com','$2a$10$6.896GScPl58gC7Bx7xjEe8/SmT8kAGkgKVfaalYqHoqVxc5gdsAu','1990-06-25',34660798,'foto_perfil-1655923071499.jpg','2022-06-22 15:37:51',NULL);
 INSERT INTO `users` (`id`,`nombre`,`apellido`,`email`,`contrasenia`,`fecha_nacimiento`,`numero_documento`,`foto_perfil`,`created_at`,`updated_at`) VALUES (3,'Constanza','Álvarez','conialvarez@yahoo.com','$2a$10$fwhWi90CDQbvkhKi9QVQXu8hvM3qRr1OvPdLmBvhhKaQfvDoFFUQC','2002-12-17',44987543,'foto_perfil-1655923140272.jpg','2022-06-22 15:39:00',NULL);
 

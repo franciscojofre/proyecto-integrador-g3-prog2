@@ -30,7 +30,7 @@ const userController = {
             userModel.findOne(filtro)
             .then((result) => {
                 if (result != null) {
-                    let passEncriptada = bcrypt.compareSync(info.contrasenia , result.contrasenia)
+                    let passEncriptada = bcrypt.compareSync(info.contrasenia, result.contrasenia)
                     if (passEncriptada) {
 
                         req.session.user = result.dataValues;

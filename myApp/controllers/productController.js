@@ -42,8 +42,6 @@ const productController = {
         })
     },
     searchResults: (req, res) => {
-        let errors = {};
-        let info = req.body;
         let queryString = req.query.search;
         let filter = {
             where :{
@@ -66,7 +64,7 @@ const productController = {
             console.log('El error es: ' + err);
         });   
     },
-    productAdd: function (_req, res) {
+    productAdd: function (req, res) {
         if (req.session.user == undefined) {
             return res.redirect('/')
         } else {
@@ -220,6 +218,5 @@ const productController = {
         })
     }
 }
-
 
 module.exports = productController;

@@ -30,6 +30,7 @@ module.exports = function (sequelize, dataTypes){
         timestamps: false,
         underscored: true
     };
+    
     const Follower = sequelize.define(alias, cols, config)
 
     return Follower
