@@ -73,7 +73,11 @@ const productController = {
         });
     },
     productAdd: function (_req, res) {
-        return res.render('product-add')
+        if (req.session.user == undefined) {
+            return res.redirect('/')
+        } else {
+            return res.render('product-add')
+        }
     },
     processProductAdd: (req, res) => {
         let info = req.body;
@@ -116,20 +120,23 @@ const productController = {
         }
     },  
     edit: (req, res) => {
-        let id = req.params.id;
-        db.Product.findByPk(id)
-        .then((resultado) => {
-            let product = {
+        if (req.session.user == undefined) {
+            return res.redirect('/')
+        } else {
+            let id = req.params.id;
+            db.Product.findByPk(id)
+            .then((resultado) => {
+                let product = {
                 id: resultado.id,
                 title : resultado.title,
                 descrip : resultado.descrip,
                 image : resultado.image,
-              }
-
-            res.render('product-edit', {
+                }
+                res.render('product-edit', {
                 product: product,
+                })
             })
-        })
+        }
     },
     processEdit: (req, res) => {
         let info = req.body;
