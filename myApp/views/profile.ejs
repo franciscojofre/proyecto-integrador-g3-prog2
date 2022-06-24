@@ -36,7 +36,7 @@
 										<p class="error"><%= locals.errors.message %> </p>
 									<% } %>
 								<% } else { %>
-									<form action="/user/profile/<%= infoUser.id %>" method="POST">
+									<form action="/user/profile/<%= infoUser.id %>/unfollow" method="POST">
 										<button class="btnForm" type="submit" name="idFollow">DEJAR DE SEGUIR</button>
 									</form>
 								<% } %>
@@ -89,7 +89,7 @@
 		</div>
 		<!-- /Mis productos -->
 	<% } %>
-	
+
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->

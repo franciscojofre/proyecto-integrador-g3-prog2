@@ -92,7 +92,7 @@ const userController = {
                 if (infoUser.follow[i].followers.user_id_follower == req.session.user.id) {
                     infoUser.idFollower = req.session.user.id
                 }
-            }
+            }          
             return res.render('profile', {infoUser: infoUser})
         })
         .catch((err) => {
@@ -275,6 +275,21 @@ const userController = {
         })
         .catch(err => console.log('El error es: ' + err))
 
+    }, 
+    unfollow: (req, res) => {
+        let idUser = req.params.id;
+        followerModel.destroy({
+            where: {
+                user_id_follower: req.session.user.id,
+                user_id_following: idUser
+            }
+        })
+        .then((result) => {
+            return res.redirect('/user/profile/' + idUser)
+        })
+        .catch((err) => {
+            res.send(err)
+        })
     }
 }
 

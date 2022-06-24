@@ -46,7 +46,10 @@ CREATE TABLE followers (
 /*			nombreColumna			tipoDato			restricciones							*/
 			id						INT					UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             user_id_follower 		INT                 UNSIGNED NOT NULL,
-            user_id_following	    INT                 UNSIGNED NOT NULL,     
+            user_id_following	    INT                 UNSIGNED NOT NULL,
+            createdAt               TIMESTAMP            NOT NULL,
+            updatedAt               TIMESTAMP            NULL,
+            deletedAt               TIMESTAMP            NULL,     
 FOREIGN KEY (user_id_follower) REFERENCES users(id),
 FOREIGN KEY (user_id_following) REFERENCES users(id)
 );
