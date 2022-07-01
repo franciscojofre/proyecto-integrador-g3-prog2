@@ -86,9 +86,12 @@ const userController = {
                 comments: result.comments,
                 idFollower: ''
             }
-            for (let i = 0; i < infoUser.follow.length; i++) {
-                if (infoUser.follow[i].followers.user_id_follower == req.session.user.id) {
-                    infoUser.idFollower = req.session.user.id
+
+            if (req.session.user != undefined) {
+                for (let i = 0; i < infoUser.follow.length; i++) {
+                    if (infoUser.follow[i].followers.user_id_follower == req.session.user.id) {
+                        infoUser.idFollower = req.session.user.id
+                    }
                 }
             }          
             return res.render('profile', {infoUser: infoUser})
